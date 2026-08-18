@@ -202,7 +202,8 @@ export const RULES_DETAILS = {
         <ul class="modal-bullet-list">
           <li>Juegan la <strong>Llave de Consolación (Sacko Bowl)</strong> en las semanas 15, 16 y 17.</li>
           <li>Pelean por el orgullo para <strong>evitar terminar en el último lugar absoluto</strong>.</li>
-          <li>¡Aún pueden ganar los <strong>$300 MXN semanales</strong> de las semanas 15, 16 y 17 si hacen el puntaje más alto!</li>
+          <li>En la <strong>Semana 15</strong> (última semana con premio de $300), aún pueden ganar los $300 si hacen el puntaje más alto.</li>
+          <li>En las <strong>Semanas 16 y 17</strong> ya no hay premio semanal; toda la bolsa restante se concentra en los <strong>$2,700 MXN del Gran Campeón</strong>.</li>
         </ul>
       </div>
 
