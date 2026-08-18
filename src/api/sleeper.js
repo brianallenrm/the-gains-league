@@ -1,190 +1,107 @@
 /**
- * Sleeper API Client for The Gains League
+ * Sleeper API Client — The Gains League
  * League ID: 1393074729073520640
  */
 
 export const LEAGUE_ID = "1393074729073520640";
 const BASE_URL = "https://api.sleeper.app/v1";
-const CDN_URL = "https://sleepercdn.com/avatars";
+const CDN_AVATARS = "https://sleepercdn.com/avatars";
+const CDN_PLAYERS = "https://sleepercdn.com/content/nfl/players/thumb";
 
-// Helpers para URLs de Avatares
-export const getAvatarUrl = (avatarId, isThumb = true) => {
-  if (!avatarId) return "/logo.jpg";
-  return isThumb 
-    ? `${CDN_URL}/thumbs/${avatarId}`
-    : `${CDN_URL}/${avatarId}`;
-};
+/* ── Helpers ─────────────────────────────────────────────── */
+export const avatarUrl = (id, thumb = true) =>
+  id ? `${CDN_AVATARS}${thumb ? "/thumbs" : ""}/${id}` : null;
 
-// Obtener detalles de la liga
-export async function getLeagueDetails(leagueId = LEAGUE_ID) {
-  const res = await fetch(`${BASE_URL}/league/${leagueId}`);
-  if (!res.ok) throw new Error("No se pudo obtener la información de la liga");
-  return res.json();
-}
+export const playerThumb = (playerId) =>
+  `${CDN_PLAYERS}/${playerId}.jpg`;
 
-// Obtener usuarios de la liga
-export async function getLeagueUsers(leagueId = LEAGUE_ID) {
-  const res = await fetch(`${BASE_URL}/league/${leagueId}/users`);
-  if (!res.ok) throw new Error("No se pudieron obtener los miembros de la liga");
-  return res.json();
-}
-
-// Obtener rosters/plantillas de la liga
-export async function getLeagueRosters(leagueId = LEAGUE_ID) {
-  const res = await fetch(`${BASE_URL}/league/${leagueId}/rosters`);
-  if (!res.ok) throw new Error("No se pudieron obtener los rosters");
-  return res.json();
-}
-
-// Obtener estado actual de la NFL
-export async function getNflState(sport = "nfl") {
+/* ── Raw fetchers (con error handling individual) ────────── */
+async function apiFetch(path, fallback = null) {
   try {
-    const res = await fetch(`${BASE_URL}/state/${sport}`);
-    if (!res.ok) throw new Error("Error al obtener estado de NFL");
+    const res = await fetch(`${BASE_URL}${path}`);
+    if (!res.ok) return fallback;
     return res.json();
-  } catch (err) {
-    console.warn("Usando estado por defecto de NFL", err);
-    return { week: 1, season_type: "regular", season: "2026" };
+  } catch {
+    return fallback;
   }
 }
 
-// Obtener enfrentamientos semanales (Matchups)
-export async function getLeagueMatchups(week = 1, leagueId = LEAGUE_ID) {
-  try {
-    const res = await fetch(`${BASE_URL}/league/${leagueId}/matchups/${week}`);
-    if (!res.ok) return [];
-    return res.json();
-  } catch (err) {
-    console.warn(`Error al cargar enfrentamientos de semana ${week}`, err);
-    return [];
-  }
-}
+export const getLeague      = () => apiFetch(`/league/${LEAGUE_ID}`);
+export const getUsers       = () => apiFetch(`/league/${LEAGUE_ID}/users`, []);
+export const getRosters     = () => apiFetch(`/league/${LEAGUE_ID}/rosters`, []);
+export const getNflState    = () => apiFetch(`/state/nfl`, { week: 1, season_type: "pre", season: "2026" });
+export const getMatchups    = (w) => apiFetch(`/league/${LEAGUE_ID}/matchups/${w}`, []);
+export const getTransactions= (w) => apiFetch(`/league/${LEAGUE_ID}/transactions/${w}`, []);
+export const getTrending    = (type, limit = 10) =>
+  apiFetch(`/players/nfl/trending/${type}?lookback_hours=24&limit=${limit}`, []);
 
-// Obtener transacciones semanales
-export async function getLeagueTransactions(week = 1, leagueId = LEAGUE_ID) {
-  try {
-    const res = await fetch(`${BASE_URL}/league/${leagueId}/transactions/${week}`);
-    if (!res.ok) return [];
-    return res.json();
-  } catch (err) {
-    console.warn(`Error al cargar transacciones de semana ${week}`, err);
-    return [];
-  }
-}
-
-// Obtener jugadores en tendencia (Adds/Drops)
-export async function getTrendingPlayers(type = "add", sport = "nfl", limit = 10) {
-  try {
-    const res = await fetch(`${BASE_URL}/players/${sport}/trending/${type}?lookback_hours=24&limit=${limit}`);
-    if (!res.ok) return [];
-    return res.json();
-  } catch (err) {
-    console.warn(`Error al obtener jugadores trending (${type})`, err);
-    return [];
-  }
-}
-
-// Obtener picks intercambiados (Dynasty / Traded Picks)
-export async function getTradedPicks(leagueId = LEAGUE_ID) {
-  try {
-    const res = await fetch(`${BASE_URL}/league/${leagueId}/traded_picks`);
-    if (!res.ok) return [];
-    return res.json();
-  } catch (err) {
-    return [];
-  }
-}
-
-// Función maestra para consolidar datos de la liga
-export async function fetchFullLeagueData() {
+/* ── Master loader ───────────────────────────────────────── */
+export async function loadLeagueData() {
+  // Carga paralela de datos base
   const [league, users, rosters, nflState] = await Promise.all([
-    getLeagueDetails(),
-    getLeagueUsers(),
-    getLeagueRosters(),
-    getNflState()
+    getLeague(), getUsers(), getRosters(), getNflState(),
   ]);
 
-  // Mapear usuarios por user_id para acceso rápido
-  const userMap = {};
-  users.forEach(u => {
-    userMap[u.user_id] = u;
-  });
+  if (!league) throw new Error("No se pudo conectar con la liga en Sleeper.");
 
-  // Consolidar equipos combinando roster + user
-  const teams = rosters.map(roster => {
-    const user = userMap[roster.owner_id] || {};
-    const teamName = user.metadata?.team_name || user.display_name || `Equipo ${roster.roster_id}`;
-    const avatar = user.avatar ? getAvatarUrl(user.avatar) : "/logo.jpg";
-    
-    // Estadísticas
-    const wins = roster.settings?.wins || 0;
-    const losses = roster.settings?.losses || 0;
-    const ties = roster.settings?.ties || 0;
-    const fpts = (roster.settings?.fpts || 0) + ((roster.settings?.fpts_decimal || 0) / 100);
-    const fptsAgainst = (roster.settings?.fpts_against || 0) + ((roster.settings?.fpts_against_decimal || 0) / 100);
-    const waiverBudgetUsed = roster.settings?.waiver_budget_used || 0;
-    const totalFaab = league.settings?.waiver_budget || 100;
-    const faabRemaining = totalFaab - waiverBudgetUsed;
-    const waiverPosition = roster.settings?.waiver_position || 1;
-    const streak = roster.metadata?.streak || "0";
+  /* Mapa usuario por user_id */
+  const userMap = Object.fromEntries((users || []).map(u => [u.user_id, u]));
 
-    const totalGames = wins + losses + ties;
-    const winPct = totalGames > 0 ? (wins + 0.5 * ties) / totalGames : 0;
+  /* Equipos consolidados */
+  const teams = (rosters || []).map(roster => {
+    const user    = userMap[roster.owner_id] || {};
+    const s       = roster.settings || {};
+    const meta    = roster.metadata || {};
+
+    const fpts        = (s.fpts || 0) + (s.fpts_decimal || 0) / 100;
+    const fptsAgainst = (s.fpts_against || 0) + (s.fpts_against_decimal || 0) / 100;
+    const totalFaab   = league.settings?.waiver_budget || 100;
+    const faabUsed    = s.waiver_budget_used || 0;
+    const wins        = s.wins || 0;
+    const losses      = s.losses || 0;
+    const ties        = s.ties || 0;
+    const totalGames  = wins + losses + ties;
 
     return {
-      rosterId: roster.roster_id,
-      ownerId: roster.owner_id,
-      user,
-      teamName,
-      displayName: user.display_name || "Mánager",
-      avatar,
-      wins,
-      losses,
-      ties,
-      fpts: Number(fpts.toFixed(2)),
-      fptsAgainst: Number(fptsAgainst.toFixed(2)),
-      faabRemaining,
-      waiverBudgetUsed,
-      waiverPosition,
-      streak,
-      winPct,
-      players: roster.players || [],
-      starters: roster.starters || [],
-      reserve: roster.reserve || []
+      rosterId     : roster.roster_id,
+      ownerId      : roster.owner_id,
+      teamName     : user.metadata?.team_name || user.display_name || `Equipo ${roster.roster_id}`,
+      displayName  : user.display_name || "Mánager",
+      avatar       : avatarUrl(user.avatar, true),
+      wins, losses, ties,
+      fpts         : +fpts.toFixed(2),
+      fptsAgainst  : +fptsAgainst.toFixed(2),
+      faabRemaining: totalFaab - faabUsed,
+      waiverPos    : s.waiver_position || roster.roster_id,
+      streak       : meta.streak || null,
+      winPct       : totalGames > 0 ? (wins + ties * 0.5) / totalGames : 0,
+      players      : roster.players || [],
+      starters     : roster.starters || [],
+      reserve      : roster.reserve || [],
+      // Datos extra del roster para cálculo de bench points
+      roster,
     };
   });
 
-  // Ordenar standings por Victorias > Puntos a Favor
-  teams.sort((a, b) => {
-    if (b.wins !== a.wins) return b.wins - a.wins;
-    return b.fpts - a.fpts;
-  });
+  // Ordenar: victorias desc, puntos desc
+  teams.sort((a, b) => b.wins !== a.wins ? b.wins - a.wins : b.fpts - a.fpts);
+  teams.forEach((t, i) => { t.rank = i + 1; });
 
-  // Asignar rank
-  teams.forEach((t, i) => {
-    t.rank = i + 1;
-  });
+  // Semana actual — en pre-draft usar semana 1
+  const currentWeek = (nflState?.leg || nflState?.week || 1);
+  const isPreDraft  = league.status === "pre_draft";
 
-  // Obtener enfrentamientos de la semana actual
-  const currentWeek = nflState?.week || 1;
+  // Carga paralela de datos semanales
   const [matchups, transactions, trendingAdds, trendingDrops] = await Promise.all([
-    getLeagueMatchups(currentWeek),
-    getLeagueTransactions(currentWeek),
-    getTrendingPlayers("add", "nfl", 8),
-    getTrendingPlayers("drop", "nfl", 8)
+    isPreDraft ? [] : getMatchups(currentWeek),
+    isPreDraft ? [] : getTransactions(currentWeek),
+    getTrending("add", 10),
+    getTrending("drop", 10),
   ]);
 
   return {
-    league,
-    users,
-    rosters,
-    teams,
-    userMap,
-    nflState,
-    currentWeek,
-    matchups,
-    transactions,
-    trendingAdds,
-    trendingDrops
+    league, users, rosters, teams, userMap,
+    nflState, currentWeek, isPreDraft,
+    matchups, transactions, trendingAdds, trendingDrops,
   };
 }

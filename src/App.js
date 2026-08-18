@@ -1,142 +1,146 @@
-import { fetchFullLeagueData } from './api/sleeper.js';
-import { renderHeader } from './components/Header.js';
-import { renderHero } from './components/Hero.js';
-import { renderWeeklyAwards } from './components/WeeklyAwards.js';
-import { renderStandings } from './components/Standings.js';
-import { renderMatchups } from './components/Matchups.js';
-import { renderRulesSummary } from './components/RulesSummary.js';
-import { renderTrendingMarket } from './components/TrendingMarket.js';
+import { loadLeagueData } from './api/sleeper.js';
+import { renderHeader }      from './components/Header.js';
+import { renderHero }        from './components/Hero.js';
+import { renderStandingsTab } from './components/Standings.js';
+import { renderMatchups }    from './components/Matchups.js';
+import { renderMarket }      from './components/TrendingMarket.js';
+import { renderRules }       from './components/RulesSummary.js';
 
-export class App {
-  constructor(container) {
-    this.container = container;
-    this.currentTab = 'standings'; // 'standings' | 'matchups' | 'market' | 'rules'
-    this.leagueData = null;
-    this.isLoading = true;
-    this.error = null;
+const TABS = [
+  { id: 'home',     icon: '📊', label: 'Tabla & Premios' },
+  { id: 'matchups', icon: '⚔️', label: 'Enfrentamientos' },
+  { id: 'market',   icon: '📈', label: 'Mercado' },
+  { id: 'rules',    icon: '📜', label: 'Reglamento' },
+];
+
+class GainsLeagueApp {
+  constructor(root) {
+    this.root    = root;
+    this.tab     = 'home';
+    this.data    = null;
+    this.loading = true;
+    this.error   = null;
   }
 
+  /* ── Boot ───────────────────────────────────────────────── */
   async init() {
-    await this.loadData();
+    this.showLoading();
+    try {
+      this.data    = await loadLeagueData();
+      this.loading = false;
+    } catch (err) {
+      this.error   = err.message;
+      this.loading = false;
+    }
     this.render();
   }
 
-  async loadData() {
-    this.isLoading = true;
+  async refresh() {
+    // Spinner sutil en el botón
+    const btn = document.getElementById('btn-refresh');
+    if (btn) { btn.disabled = true; btn.textContent = '⟳ ...'; }
     this.error = null;
-    this.renderLoading();
-
     try {
-      this.leagueData = await fetchFullLeagueData();
+      this.data = await loadLeagueData();
     } catch (err) {
-      console.error(err);
-      this.error = err.message || "Error al conectar con la API de Sleeper";
-    } finally {
-      this.isLoading = false;
-      this.render();
+      this.error = err.message;
+    }
+    this.render();
+  }
+
+  /* ── Loading splash ─────────────────────────────────────── */
+  showLoading() {
+    this.root.innerHTML = `
+    <div class="loading-screen">
+      <img src="/logo.jpg" class="loading-logo" alt="Logo">
+      <div class="loading-text">Cargando The Gains League...</div>
+      <div class="loading-sub">Conectando con Sleeper API</div>
+    </div>`;
+  }
+
+  /* ── Tab content ────────────────────────────────────────── */
+  getTabContent() {
+    const d = this.data;
+    switch (this.tab) {
+      case 'home':
+        return renderStandingsTab(d.teams, d.league, d.isPreDraft);
+      case 'matchups':
+        return renderMatchups(d.matchups, d.teams, d.currentWeek, d.isPreDraft);
+      case 'market':
+        return renderMarket(d.trendingAdds, d.trendingDrops, d.transactions, d.teams);
+      case 'rules':
+        return renderRules();
+      default:
+        return '';
     }
   }
 
-  setTab(tab) {
-    this.currentTab = tab;
-    this.render();
-  }
-
-  renderLoading() {
-    this.container.innerHTML = `
-      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:80vh; gap:1.2rem; text-align:center;">
-        <img src="/logo.jpg" alt="Logo" style="width:80px; height:80px; border-radius:12px; border:2px solid var(--accent-gold); animation: pulse 1.5s infinite;">
-        <h2 style="font-family:var(--font-display); font-size:1.6rem; color:#fff; text-transform:uppercase;">Cargando The Gains League...</h2>
-        <p style="color:var(--text-muted); font-size:0.9rem;">Sincronizando con Sleeper API</p>
-      </div>
-    `;
-  }
-
-  renderError() {
-    this.container.innerHTML = `
-      <div class="container" style="padding-top: 4rem; text-align:center;">
-        <div class="card" style="max-width: 500px; margin: 0 auto; border-color: rgba(239, 68, 68, 0.4);">
-          <h2 style="color: #f87171; font-family: var(--font-display); margin-bottom: 0.5rem;">Error de Conexión</h2>
-          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">${this.error}</p>
-          <button id="btn-retry" class="btn-refresh" style="margin: 0 auto;">Reintentar</button>
-        </div>
-      </div>
-    `;
-
-    document.getElementById('btn-retry')?.addEventListener('click', () => this.loadData());
-  }
-
+  /* ── Main render ────────────────────────────────────────── */
   render() {
-    if (this.isLoading) return;
+    if (this.loading) return;
+
     if (this.error) {
-      this.renderError();
+      this.root.innerHTML = `
+      <div class="container">
+        <div class="error-box">
+          <h3>Error de Conexión</h3>
+          <p>${this.error}</p>
+          <button id="btn-retry" class="btn-primary">🔄 Reintentar</button>
+        </div>
+      </div>`;
+      document.getElementById('btn-retry')?.addEventListener('click', () => this.init());
       return;
     }
 
-    const { league, teams, matchups, currentWeek, trendingAdds, trendingDrops, transactions } = this.leagueData;
+    const d = this.data;
 
-    let tabContent = '';
-    if (this.currentTab === 'standings') {
-      tabContent = `
-        ${renderWeeklyAwards(teams, matchups, currentWeek)}
-        ${renderStandings(teams, league)}
-      `;
-    } else if (this.currentTab === 'matchups') {
-      tabContent = renderMatchups(matchups, teams, currentWeek);
-    } else if (this.currentTab === 'market') {
-      tabContent = renderTrendingMarket(trendingAdds, trendingDrops, transactions);
-    } else if (this.currentTab === 'rules') {
-      tabContent = renderRulesSummary();
-    }
+    /* Tabs HTML */
+    const tabsHtml = TABS.map(t => `
+      <button class="tab${this.tab === t.id ? ' active' : ''}" data-tab="${t.id}">
+        <span>${t.icon}</span> ${t.label}
+      </button>`).join('');
 
-    this.container.innerHTML = `
-      ${renderHeader(league)}
-      ${renderHero(league, teams)}
+    this.root.innerHTML = `
+    ${renderHeader(d.league)}
 
-      <main class="container">
-        <!-- Navigation Tabs -->
-        <div class="nav-tabs-wrapper">
-          <nav class="nav-tabs">
-            <button class="tab-btn ${this.currentTab === 'standings' ? 'active' : ''}" data-tab="standings">
-              📊 Tabla & Premios
-            </button>
-            <button class="tab-btn ${this.currentTab === 'matchups' ? 'active' : ''}" data-tab="matchups">
-              ⚔️ Enfrentamientos
-            </button>
-            <button class="tab-btn ${this.currentTab === 'market' ? 'active' : ''}" data-tab="market">
-              📈 Mercado & Waivers
-            </button>
-            <button class="tab-btn ${this.currentTab === 'rules' ? 'active' : ''}" data-tab="rules">
-              📜 Reglamento & Gym
-            </button>
-          </nav>
+    ${renderHero(d.league, d.teams)}
+
+    <div class="tabs-bar">
+      <div class="container">
+        <div class="tabs-inner">${tabsHtml}</div>
+      </div>
+    </div>
+
+    <main class="container" style="padding-bottom:3rem">
+      ${this.getTabContent()}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <img src="/logo.jpg" class="footer-logo" alt="Logo">
+        <div class="footer-text">© 2026 The Gains League 🏋️‍♂️🏈 — Conectado en tiempo real a Sleeper API</div>
+        <div class="footer-links">
+          <a href="https://sleeper.com/leagues/1393074729073520640/predraft" target="_blank" rel="noopener">Ver en Sleeper</a>
+          <a href="https://sleeper.com/i/QBMbleqAAnMmJ" target="_blank" rel="noopener">Invitar al Draft</a>
+          <a href="https://docs.sleeper.com" target="_blank" rel="noopener">API Docs</a>
         </div>
+      </div>
+    </footer>`;
 
-        <!-- Dynamic Content -->
-        <div class="tab-content-area">
-          ${tabContent}
-        </div>
-      </main>
+    /* ── Event Listeners ── */
+    document.getElementById('btn-refresh')?.addEventListener('click', () => this.refresh());
 
-      <footer class="site-footer">
-        <div class="container">
-          <p>© 2026 The Gains League 🏋️‍♂️🏈 | Conectado en tiempo real a Sleeper API</p>
-          <div class="footer-links">
-            <a href="https://sleeper.com/leagues/1393074729073520640/predraft" target="_blank" rel="noopener">Ver en Sleeper.com</a>
-            <a href="https://sleeper.com/i/QBMbleqAAnMmJ" target="_blank" rel="noopener">Enlace de Invitación</a>
-          </div>
-        </div>
-      </footer>
-    `;
-
-    // Event listeners
-    document.getElementById('btn-refresh')?.addEventListener('click', () => this.loadData());
-    
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const targetTab = e.currentTarget.getAttribute('data-tab');
-        if (targetTab) this.setTab(targetTab);
+    this.root.querySelectorAll('.tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        this.tab = btn.dataset.tab;
+        this.render();
+        // Scroll a los tabs en mobile
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
   }
 }
+
+/* ── Bootstrap ─────────────────────────────────────────────── */
+const app = new GainsLeagueApp(document.getElementById('app'));
+app.init();

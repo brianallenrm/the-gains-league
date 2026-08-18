@@ -1,83 +1,63 @@
-export function renderMatchups(matchups = [], teams = [], currentWeek = 1) {
-  const teamMap = {};
-  teams.forEach(t => {
-    teamMap[t.rosterId] = t;
-  });
+export function renderMatchups(matchups, teams, week, isPreDraft) {
+  // Build teamMap by roster_id
+  const teamMap = Object.fromEntries(teams.map(t => [t.rosterId, t]));
 
-  // Agrupar por matchup_id
-  const matchupPairs = {};
-  matchups.forEach(m => {
-    if (!matchupPairs[m.matchup_id]) {
-      matchupPairs[m.matchup_id] = [];
-    }
-    matchupPairs[m.matchup_id].push(m);
-  });
-
-  const pairList = Object.values(matchupPairs);
-
-  if (pairList.length === 0) {
+  if (isPreDraft || matchups.length === 0) {
     return `
-      <div class="card">
-        <div class="section-title">
-          <span>⚔️ Enfrentamientos de la Semana ${currentWeek}</span>
-        </div>
-        <p style="text-align: center; color: var(--text-muted); padding: 1.5rem 0;">
-          Los enfrentamientos se generarán automáticamente una vez completado el Draft oficial.
-        </p>
+    <div class="card">
+      <div class="section-head">
+        <div class="section-title">⚔️ Enfrentamientos</div>
+        <span class="section-badge">Semana ${week}</span>
       </div>
-    `;
+      <div class="predraft-state">
+        <div class="icon">🏈</div>
+        <h3>¡Nos vemos en el Draft!</h3>
+        <p>Los enfrentamientos semana a semana aparecerán aquí una vez que el Draft oficial concluya y arranque la Temporada 2026.</p>
+      </div>
+    </div>`;
   }
 
-  const cards = pairList.map(pair => {
-    const team1Data = pair[0] || {};
-    const team2Data = pair[1] || {};
+  // Group by matchup_id
+  const pairs = {};
+  matchups.forEach(m => {
+    if (!pairs[m.matchup_id]) pairs[m.matchup_id] = [];
+    pairs[m.matchup_id].push(m);
+  });
 
-    const team1 = teamMap[team1Data.roster_id] || { teamName: `Equipo ${team1Data.roster_id}`, avatar: '/logo.jpg' };
-    const team2 = teamMap[team2Data.roster_id] || { teamName: `Equipo ${team2Data.roster_id}`, avatar: '/logo.jpg' };
+  const cards = Object.values(pairs).map(pair => {
+    const [a, b] = pair;
+    const ta = teamMap[a?.roster_id] || { teamName: `Equipo ${a?.roster_id}`, avatar: null, displayName: '' };
+    const tb = teamMap[b?.roster_id] || { teamName: `Equipo ${b?.roster_id}`, avatar: null, displayName: '' };
+    const sa  = a?.points ?? 0;
+    const sb  = b?.points ?? 0;
 
-    const score1 = team1Data.points || 0;
-    const score2 = team2Data.points || 0;
-
-    const isTeam1Winning = score1 > score2;
-    const isTeam2Winning = score2 > score1;
-
-    return `
-      <div class="matchup-card">
-        <div class="matchup-team-row ${isTeam1Winning ? 'winner' : ''}">
-          <div class="team-cell">
-            <img src="${team1.avatar}" class="team-avatar" alt="Avatar">
-            <div class="team-meta">
-              <div class="team-name">${team1.teamName}</div>
-              <div class="manager">${team1.displayName || ''}</div>
-            </div>
-          </div>
-          <div class="matchup-score">${score1.toFixed(1)}</div>
-        </div>
-
-        <div class="matchup-team-row ${isTeam2Winning ? 'winner' : ''}">
-          <div class="team-cell">
-            <img src="${team2.avatar}" class="team-avatar" alt="Avatar">
-            <div class="team-meta">
-              <div class="team-name">${team2.teamName}</div>
-              <div class="manager">${team2.displayName || ''}</div>
-            </div>
-          </div>
-          <div class="matchup-score">${score2.toFixed(1)}</div>
-        </div>
+    const rowA = `
+    <div class="matchup-row ${sa > sb ? 'winner' : ''}">
+      <div class="team-cell">
+        <img class="t-avatar" src="${ta.avatar || '/logo.jpg'}" alt="" onerror="this.src='/logo.jpg'">
+        <div><div class="t-name">${ta.teamName}</div><div class="t-mgr">${ta.displayName}</div></div>
       </div>
-    `;
+      <div class="m-score">${sa.toFixed(2)}</div>
+    </div>`;
+
+    const rowB = `
+    <div class="matchup-row ${sb > sa ? 'winner' : ''}">
+      <div class="team-cell">
+        <img class="t-avatar" src="${tb.avatar || '/logo.jpg'}" alt="" onerror="this.src='/logo.jpg'">
+        <div><div class="t-name">${tb.teamName}</div><div class="t-mgr">${tb.displayName}</div></div>
+      </div>
+      <div class="m-score">${sb.toFixed(2)}</div>
+    </div>`;
+
+    return `<div class="matchup-card">${rowA}${rowB}</div>`;
   }).join('');
 
   return `
-    <div class="card">
-      <div class="section-title">
-        <span>⚔️ Centro de Enfrentamientos</span>
-        <span class="badge">Semana ${currentWeek}</span>
-      </div>
-
-      <div class="matchups-grid">
-        ${cards}
-      </div>
+  <div class="card">
+    <div class="section-head">
+      <div class="section-title">⚔️ Enfrentamientos</div>
+      <span class="section-badge">Semana ${week}</span>
     </div>
-  `;
+    <div class="matchups-grid">${cards}</div>
+  </div>`;
 }
