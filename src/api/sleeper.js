@@ -35,6 +35,49 @@ export const getTransactions= (w) => apiFetch(`/league/${LEAGUE_ID}/transactions
 export const getTrending    = (type, limit = 10) =>
   apiFetch(`/players/nfl/trending/${type}?lookback_hours=24&limit=${limit}`, []);
 
+/* ── Player database cache ───────────────────────────────── */
+let playerDatabaseCache = null;
+
+export async function getPlayerDatabase() {
+  if (playerDatabaseCache) return playerDatabaseCache;
+
+  // 1. Intentar memoria de localStorage
+  try {
+    const cached = localStorage.getItem("gains_sleeper_players_v1");
+    if (cached) {
+      playerDatabaseCache = JSON.parse(cached);
+      return playerDatabaseCache;
+    }
+  } catch {}
+
+  // 2. Fetch ligero de jugadores desde Sleeper
+  try {
+    const res = await fetch(`${BASE_URL}/players/nfl`);
+    if (res.ok) {
+      const fullMap = await res.json();
+      const mini = {};
+      for (const [id, p] of Object.entries(fullMap)) {
+        if (p && (p.full_name || p.first_name)) {
+          mini[id] = {
+            name: p.full_name || `${p.first_name} ${p.last_name}`,
+            pos: p.position || p.fantasy_positions?.[0] || 'NFL',
+            team: p.team || 'FA',
+          };
+        }
+      }
+      playerDatabaseCache = mini;
+      try {
+        localStorage.setItem("gains_sleeper_players_v1", JSON.stringify(mini));
+      } catch {}
+      return mini;
+    }
+  } catch (err) {
+    console.warn("No se pudo cargar base de jugadores", err);
+  }
+
+  return {};
+}
+
 /* ── Master loader ───────────────────────────────────────── */
 export async function loadLeagueData() {
   const [league, users, rosters, nflState] = await Promise.all([
@@ -90,16 +133,32 @@ export async function loadLeagueData() {
   const currentWeek = (nflState?.leg || nflState?.week || 1);
   const isPreDraft  = league.status === "pre_draft";
 
-  // Carga paralela de datos semanales
-  const [matchups, transactions, trendingAdds, trendingDrops] = await Promise.all([
+  // Carga paralela de datos semanales + base de jugadores
+  const [matchups, transactions, rawAdds, rawDrops, playerDb] = await Promise.all([
     isPreDraft ? [] : getMatchups(currentWeek),
     isPreDraft ? [] : getTransactions(currentWeek),
     getTrending("add", 10),
     getTrending("drop", 10),
+    getPlayerDatabase()
   ]);
 
+  // Enriquecer trending con nombres reales, fotos, posiciones y equipos
+  const enrichTrending = (list) => (list || []).map(item => {
+    const p = playerDb[item.player_id] || {};
+    return {
+      ...item,
+      name: p.name || `Jugador #${item.player_id}`,
+      pos: p.pos || 'NFL',
+      team: p.team || 'FA',
+      photo: playerThumb(item.player_id)
+    };
+  });
+
+  const trendingAdds = enrichTrending(rawAdds);
+  const trendingDrops = enrichTrending(rawDrops);
+
   return {
-    league, users, rosters, teams, userMap,
+    league, users, rosters, teams, userMap, playerDb,
     nflState, currentWeek, isPreDraft,
     matchups, transactions, trendingAdds, trendingDrops,
   };

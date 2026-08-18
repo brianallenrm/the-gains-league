@@ -662,7 +662,7 @@ tr.eliminated td { opacity: .7; }
    ========================================================== */
 .trending-cols {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
 }
 .trending-box {
@@ -677,16 +677,43 @@ tr.eliminated td { opacity: .7; }
 }
 .trending-box.adds  .trending-title { color: #34d399; }
 .trending-box.drops .trending-title { color: #f87171; }
-.trending-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+.trending-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
 .trending-item {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: .45rem .65rem;
-  background: rgba(6,11,20,.4); border-radius: var(--r-sm);
+  display: flex; align-items: center; gap: .6rem;
+  padding: .5rem .75rem;
+  background: rgba(6,11,20,.6); border-radius: var(--r-sm);
+  border: 1px solid var(--c-border);
   font-size: .83rem;
+  transition: border-color .2s;
 }
-.trending-item-rank { font-family: var(--font-head); font-size: .9rem; color: var(--c-muted); min-width: 1.5rem; }
-.trending-item-id   { flex: 1; color: var(--c-text); font-weight: 600; margin: 0 .5rem; }
-.trending-item-cnt  { font-size: .75rem; color: var(--c-muted); }
+.trending-item:hover {
+  border-color: rgba(255,255,255,.15);
+}
+.trending-item-rank { font-family: var(--font-head); font-size: .95rem; color: var(--c-muted); min-width: 1.2rem; flex-shrink: 0; }
+.trending-player-photo {
+  width: 32px; height: 32px; border-radius: 50%;
+  object-fit: cover; background: var(--c-surface3);
+  border: 1px solid var(--c-border); flex-shrink: 0;
+}
+.trending-item-info { flex: 1; min-width: 0; }
+.trending-player-name {
+  font-weight: 700; color: #fff; font-size: .86rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.trending-player-sub {
+  display: flex; align-items: center; gap: .35rem; margin-top: .15rem;
+}
+.pos-badge {
+  font-size: .62rem; font-weight: 700; padding: .1rem .35rem;
+  border-radius: var(--r-sm); letter-spacing: .03em;
+}
+.team-badge {
+  font-size: .65rem; color: var(--c-muted); font-weight: 600;
+}
+.trending-item-cnt {
+  font-size: .78rem; font-weight: 700; font-family: var(--font-head);
+  letter-spacing: .02em; flex-shrink: 0;
+}
 
 /* ==========================================================
    RULES SECTION
