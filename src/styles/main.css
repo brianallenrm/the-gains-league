@@ -913,14 +913,47 @@ tr.eliminated td { opacity: .7; }
   margin-bottom: 0; padding-bottom: 0; border-bottom: none;
 }
 .modal-bullet-list {
-  list-style: none; margin-top: .4rem; padding: 0;
+  list-style: none; margin: .5rem 0; padding: 0;
 }
 .modal-bullet-list li {
-  padding: .3rem 0; display: flex; gap: .5rem; align-items: baseline;
-  word-break: break-word; overflow-wrap: break-word;
+  display: block;
+  position: relative;
+  padding: .35rem 0 .35rem 1.25rem;
+  line-height: 1.55;
+  color: var(--c-muted);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 .modal-bullet-list li::before {
-  content: '▪'; color: var(--gold); font-size: .85rem; flex-shrink: 0;
+  content: '▸';
+  position: absolute;
+  left: 0;
+  top: .35rem;
+  color: var(--gold);
+  font-size: .85rem;
+  line-height: 1;
+}
+
+/* Stat Cards en lugar de tablas */
+.modal-stat-list {
+  display: flex; flex-direction: column; gap: .45rem; margin-top: .6rem;
+}
+.modal-stat-row {
+  display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+  padding: .6rem .85rem;
+  background: var(--c-surface2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-sm);
+  font-size: .84rem;
+  box-sizing: border-box;
+}
+.modal-stat-label {
+  color: var(--c-text); flex: 1; min-width: 0;
+  line-height: 1.35;
+}
+.modal-stat-val {
+  font-family: var(--font-head); font-size: .95rem; font-weight: 700;
+  white-space: nowrap; flex-shrink: 0; text-align: right;
 }
 
 .modal-steps-list {
@@ -941,21 +974,7 @@ tr.eliminated td { opacity: .7; }
 }
 .step-content { flex: 1; min-width: 0; }
 .step-content h4 { margin-bottom: .2rem; }
-.step-content p { font-size: .83rem; margin: 0; }
-
-.modal-detail-table {
-  width: 100%; border-collapse: collapse; margin-top: .5rem;
-  font-size: .83rem; box-sizing: border-box;
-}
-.modal-detail-table th {
-  background: var(--c-surface3); color: var(--c-muted);
-  font-family: var(--font-head); text-transform: uppercase; font-size: .75rem;
-  padding: .5rem .75rem; border-bottom: 1px solid var(--c-border); text-align: left;
-}
-.modal-detail-table td {
-  padding: .5rem .75rem; border-bottom: 1px solid rgba(255,255,255,.03);
-  word-break: break-word;
-}
+.step-content p { font-size: .83rem; margin: 0; line-height: 1.45; }
 
 .modal-footer {
   padding: .85rem 1.25rem;

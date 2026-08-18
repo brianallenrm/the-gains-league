@@ -9,7 +9,7 @@ export const RULES_DETAILS = {
     badge: "Básicos del Juego",
     content: `
       <div class="modal-intro-box">
-        <p><strong>¿Qué es Fantasy Football?</strong> Es un juego donde tú eres el Dueño y Entrenador de tu propio equipo. Seleccionas jugadores reales de la NFL y cada semana sus jugadas en los partidos reales (yardas, pases, touchdowns) se convierten en puntos en la app de Sleeper.</p>
+        <p><strong>¿Qué es Fantasy Football?</strong> Es un juego donde tú eres el Dueño y Entrenador de tu propio equipo. Eliges jugadores reales de la NFL y cada semana sus jugadas en los partidos reales (yardas, pases, touchdowns) se convierten en puntos para tu equipo en la app de Sleeper.</p>
       </div>
 
       <div class="modal-steps-list">
@@ -17,7 +17,7 @@ export const RULES_DETAILS = {
           <div class="step-badge">Paso 1</div>
           <div class="step-content">
             <h4>🏈 El Draft (Día de Selección)</h4>
-            <p>Nos conectamos todos en Sleeper. Por turnos, cada quien elige a sus jugadores favoritos de la NFL hasta completar su plantilla de 15 jugadores.</p>
+            <p>Nos conectamos todos en la app de Sleeper el día fijado. Por turnos, cada quien elige a sus jugadores favoritos de la NFL hasta completar su plantilla de 15 jugadores.</p>
           </div>
         </div>
 
@@ -25,7 +25,7 @@ export const RULES_DETAILS = {
           <div class="step-badge">Paso 2</div>
           <div class="step-content">
             <h4>📋 Arma tu Alineación cada Semana</h4>
-            <p>Antes de que empiecen los partidos del jueves y domingo, decides quiénes son tus <strong>10 Titulares</strong> (los que suman puntos) y quiénes van a la <strong>Banca</strong>.</p>
+            <p>Antes de que arranquen los partidos del jueves y domingo, decides quiénes son tus <strong>10 Titulares</strong> (los que suman puntos) y quiénes van a la <strong>Banca</strong>.</p>
           </div>
         </div>
 
@@ -41,7 +41,7 @@ export const RULES_DETAILS = {
           <div class="step-badge">Paso 4</div>
           <div class="step-content">
             <h4>⚔️ Gana tu Duelo y Llévate los Premios</h4>
-            <p>Cada semana enfrentas cara a cara a otro compa del gym. El que haga más puntos gana. Además, <strong>el mayor anotador de la semana se lleva $300 pesos en efectivo</strong>.</p>
+            <p>Cada semana enfrentas cara a cara a otro compa del gym. El que haga más puntos gana el partido. Además, <strong>el que anote más puntos de toda la liga esa jornada se lleva $300 pesos en efectivo</strong>.</p>
           </div>
         </div>
       </div>
@@ -55,52 +55,70 @@ export const RULES_DETAILS = {
     content: `
       <div class="modal-section-block">
         <h4>📡 1. Puntos por Recepción (Formato PPR)</h4>
-        <p>Jugamos en formato <strong>PPR (1.0 Point Per Reception)</strong>. Cada pase atrapado por un jugador suma <strong>+1.0 punto automático</strong>, más las yardas que avance.</p>
+        <p>Jugamos en formato <strong>PPR (1.0 Point Per Reception)</strong>. Cada pase que atrapa un jugador suma <strong>+1.0 punto automático</strong>, más las yardas que avance.</p>
       </div>
 
       <div class="modal-section-block">
-        <h4>🏃 2. Yardas y Anotaciones (Ofensiva)</h4>
-        <table class="modal-detail-table">
-          <tr><th>Acción Ofensiva</th><th>Puntos</th></tr>
-          <tr><td>Touchdown terrestre o por recepción</td><td class="text-green font-bold">+6.0 pts</td></tr>
-          <tr><td>Touchdown de pase (Mariscal de campo / QB)</td><td class="text-green font-bold">+4.0 pts</td></tr>
-          <tr><td>Cada 10 yardas por carrera o recepción</td><td>+1.0 pt (0.1 pt/yd)</td></tr>
-          <tr><td>Cada 25 yardas de pase (QB)</td><td>+1.0 pt (0.04 pt/yd)</td></tr>
-          <tr><td>Conversión de 2 puntos anotada</td><td>+2.0 pts</td></tr>
-          <tr><td>Intercepción lanzada (QB)</td><td class="text-red font-bold">-1.0 pt</td></tr>
-          <tr><td>Balón suelto perdido (Fumble Lost)</td><td class="text-red font-bold">-2.0 pts</td></tr>
-        </table>
+        <h4>🏃 2. Tabla de Puntos Ofensivos</h4>
+        <div class="modal-stat-list">
+          <div class="modal-stat-row">
+            <span class="modal-stat-label">Touchdown terrestre o por recepción</span>
+            <span class="modal-stat-val text-green">+6.0 pts</span>
+          </div>
+          <div class="modal-stat-row">
+            <span class="modal-stat-label">Touchdown de pase (Mariscal de campo / QB)</span>
+            <span class="modal-stat-val text-green">+4.0 pts</span>
+          </div>
+          <div class="modal-stat-row">
+            <span class="modal-stat-label">Cada 10 yardas por carrera o recepción</span>
+            <span class="modal-stat-val">+1.0 pt</span>
+          </div>
+          <div class="modal-stat-row">
+            <span class="modal-stat-label">Cada 25 yardas de pase (QB)</span>
+            <span class="modal-stat-val">+1.0 pt</span>
+          </div>
+          <div class="modal-stat-row">
+            <span class="modal-stat-label">Conversión de 2 puntos anotada</span>
+            <span class="modal-stat-val">+2.0 pts</span>
+          </div>
+          <div class="modal-stat-row">
+            <span class="modal-stat-label">Intercepción lanzada (QB)</span>
+            <span class="modal-stat-val text-red">-1.0 pt</span>
+          </div>
+          <div class="modal-stat-row">
+            <span class="modal-stat-label">Balón suelto perdido (Fumble Lost)</span>
+            <span class="modal-stat-val text-red">-2.0 pts</span>
+          </div>
+        </div>
       </div>
 
       <div class="modal-section-block">
-        <h4>⭐ 3. Bonos por Partidazo (Milestone Bonuses)</h4>
-        <p>Para darle más emoción a los partidazos del domingo:</p>
+        <h4>⭐ 3. Bonos por Partidazo (Milestones)</h4>
         <ul class="modal-bullet-list">
-          <li><strong>+2.0 pts extra</strong> si tu Corredor (RB) llega a 100 yardas por tierra.</li>
-          <li><strong>+2.0 pts extra</strong> si tu Receptor (WR) o Ala Cerrada (TE) llega a 100 yardas por aire.</li>
-          <li><strong>+2.0 pts extra</strong> si tu Mariscal (QB) llega a 300 yardas de pase.</li>
+          <li><strong>+2.0 pts extra:</strong> Si tu Corredor (RB) llega a 100 yardas por tierra en el juego.</li>
+          <li><strong>+2.0 pts extra:</strong> Si tu Receptor (WR) o Ala Cerrada (TE) llega a 100 yardas recibidas.</li>
+          <li><strong>+2.0 pts extra:</strong> Si tu Mariscal (QB) llega a 300 yardas de pase.</li>
         </ul>
       </div>
 
       <div class="modal-section-block">
         <h4>👟 4. Pateadores Decimales (Kickers)</h4>
-        <p>Puntuación decimal justa según la distancia:</p>
         <ul class="modal-bullet-list">
-          <li>Gol de campo de <strong>1 a 30 yardas:</strong> <strong>3.0 pts base</strong>.</li>
-          <li>A partir de 30 yds: <strong>suma 0.1 pt por cada yarda extra</strong> (ej. 47 yds = <strong>4.7 pts</strong>; 56 yds = <strong>5.6 pts</strong>).</li>
+          <li>Gol de campo de <strong>1 a 30 yardas:</strong> da <strong>3.0 puntos base</strong>.</li>
+          <li>A partir de 30 yds: <strong>suma 0.1 pt por cada yarda extra</strong> (ej. gol de 48 yds = <strong>4.8 pts</strong>; de 57 yds = <strong>5.7 pts</strong>).</li>
           <li>Punto extra anotado (PAT): <strong>+1.0 pt</strong> | Fallado: <strong>-1.0 pt</strong>.</li>
         </ul>
       </div>
 
       <div class="modal-section-block">
-        <h4>🛡️ 5. Defensa Dinámica (DEF)</h4>
+        <h4>🛡️ 5. Defensa Activa (DEF)</h4>
         <ul class="modal-bullet-list">
-          <li><strong>Sacks (Capturas de QB):</strong> +1.0 pt</li>
-          <li><strong>Intercepciones y Fumbles recuperados:</strong> +2.0 pts</li>
-          <li><strong>Touchdown Defensivo / Regreso:</strong> +6.0 pts</li>
-          <li><strong>Parada en 4to Down (4th Down Stop):</strong> +1.0 pt</li>
-          <li><strong>Forzar 3 y Fuera (3 and Out):</strong> +0.5 pts</li>
-          <li><strong>Puntos Permitidos:</strong> De +10 pts (blanqueada de 0) hasta -4 pts si permiten más de 35 pts.</li>
+          <li><strong>Sacks (Capturas de QB):</strong> +1.0 pt cada una.</li>
+          <li><strong>Intercepciones y Fumbles recuperados:</strong> +2.0 pts.</li>
+          <li><strong>Touchdown Defensivo o de Regreso:</strong> +6.0 pts.</li>
+          <li><strong>Parada en 4to Down (4th Down Stop):</strong> +1.0 pt.</li>
+          <li><strong>Forzar 3 y Fuera (3 and Out):</strong> +0.5 pts.</li>
+          <li><strong>Puntos Permitidos:</strong> Desde +10 pts (blanqueada) hasta -4 pts si reciben más de 35 pts.</li>
         </ul>
       </div>
     `
@@ -108,31 +126,32 @@ export const RULES_DETAILS = {
 
   roster: {
     title: "🏈 Alineación & Plantilla al 100%",
-    subtitle: "Cómo armar tu equipo titular, suplentes y jugadores de reserva",
+    subtitle: "Cómo armar tu equipo titular, suplentes y casillas de reserva",
     badge: "15 Spots + 3 IR",
     content: `
       <div class="modal-section-block">
         <h4>👑 1. Posiciones Titulares (10 Jugadores)</h4>
-        <p>Solo los jugadores titulares sumarán puntos cada semana:</p>
+        <p>Solo los 10 jugadores titulares sumarán puntos a tu marcador cada semana:</p>
         <ul class="modal-bullet-list">
-          <li><strong>1 QB:</strong> Mariscal de campo.</li>
-          <li><strong>2 RB:</strong> Corredores titulares.</li>
-          <li><strong>2 WR:</strong> Receptores abiertos.</li>
-          <li><strong>1 TE:</strong> Ala cerrada titular.</li>
-          <li><strong>2 FLEX (W/R/T):</strong> ¡Espacio comodín! Puedes meter cualquier combinación de <strong>Corredor (RB), Receptor (WR) o Ala Cerrada (TE)</strong>. Al tener 2 FLEX, tienes máxima libertad para poner a tus mejores hombres.</li>
-          <li><strong>1 K:</strong> Pateador.</li>
-          <li><strong>1 DEF:</strong> Unidad defensiva completa de un equipo real.</li>
+          <li><strong>1 QB (Quarterback):</strong> Mariscal de campo titular.</li>
+          <li><strong>2 RB (Running Backs):</strong> Tus 2 corredores principales.</li>
+          <li><strong>2 WR (Wide Receivers):</strong> Tus 2 receptores abiertos estelares.</li>
+          <li><strong>1 TE (Tight End):</strong> Ala cerrada titular.</li>
+          <li><strong>2 FLEX (W/R/T):</strong> ¡Espacio comodín! Puedes meter cualquier combinación de <strong>Corredor (RB), Receptor (WR) o Ala Cerrada (TE)</strong>. Al tener 2 FLEX, tienes máxima flexibilidad para jugar con tus mejores hombres.</li>
+          <li><strong>1 K (Kicker):</strong> Pateador.</li>
+          <li><strong>1 DEF (Defense):</strong> Unidad defensiva completa de un equipo real.</li>
         </ul>
       </div>
 
       <div class="modal-section-block">
         <h4>🪑 2. La Banca (5 Lugares - BN)</h4>
-        <p>5 jugadores de reserva. Sus puntos no cuentan para el marcador mientras estén en la banca. Sirven para cubrir semanas de descanso (Bye Weeks) o guardar novatos prometedores.</p>
+        <p>5 jugadores de reserva. Sus puntos no cuentan mientras estén en la banca. Sirven para cubrir descansos reales de la NFL (Bye Weeks) o guardar suplentes que puedan explotar a mitad de temporada.</p>
       </div>
 
       <div class="modal-section-block">
         <h4>🚑 3. Casillas de Reserva por Lesión (3 IR)</h4>
-        <p>Si un jugador es marcado oficialmente como <strong>Out</strong> o <strong>IR (Injured Reserve)</strong>, puedes moverlo a una casilla de IR. <strong>No te ocupará espacio en la banca</strong> y podrás fichar a un reemplazo libre sin cortarlo.</p>
+        <p>Si un jugador sufre una lesión y la NFL lo marca oficialmente como <strong>Out</strong> o <strong>IR (Injured Reserve)</strong>, puedes moverlo a una casilla de IR.</p>
+        <p><strong>Beneficio:</strong> El jugador lesionado <strong>no te ocupa espacio en la banca</strong>, permitiéndote fichar a un reemplazo libre sin tener que cortarlo.</p>
       </div>
     `
   },
@@ -143,33 +162,33 @@ export const RULES_DETAILS = {
     badge: "Presupuesto $100",
     content: `
       <div class="modal-intro-box">
-        <p><strong>¿Qué es FAAB?</strong> Significa <em>Free Agent Acquisition Budget</em>. Todos inician con <strong>$100 dólares virtuales</strong> para subastar en secreto por jugadores libres en lugar de que siempre se los lleve el último lugar.</p>
+        <p><strong>¿Qué es FAAB?</strong> Significa <em>Free Agent Acquisition Budget</em>. Todos inician con un presupuesto virtual de <strong>$100 dólares</strong> para subastar a ciegas por jugadores libres, en lugar de que siempre se los lleve el último lugar.</p>
       </div>
 
       <div class="modal-section-block">
         <h4>⏱️ 1. ¿Cómo funciona el ciclo semanal?</h4>
         <ul class="modal-bullet-list">
-          <li><strong>Domingo y Lunes:</strong> Se juegan los partidos. Los jugadores libres quedan bloqueados.</li>
-          <li><strong>Martes:</strong> Revisas quién brilló o quién se lesionó. Pones tu <strong>oferta secreta</strong> en Sleeper (ej. <em>$11 por el corredor suplente</em>). Nadie ve tu oferta ni tú ves la de los demás.</li>
-          <li><strong>Miércoles AM (12:00 AM):</strong> Sleeper procesa las subastas. Quien ofreció más dinero se queda al jugador y se le descuenta de sus $100.</li>
-          <li><strong>Miércoles a Domingo:</strong> Quien no fue reclamado queda como <strong>Agente Libre (FA)</strong> y cualquiera lo puede agarrar gratis al instante ($0).</li>
+          <li><strong>Domingo y Lunes:</strong> Se juegan los partidos reales. Los jugadores libres quedan congelados en <em>Waivers</em>.</li>
+          <li><strong>Martes todo el día:</strong> Analizas quién brilló o quién se lesionó. Pones tu <strong>oferta secreta</strong> en Sleeper (ej. <em>ofrezco $11 por el corredor suplente</em>). Nadie ve cuánto ofreciste tú ni tú ves lo que ofrecieron los demás.</li>
+          <li><strong>Miércoles AM (12:00 AM):</strong> Sleeper procesa todas las subastas automáticamente. Quien ofreció más dinero se queda al jugador y se le descuenta de sus $100.</li>
+          <li><strong>Miércoles a Domingo:</strong> Los jugadores que nadie reclamó en la subasta quedan como <strong>Agentes Libres (FA)</strong> y cualquiera los puede agarrar al instante y gratis ($0).</li>
         </ul>
       </div>
 
       <div class="modal-section-block">
         <h4>🤝 2. Reglas Clave</h4>
         <ul class="modal-bullet-list">
-          <li><strong>Ofertas de $0 permitidas:</strong> Si no quieres gastar presupuesto o te quedas en ceros, puedes meter ofertas de <strong>$0</strong> y llevarte al jugador si nadie ofreció dinero real.</li>
-          <li><strong>Desempate:</strong> Si dos mánagers ofrecen lo mismo (ej. $15), desempata la posición de prioridad.</li>
-          <li><strong>Presupuesto anual:</strong> Los $100 son para toda la temporada (Semanas 1 a la 17). ¡No se reinician cada semana!</li>
+          <li><strong>Ofertas de $0 permitidas:</strong> Si no quieres gastar presupuesto o te quedas en ceros, puedes meter ofertas de <strong>$0 dólares</strong> y aun así llevarte al jugador si nadie ofreció dinero real.</li>
+          <li><strong>Desempate:</strong> Si dos personas ofrecen la misma cantidad de dinero (ej. ambos ofrecieron $15), desempata la posición de prioridad de la tabla.</li>
+          <li><strong>Presupuesto para todo el año:</strong> Los $100 son para toda la temporada (Semanas 1 a la 17). ¡No se reinician cada semana!</li>
         </ul>
       </div>
 
       <div class="modal-section-block">
-        <h4>💡 3. Tips de Estrategia</h4>
+        <h4>💡 3. Tips de Estrategia para Novatos</h4>
         <ul class="modal-bullet-list">
-          <li><strong>No quemes los $100 en la Semana 1:</strong> Guarda presupuesto para lesiones en noviembre y diciembre.</li>
-          <li><strong>Usa ofertas de $0:</strong> Para pateadores y defensas de emergencia, ofrece siempre $0.</li>
+          <li><strong>No quemes los $100 en la Semana 1:</strong> Es un error clásico emocionarse por un jugador que tuvo 1 buen juego y quedarse sin dinero para lesiones en noviembre o diciembre.</li>
+          <li><strong>Usa las ofertas de $0:</strong> Para pateadores, defensas de la semana o parches de emergencia, siempre ofrece $0. Guarda tus dólares fuertes para corredores o receptores que se adueñen de la titularidad.</li>
         </ul>
       </div>
     `
@@ -182,14 +201,14 @@ export const RULES_DETAILS = {
     content: `
       <div class="modal-section-block">
         <h4>📅 1. Temporada Regular (Semanas 1 a 14)</h4>
-        <p>Juegas un partido semanal contra tus rivales de liga. Cada victoria suma en la tabla general de posiciones.</p>
+        <p>Juegas un partido semanal contra tus rivales de la liga. Cada victoria suma en la tabla general de posiciones.</p>
       </div>
 
       <div class="modal-section-block">
         <h4>🏆 2. Los Playoffs por el Campeonato (Top 6 Equipos)</h4>
-        <p>Los <strong>6 mejores equipos de la tabla</strong> pelean por el trofeo y los $2,700 pesos:</p>
+        <p>Al terminar la Semana 14, los <strong>6 mejores equipos de la tabla</strong> pelean por el trofeo y los $2,700 pesos:</p>
         <ul class="modal-bullet-list">
-          <li><strong>1° y 2° Lugar:</strong> Descansan la primera semana (pasan directo a semifinales).</li>
+          <li><strong>1° y 2° Lugar General:</strong> Descansan la primera semana (pasan directo a semifinales).</li>
           <li><strong>Semana 15 (Comodines):</strong> 3° vs 6° y 4° vs 5°.</li>
           <li><strong>Semana 16:</strong> Semifinales.</li>
           <li><strong>Semana 17:</strong> ¡La Gran Final de The Gains League!</li>
@@ -209,7 +228,7 @@ export const RULES_DETAILS = {
 
       <div class="modal-section-block">
         <h4>⚠️ 4. Regla de Oro: Final en Semana 17</h4>
-        <p>Nunca jugamos la Semana 18 de la NFL porque los equipos reales descansan a sus estrellas. Terminar en Semana 17 garantiza finales con titulares reales en el campo.</p>
+        <p>Nunca jugamos la Semana 18 de la NFL porque los equipos reales descansan a sus estrellas antes de los playoffs reales. Terminar en Semana 17 garantiza finales con los titulares reales en el campo.</p>
       </div>
     `
   },
@@ -220,13 +239,21 @@ export const RULES_DETAILS = {
     badge: "100% Repartido",
     content: `
       <div class="modal-section-block">
-        <h4>💵 1. Bolsa de $7,200 MXN</h4>
-        <table class="modal-detail-table">
-          <tr><th>Concepto</th><th>Monto</th></tr>
-          <tr><td>Inscripción (12 personas × $600)</td><td>$7,200 MXN</td></tr>
-          <tr><td><strong>Premios Semanales (15 sem × $300)</strong></td><td class="text-green font-bold">$4,500 MXN</td></tr>
-          <tr><td><strong>Gran Campeón de Temporada</strong></td><td class="text-gold font-bold">$2,700 MXN + Trofeo</td></tr>
-        </table>
+        <h4>💵 1. Desglose de la Bolsa ($7,200 MXN)</h4>
+        <div class="modal-stat-list">
+          <div class="modal-stat-row">
+            <span class="modal-stat-label">Inscripción Total (12 personas × $600)</span>
+            <span class="modal-stat-val">$7,200 MXN</span>
+          </div>
+          <div class="modal-stat-row">
+            <span class="modal-stat-label">Premios Semanales (15 sem × $300)</span>
+            <span class="modal-stat-val text-green font-bold">$4,500 MXN</span>
+          </div>
+          <div class="modal-stat-row">
+            <span class="modal-stat-label">Gran Campeón de Temporada</span>
+            <span class="modal-stat-val text-gold font-bold">$2,700 MXN + Trofeo</span>
+          </div>
+        </div>
       </div>
 
       <div class="modal-section-block">
