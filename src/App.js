@@ -5,7 +5,7 @@ import { renderDraftPoll, fetchPollData, submitVote } from './components/DraftPo
 import { renderStandingsTab } from './components/Standings.js';
 import { renderMatchups }    from './components/Matchups.js';
 import { renderMarket }      from './components/TrendingMarket.js';
-import { renderRules }       from './components/RulesSummary.js';
+import { renderRules, attachRulesModalEvents } from './components/RulesSummary.js';
 
 const TABS = [
   { id: 'home',     icon: '📊', label: 'Tabla & Premios' },
@@ -208,6 +208,11 @@ class GainsLeagueApp {
           alert('Hubo un error al registrar tu voto. Intenta de nuevo.');
         }
       });
+    }
+
+    // Rules modal events
+    if (this.tab === 'rules') {
+      attachRulesModalEvents(this.root);
     }
   }
 }
