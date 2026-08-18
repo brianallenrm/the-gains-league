@@ -8,9 +8,9 @@ import { renderRules }       from './components/RulesSummary.js';
 
 const TABS = [
   { id: 'home',     icon: '📊', label: 'Tabla & Premios' },
+  { id: 'rules',    icon: '📜', label: 'Reglamento' },
   { id: 'matchups', icon: '⚔️', label: 'Enfrentamientos' },
   { id: 'market',   icon: '📈', label: 'Mercado' },
-  { id: 'rules',    icon: '📜', label: 'Reglamento' },
 ];
 
 class GainsLeagueApp {
@@ -36,7 +36,6 @@ class GainsLeagueApp {
   }
 
   async refresh() {
-    // Spinner sutil en el botón
     const btn = document.getElementById('btn-refresh');
     if (btn) { btn.disabled = true; btn.textContent = '⟳ ...'; }
     this.error = null;
@@ -63,13 +62,13 @@ class GainsLeagueApp {
     const d = this.data;
     switch (this.tab) {
       case 'home':
-        return renderStandingsTab(d.teams, d.league, d.isPreDraft);
+        return renderStandingsTab(d.teams, d.league, d.isPreDraft, d.users);
+      case 'rules':
+        return renderRules();
       case 'matchups':
         return renderMatchups(d.matchups, d.teams, d.currentWeek, d.isPreDraft);
       case 'market':
         return renderMarket(d.trendingAdds, d.trendingDrops, d.transactions, d.teams);
-      case 'rules':
-        return renderRules();
       default:
         return '';
     }
@@ -103,7 +102,7 @@ class GainsLeagueApp {
     this.root.innerHTML = `
     ${renderHeader(d.league)}
 
-    ${renderHero(d.league, d.teams)}
+    ${renderHero(d.league, d.teams, d.users)}
 
     <div class="tabs-bar">
       <div class="container">
@@ -140,7 +139,6 @@ class GainsLeagueApp {
       btn.addEventListener('click', () => {
         this.tab = btn.dataset.tab;
         this.render();
-        // Scroll a los tabs en mobile
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });

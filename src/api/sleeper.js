@@ -15,7 +15,7 @@ export const avatarUrl = (id, thumb = true) =>
 export const playerThumb = (playerId) =>
   `${CDN_PLAYERS}/${playerId}.jpg`;
 
-/* ── Raw fetchers (con error handling individual) ────────── */
+/* ── Raw fetchers ────────────────────────────────────────── */
 async function apiFetch(path, fallback = null) {
   try {
     const res = await fetch(`${BASE_URL}${path}`);
@@ -37,7 +37,6 @@ export const getTrending    = (type, limit = 10) =>
 
 /* ── Master loader ───────────────────────────────────────── */
 export async function loadLeagueData() {
-  // Carga paralela de datos base
   const [league, users, rosters, nflState] = await Promise.all([
     getLeague(), getUsers(), getRosters(), getNflState(),
   ]);
@@ -65,8 +64,9 @@ export async function loadLeagueData() {
     return {
       rosterId     : roster.roster_id,
       ownerId      : roster.owner_id,
+      hasOwner     : Boolean(roster.owner_id),
       teamName     : user.metadata?.team_name || user.display_name || `Equipo ${roster.roster_id}`,
-      displayName  : user.display_name || "Mánager",
+      displayName  : user.display_name || (roster.owner_id ? "Mánager" : "Disponible"),
       avatar       : avatarUrl(user.avatar, true),
       wins, losses, ties,
       fpts         : +fpts.toFixed(2),
@@ -78,7 +78,6 @@ export async function loadLeagueData() {
       players      : roster.players || [],
       starters     : roster.starters || [],
       reserve      : roster.reserve || [],
-      // Datos extra del roster para cálculo de bench points
       roster,
     };
   });
@@ -87,7 +86,7 @@ export async function loadLeagueData() {
   teams.sort((a, b) => b.wins !== a.wins ? b.wins - a.wins : b.fpts - a.fpts);
   teams.forEach((t, i) => { t.rank = i + 1; });
 
-  // Semana actual — en pre-draft usar semana 1
+  // Semana actual
   const currentWeek = (nflState?.leg || nflState?.week || 1);
   const isPreDraft  = league.status === "pre_draft";
 

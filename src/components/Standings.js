@@ -1,13 +1,18 @@
 /* renderMembers — tabla de miembros actuales en pre-draft */
-function renderMembers(teams, total = 12) {
-  const slots = Array.from({ length: total }, (_, i) => teams[i] || null);
+function renderMembers(teams, users = [], total = 12) {
+  // Obtener equipos con dueño real o usar la lista de usuarios
+  const confirmedTeams = teams.filter(t => t.hasOwner);
+  const joinedCount = users.length > 0 ? users.length : confirmedTeams.length;
+
+  const slots = Array.from({ length: total }, (_, i) => confirmedTeams[i] || null);
 
   const cards = slots.map((t, i) => {
     if (!t) return `
       <div class="member-card empty">
         <div class="slot-num">${i + 1}</div>
         <div class="member-info">
-          <div class="m-name" style="color:var(--c-faint)">Esperando...</div>
+          <div class="m-name" style="color:var(--c-faint)">Esperando rival...</div>
+          <div class="m-mgr" style="color:var(--c-faint)">Slot disponible</div>
         </div>
       </div>`;
 
@@ -22,7 +27,7 @@ function renderMembers(teams, total = 12) {
           <div class="m-name">${t.teamName}</div>
           <div class="m-mgr">${t.displayName}</div>
         </div>
-        ${t.ownerId ? `<span class="member-badge">Unido</span>` : ''}
+        <span class="member-badge">Confirmado</span>
       </div>`;
   }).join('');
 
@@ -30,13 +35,13 @@ function renderMembers(teams, total = 12) {
   <div class="card">
     <div class="section-head">
       <div class="section-title">👥 Participantes Confirmados</div>
-      <span class="section-badge">${teams.length}/${total} inscritos</span>
+      <span class="section-badge">${joinedCount}/${total} inscritos</span>
     </div>
     <div class="members-grid">${cards}</div>
-    ${teams.length < total ? `
+    ${joinedCount < total ? `
     <div style="margin-top:1.1rem;padding:.85rem;background:rgba(245,158,11,.08);border:1px dashed var(--c-border-gold);border-radius:var(--r-md);text-align:center;">
       <p style="font-size:.85rem;color:var(--c-muted)">
-        🔗 <strong style="color:var(--gold-lt)">Invita al grupo del gym:</strong>
+        🔗 <strong style="color:var(--gold-lt)">Invita a los que faltan del gym:</strong>
         <a href="https://sleeper.com/i/QBMbleqAAnMmJ" target="_blank" rel="noopener"
            style="color:var(--gold-lt);font-weight:700;text-decoration:underline;margin-left:.3rem">
           sleeper.com/i/QBMbleqAAnMmJ
@@ -73,7 +78,7 @@ function awardCard(variant, icon, title, sub, team, metricVal, metricLbl, extra 
   </div>`;
 }
 
-export function renderStandingsTab(teams, league, isPreDraft) {
+export function renderStandingsTab(teams, league, isPreDraft, users = []) {
   const totalSpots = league?.total_rosters || 12;
   const playoffCut = league?.settings?.playoff_teams || 6;
   const hasScores  = teams.some(t => t.fpts > 0);
@@ -99,7 +104,7 @@ export function renderStandingsTab(teams, league, isPreDraft) {
     awardsHtml = `
     <div class="card text-center" style="padding:1.5rem">
       <div style="font-size:2rem;margin-bottom:.5rem">⏳</div>
-      <p style="color:var(--c-muted)">Los premios semanales apareceran cuando arranquen los partidos de la Semana 1.</p>
+      <p style="color:var(--c-muted)">Los premios semanales aparecerán cuando arranquen los partidos de la Semana 1.</p>
     </div>`;
   }
 
@@ -127,7 +132,7 @@ export function renderStandingsTab(teams, league, isPreDraft) {
   if (isPreDraft) {
     return `
     ${prizeBanner}
-    ${renderMembers(teams, totalSpots)}`;
+    ${renderMembers(teams, users, totalSpots)}`;
   }
 
   /* ── Standings table ─────────────────────────────────────── */
