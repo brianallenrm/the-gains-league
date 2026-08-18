@@ -120,9 +120,15 @@ class GainsLeagueApp {
         <img src="/logo.jpg" class="footer-logo" alt="Logo">
         <div class="footer-text">© 2026 The Gains League 🏋️‍♂️🏈 — Conectado en tiempo real a Sleeper API</div>
         <div class="footer-links">
-          <a href="https://sleeper.com/leagues/1393074729073520640/predraft" target="_blank" rel="noopener">Ver en Sleeper</a>
-          <a href="https://sleeper.com/i/QBMbleqAAnMmJ" target="_blank" rel="noopener">Invitar al Draft</a>
-          <a href="https://docs.sleeper.com" target="_blank" rel="noopener">API Docs</a>
+          <a href="https://sleeper.com/download" target="_blank" rel="noopener" class="footer-link">
+            📲 Descargar Sleeper App
+          </a>
+          <a href="https://sleeper.com/i/QBMbleqAAnMmJ" target="_blank" rel="noopener" class="footer-link footer-link-cta">
+            🏈 Unirse a la Liga
+          </a>
+          <a href="https://sleeper.com/leagues/1393074729073520640/predraft" target="_blank" rel="noopener" class="footer-link">
+            💻 Entrar a la Liga (Web)
+          </a>
         </div>
       </div>
     </footer>`;
