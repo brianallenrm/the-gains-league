@@ -130,7 +130,49 @@ export function renderStandingsTab(teams, league, isPreDraft, users = []) {
 
   /* ── Members (pre-draft) ─────────────────────────────────── */
   if (isPreDraft) {
+    const paymentPrompt = `
+    <div class="card payment-summary-card mb-1" style="background: linear-gradient(135deg, rgba(56,189,248,.1) 0%, rgba(16,185,129,.08) 100%); border: 1px solid var(--c-border-blue); padding: 1.15rem 1.25rem;">
+      <div style="display:flex; flex-direction:column; gap:.75rem;">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+          <div>
+            <div style="font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--blue); margin-bottom:.2rem;">
+              💳 Cuota de Inscripción • $600 MXN
+            </div>
+            <div style="font-family:var(--font-head); font-size:1.15rem; color:#fff; text-transform:uppercase; letter-spacing:.02em;">
+              Depósito o Transferencia (Abonos permitidos)
+            </div>
+            <div style="font-size:.82rem; color:var(--c-muted); margin-top:.2rem;">
+              No tiene que ser en un solo pago de $600; puedes ir dando abonos. Al pagar, envía tu comprobante por WhatsApp a Brian.
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:.75rem; margin-top:.35rem;">
+          <div style="background:var(--c-surface2); border:1px solid var(--c-border); border-radius:var(--r-sm); padding:.75rem .9rem; display:flex; align-items:center; justify-content:space-between; gap:.5rem;">
+            <div>
+              <div style="font-size:.65rem; color:var(--blue); font-weight:700; text-transform:uppercase;">CLABE Interbancaria</div>
+              <div style="font-family:var(--font-mono, monospace); font-size:.95rem; font-weight:700; color:#fff;">722969010537245844</div>
+            </div>
+            <button class="btn-copy-inline" data-copy="722969010537245844" style="background:rgba(56,189,248,.12); border:1px solid var(--c-border-blue); color:var(--blue); font-size:.75rem; font-weight:700; padding:.35rem .65rem; border-radius:var(--r-sm); cursor:pointer; white-space:nowrap;">
+              Copiar
+            </button>
+          </div>
+
+          <div style="background:var(--c-surface2); border:1px solid var(--c-border); border-radius:var(--r-sm); padding:.75rem .9rem; display:flex; align-items:center; justify-content:space-between; gap:.5rem;">
+            <div>
+              <div style="font-size:.65rem; color:var(--blue); font-weight:700; text-transform:uppercase;">Tarjeta Debit Mastercard®</div>
+              <div style="font-family:var(--font-mono, monospace); font-size:.95rem; font-weight:700; color:#fff;">5428 7801 8665 9777</div>
+            </div>
+            <button class="btn-copy-inline" data-copy="5428780186659777" style="background:rgba(56,189,248,.12); border:1px solid var(--c-border-blue); color:var(--blue); font-size:.75rem; font-weight:700; padding:.35rem .65rem; border-radius:var(--r-sm); cursor:pointer; white-space:nowrap;">
+              Copiar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+
     return `
+    ${paymentPrompt}
     ${prizeBanner}
     ${renderMembers(teams, users, totalSpots)}`;
   }

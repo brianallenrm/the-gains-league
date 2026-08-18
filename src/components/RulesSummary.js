@@ -3,6 +3,53 @@
  */
 
 export const RULES_DETAILS = {
+  payment: {
+    title: "💳 Datos de Pago & Depósito ($600 MXN)",
+    subtitle: "Información para cubrir tu cuota de inscripción a la liga",
+    badge: "Cuota Oficial",
+    content: `
+      <div class="modal-intro-box">
+        <p><strong>Cuota total por persona:</strong> <strong>$600 MXN</strong> (12 participantes = $7,200 MXN en la bolsa). Recuerda que <strong>no tiene que ser en un solo pago de $600</strong>; puedes ir abonando conforme te acomodes para ir cubriendo la cuota antes del Draft.</p>
+      </div>
+
+      <div class="modal-section-block">
+        <h4>🏦 Cuentas para Transferencia / Depósito</h4>
+        
+        <div class="payment-card-box">
+          <div class="payment-row">
+            <div class="payment-info-col">
+              <span class="payment-label">CLABE Interbancaria (Cualquier banco)</span>
+              <span class="payment-value" id="clabe-val">722969010537245844</span>
+            </div>
+            <button class="btn-copy-pay" data-copy="722969010537245844" title="Copiar CLABE">
+              📋 Copiar
+            </button>
+          </div>
+        </div>
+
+        <div class="payment-card-box">
+          <div class="payment-row">
+            <div class="payment-info-col">
+              <span class="payment-label">Tarjeta Debit Mastercard®</span>
+              <span class="payment-value" id="card-val">5428 7801 8665 9777</span>
+            </div>
+            <button class="btn-copy-pay" data-copy="5428780186659777" title="Copiar Tarjeta">
+              📋 Copiar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-section-block">
+        <h4>📲 Envío de Comprobante</h4>
+        <ul class="modal-bullet-list">
+          <li>Cada que hagas un depósito o transferencia (completo o abono), <strong>envía tu comprobante de pago por WhatsApp a Brian</strong> para registrarlo en la lista de la liga.</li>
+          <li>En el concepto de tu transferencia puedes poner tu <strong>Nombre</strong> o <strong>Nombre de tu Equipo</strong>.</li>
+        </ul>
+      </div>
+    `
+  },
+
   beginner: {
     title: "🚀 Guía Rápida para Principiantes",
     subtitle: "Aprende cómo jugar Fantasy Football en 4 sencillos pasos",
@@ -269,7 +316,21 @@ export const RULES_DETAILS = {
 
 export function renderRules() {
   return `
-  <!-- Botón Destacado: Guía Rápida para Principiantes -->
+  <!-- Banner Destacado 1: Datos para el Depósito de $600 MXN -->
+  <div class="payment-banner-card clickable-rule" data-modal="payment">
+    <div class="payment-banner-left">
+      <div class="payment-tag">💳 Cuota de Inscripción • $600 MXN</div>
+      <h3 class="payment-title">Datos para Transferencia / Depósito</h3>
+      <p class="payment-desc">CLABE y Tarjeta disponibles. Puedes cubrir tu cuota en abonos conforme te acomodes. ¡Toca aquí para ver los datos y copiar cuentas!</p>
+    </div>
+    <div class="payment-btn-action">
+      <button class="btn-pay-glow">
+        Ver Cuentas 📋
+      </button>
+    </div>
+  </div>
+
+  <!-- Botón Destacado 2: Guía Rápida para Principiantes -->
   <div class="beginner-banner-card" id="btn-open-beginner">
     <div class="beginner-banner-left">
       <div class="beginner-tag">🚀 ¿Primera vez jugando Fantasy?</div>
@@ -295,6 +356,20 @@ export function renderRules() {
     </div>
 
     <div class="rules-grid">
+
+      <!-- Pagos y Depósitos -->
+      <div class="rule-box clickable-rule" data-modal="payment" style="border-color: rgba(56,189,248,.35);">
+        <div class="rule-box-header-row">
+          <div class="rule-box-title" style="color:var(--blue);">💳 Depósitos &amp; Cuenta</div>
+          <span class="rule-hint-badge" style="color:var(--blue); background:rgba(56,189,248,.12);">Ver CLABE ↗</span>
+        </div>
+        <ul class="rule-list">
+          <li><strong>$600 MXN</strong> por persona</li>
+          <li>Se puede pagar en <strong>abonos</strong></li>
+          <li>CLABE &amp; Tarjeta disponibles</li>
+          <li>Mandar comprobante a <strong>Brian</strong></li>
+        </ul>
+      </div>
 
       <!-- Alineación -->
       <div class="rule-box clickable-rule" data-modal="roster">
@@ -368,18 +443,6 @@ export function renderRules() {
         </ul>
       </div>
 
-      <!-- Reconocimientos Extra -->
-      <div class="rule-box blue">
-        <div class="rule-box-title">⭐ Premios de Honor</div>
-        <ul class="rule-list">
-          <li>🥇 <strong>Campeón:</strong> Trofeo itinerante</li>
-          <li>📈 <strong>Mejor Récord</strong> de Temporada</li>
-          <li>🔥 <strong>Robo del Draft</strong> del año</li>
-          <li>🤝 <strong>Trade del Año</strong></li>
-          <li>💸 <strong>Mejor Reclamo de Waiver</strong></li>
-        </ul>
-      </div>
-
     </div>
   </div>
 
@@ -419,6 +482,27 @@ export function attachRulesModalEvents(container) {
     modalSubtitle.textContent = data.subtitle;
     modalBadge.textContent = data.badge;
     modalBody.innerHTML = data.content;
+
+    // Attach copy button listeners inside modal
+    modalBody.querySelectorAll('.btn-copy-pay').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const textToCopy = btn.getAttribute('data-copy');
+        if (textToCopy) {
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            const originalText = btn.textContent;
+            btn.textContent = '✅ Copiado';
+            btn.style.background = '#10b981';
+            btn.style.color = '#fff';
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.style.background = '';
+              btn.style.color = '';
+            }, 2000);
+          });
+        }
+      });
+    });
 
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';

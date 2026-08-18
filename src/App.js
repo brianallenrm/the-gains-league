@@ -241,6 +241,27 @@ class GainsLeagueApp {
       });
     }
 
+    // Inline copy buttons (e.g. on Standings tab)
+    this.root.querySelectorAll('.btn-copy-inline').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const textToCopy = btn.getAttribute('data-copy');
+        if (textToCopy) {
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            const originalText = btn.textContent;
+            btn.textContent = '✅ Copiado';
+            btn.style.background = '#10b981';
+            btn.style.color = '#fff';
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.style.background = '';
+              btn.style.color = '';
+            }, 2000);
+          });
+        }
+      });
+    });
+
     // Rules modal events
     if (this.tab === 'rules') {
       attachRulesModalEvents(this.root);
