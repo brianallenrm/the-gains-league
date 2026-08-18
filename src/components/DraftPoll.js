@@ -11,15 +11,15 @@ const DEFAULT_OPTIONS = [
   {
     id: "opt1",
     title: "🗓️ Sábado 29 de Agosto — 8:00 PM",
-    desc: "🥩 Plan carne asada / chelas / convivencia presencial o en línea",
-    votes: 1,
-    percentage: 100,
-    voterNames: ["Brian (Comish)"]
+    desc: "🔥 Fin de semana previo al cierre de pretemporada NFL",
+    votes: 0,
+    percentage: 0,
+    voterNames: []
   },
   {
     id: "opt2",
     title: "🗓️ Domingo 30 de Agosto — 7:00 PM",
-    desc: "🔒 Tranqui de domingo por la tarde (Cero fallas de asistencia)",
+    desc: "🔒 Domingo por la tarde/noche (Cero fallas de horario)",
     votes: 0,
     percentage: 0,
     voterNames: []

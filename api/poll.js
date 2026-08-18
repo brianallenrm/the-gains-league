@@ -10,19 +10,19 @@ let pollData = {
     {
       id: "opt1",
       title: "Sábado 29 de Agosto — 8:00 PM",
-      desc: "🥩 Plan carne asada / chelas / convivencia",
+      desc: "🔥 Fin de semana previo al cierre de pretemporada NFL",
       date: "2026-08-29T20:00:00"
     },
     {
       id: "opt2",
       title: "Domingo 30 de Agosto — 7:00 PM",
-      desc: "🔒 Tranqui de domingo por la tarde (Cero fallas)",
+      desc: "🔒 Domingo por la tarde/noche (Cero fallas de horario)",
       date: "2026-08-30T19:00:00"
     },
     {
       id: "opt3",
       title: "Viernes 4 de Septiembre — 8:00 PM",
-      desc: "🏈 Último fin de semana antes del Kickoff NFL",
+      desc: "🏈 Último fin de semana antes del Kickoff oficial NFL",
       date: "2026-09-04T20:00:00"
     }
   ],
