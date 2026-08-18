@@ -96,7 +96,7 @@ export function renderStandingsTab(teams, league, isPreDraft, users = []) {
           top, top?.fpts?.toFixed(2), 'Puntos')}
       ${awardCard('red','🤡','Se Saltó Día de Pierna','Menor anotador de la jornada',
           bottom, bottom?.fpts?.toFixed(2), 'Puntos',
-          `<div class="punishment-banner">🏋️‍♂️ Castigo: 50 burpees grabados para el grupo (antes del jueves)</div>`)}
+          `<div class="punishment-banner">🏋️‍♂️ Castigo: 50 burpees en video (antes del jueves) O invitar café/termo al ganador semanal ☕</div>`)}
       ${awardCard('blue','🎯','Gym Rat Coach','Mejor alineación seleccionada',
           top, '—', 'Pronto')}
     </div>`;
