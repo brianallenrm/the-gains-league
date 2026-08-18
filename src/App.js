@@ -86,6 +86,30 @@ class GainsLeagueApp {
     }
   }
 
+  /* ── Switch Tab Smoothly Without Scroll Jump ────────────── */
+  switchTab(newTab) {
+    if (this.tab === newTab) return;
+    this.tab = newTab;
+
+    // Actualizar botones de tabs
+    this.root.querySelectorAll('.tab').forEach(btn => {
+      if (btn.dataset.tab === newTab) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Actualizar contenido del contenedor principal
+    const mainContainer = document.getElementById('main-tab-content');
+    if (mainContainer) {
+      mainContainer.innerHTML = this.getTabContent();
+      if (this.tab === 'rules') {
+        attachRulesModalEvents(this.root);
+      }
+    }
+  }
+
   /* ── Main render ────────────────────────────────────────── */
   render() {
     if (this.loading) return;
@@ -124,7 +148,7 @@ class GainsLeagueApp {
       </div>
     </div>
 
-    <main class="container" style="padding-bottom:3rem">
+    <main id="main-tab-content" class="container" style="padding-bottom:3rem">
       ${this.getTabContent()}
     </main>
 
@@ -153,12 +177,10 @@ class GainsLeagueApp {
     // Refresh button
     document.getElementById('btn-refresh')?.addEventListener('click', () => this.refresh());
 
-    // Tabs switching
+    // Tabs switching (In-place swap without page jump)
     this.root.querySelectorAll('.tab').forEach(btn => {
       btn.addEventListener('click', () => {
-        this.tab = btn.dataset.tab;
-        this.render();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        this.switchTab(btn.dataset.tab);
       });
     });
 
@@ -201,7 +223,16 @@ class GainsLeagueApp {
         const res = await submitVote(name, checkedRadio.value);
         if (res.success) {
           this.pollData = res.data;
-          this.render();
+          const pollContainer = this.root.querySelector('.draft-poll-section');
+          if (pollContainer) {
+            // Re-render only poll without touching the rest of page
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = renderDraftPoll(this.pollData);
+            pollContainer.replaceWith(tempDiv.firstElementChild);
+            this.attachEvents();
+          } else {
+            this.render();
+          }
         } else {
           btnVote.disabled = false;
           btnVote.textContent = '🔥 Emitir mi Voto';
