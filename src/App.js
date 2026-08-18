@@ -6,6 +6,7 @@ import { renderStandingsTab } from './components/Standings.js';
 import { renderMatchups }    from './components/Matchups.js';
 import { renderMarket }      from './components/TrendingMarket.js';
 import { renderRules, attachRulesModalEvents } from './components/RulesSummary.js';
+import { renderPaymentSection } from './components/PaymentInfo.js';
 
 const TABS = [
   { id: 'home',     icon: '📊', label: 'Tabla & Premios' },
@@ -141,6 +142,8 @@ class GainsLeagueApp {
     ${renderHero(d.league, d.teams, d.users)}
 
     ${d.isPreDraft ? renderDraftPoll(this.pollData) : ''}
+
+    ${d.isPreDraft ? renderPaymentSection() : ''}
 
     <div class="tabs-bar">
       <div class="container">

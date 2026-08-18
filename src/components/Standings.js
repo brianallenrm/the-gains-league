@@ -142,8 +142,12 @@ export function renderStandingsTab(teams, league, isPreDraft, users = []) {
               Depósito o Transferencia (Abonos permitidos)
             </div>
             <div style="font-size:.82rem; color:var(--c-muted); margin-top:.2rem;">
-              No tiene que ser en un solo pago de $600; puedes ir dando abonos. Al pagar, envía tu comprobante por WhatsApp a Brian.
+              No tiene que ser en un solo pago de $600; puedes ir dando abonos conforme te acomodes. Al pagar, envía tu comprobante por WhatsApp a Brian.
             </div>
+          </div>
+          <div style="background:rgba(6,11,20,.6); border:1px solid var(--c-border); border-radius:var(--r-sm); padding:.45rem .85rem; font-size:.78rem;">
+            <div><strong>Titular:</strong> Brian Allen Rivera</div>
+            <div><strong>Banco:</strong> <span style="color:var(--blue); font-weight:700;">Mercado Pago</span></div>
           </div>
         </div>
 

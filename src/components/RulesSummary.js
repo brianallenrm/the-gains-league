@@ -9,16 +9,21 @@ export const RULES_DETAILS = {
     badge: "Cuota Oficial",
     content: `
       <div class="modal-intro-box">
-        <p><strong>Cuota total por persona:</strong> <strong>$600 MXN</strong> (12 participantes = $7,200 MXN en la bolsa). Recuerda que <strong>no tiene que ser en un solo pago de $600</strong>; puedes ir abonando conforme te acomodes para ir cubriendo la cuota antes del Draft.</p>
+        <p><strong>Cuota total por persona:</strong> <strong>$600 MXN</strong> (12 participantes = $7,200 MXN en la bolsa). Recuerda que <strong>no tiene que ser en un solo pago de $600</strong>; puedes ir abonando conforme te acomodes.</p>
       </div>
 
       <div class="modal-section-block">
         <h4>🏦 Cuentas para Transferencia / Depósito</h4>
         
+        <div style="background:rgba(56,189,248,.08); border:1px solid var(--c-border-blue); border-radius:var(--r-md); padding:.85rem 1rem; margin-bottom:.85rem;">
+          <div style="font-size:.82rem; margin-bottom:.3rem;"><strong>Titular:</strong> Brian Allen Rivera</div>
+          <div style="font-size:.82rem;"><strong>Banco:</strong> <span style="color:var(--blue); font-weight:700;">Mercado Pago</span></div>
+        </div>
+
         <div class="payment-card-box">
           <div class="payment-row">
             <div class="payment-info-col">
-              <span class="payment-label">CLABE Interbancaria (Cualquier banco)</span>
+              <span class="payment-label">CLABE Interbancaria (Transferencias SPEI)</span>
               <span class="payment-value" id="clabe-val">722969010537245844</span>
             </div>
             <button class="btn-copy-pay" data-copy="722969010537245844" title="Copiar CLABE">
@@ -30,7 +35,7 @@ export const RULES_DETAILS = {
         <div class="payment-card-box">
           <div class="payment-row">
             <div class="payment-info-col">
-              <span class="payment-label">Tarjeta Debit Mastercard®</span>
+              <span class="payment-label">Tarjeta Debit Mastercard® (OXXO / 7-Eleven / App)</span>
               <span class="payment-value" id="card-val">5428 7801 8665 9777</span>
             </div>
             <button class="btn-copy-pay" data-copy="5428780186659777" title="Copiar Tarjeta">
