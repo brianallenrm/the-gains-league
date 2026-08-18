@@ -1,10 +1,11 @@
 /**
- * Vercel Serverless Function: Draft Date Poll (Persistent Cloud Sync)
- * GET /api/poll - Retorna votos actuales
- * POST /api/poll - Registra o actualiza el voto de un usuario con persistencia en la nube
+ * Vercel Serverless Function: Draft Date Poll (100% Persistent Cloud Storage)
+ * GET /api/poll - Retorna votos actuales desde la base de datos en la nube
+ * POST /api/poll - Registra o actualiza el voto de un usuario en la nube permanente
  */
 
-const CLOUD_KV_URL = "https://kvdb.io/4y9q9wN8CqU7vT8YvL6M1w/gains_poll_2026_v1";
+const CLOUD_DB_ID = "ff8081819ff5b11001a0127b78f13cda";
+const CLOUD_DB_URL = `https://api.restful-api.dev/objects/${CLOUD_DB_ID}`;
 
 const DEFAULT_OPTIONS = [
   {
@@ -27,36 +28,39 @@ const DEFAULT_OPTIONS = [
   }
 ];
 
-// Memoria local del worker
-let localCache = {
-  voters: [] // { name: "Brian", optionId: "opt1", timestamp: 123456789 }
-};
+// Fallback en memoria si la nube tarda
+let memoryCache = [
+  { name: "Brian (Comish)", optionId: "opt1", timestamp: Date.now() }
+];
 
-async function fetchFromCloud() {
+async function fetchCloudVoters() {
   try {
-    const res = await fetch(CLOUD_KV_URL);
+    const res = await fetch(CLOUD_DB_URL);
     if (res.ok) {
-      const data = await res.json();
-      if (data && Array.isArray(data.voters)) {
-        localCache = data;
-        return data;
+      const json = await res.json();
+      if (json && json.data && Array.isArray(json.data.voters)) {
+        memoryCache = json.data.voters;
+        return json.data.voters;
       }
     }
   } catch (err) {
-    console.warn("Error leyendo de Cloud KV", err);
+    console.warn("Error leyendo de Cloud DB", err);
   }
-  return localCache;
+  return memoryCache;
 }
 
-async function saveToCloud(data) {
+async function saveCloudVoters(voters) {
   try {
-    await fetch(CLOUD_KV_URL, {
-      method: "POST",
+    await fetch(CLOUD_DB_URL, {
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
+      body: JSON.stringify({
+        name: "the_gains_league_poll_2026",
+        data: { voters }
+      })
     });
   } catch (err) {
-    console.warn("Error guardando en Cloud KV", err);
+    console.warn("Error guardando en Cloud DB", err);
   }
 }
 
@@ -75,9 +79,6 @@ export default async function handler(req, res) {
     return;
   }
 
-  // Leer estado actual de la nube
-  const currentStore = await fetchFromCloud();
-
   if (req.method === 'POST') {
     try {
       const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
@@ -92,9 +93,9 @@ export default async function handler(req, res) {
       }
 
       const cleanName = name.trim().slice(0, 30);
-      const voters = currentStore.voters || [];
+      const voters = await fetchCloudVoters();
 
-      // Si ya existe el votante, actualizar su voto; si no, agregarlo
+      // Actualizar o agregar voto
       const existingIndex = voters.findIndex(
         v => v.name.toLowerCase() === cleanName.toLowerCase()
       );
@@ -110,11 +111,10 @@ export default async function handler(req, res) {
         });
       }
 
-      currentStore.voters = voters;
-      localCache = currentStore;
+      memoryCache = voters;
 
-      // Guardar en la nube en paralelo
-      saveToCloud(currentStore);
+      // Guardar en la nube persistente
+      await saveCloudVoters(voters);
 
       return res.status(200).json(formatResponse(voters));
     } catch (err) {
@@ -123,7 +123,8 @@ export default async function handler(req, res) {
   }
 
   // GET
-  return res.status(200).json(formatResponse(currentStore.voters || []));
+  const currentVoters = await fetchCloudVoters();
+  return res.status(200).json(formatResponse(currentVoters));
 }
 
 function formatResponse(voters = []) {

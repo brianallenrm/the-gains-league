@@ -1,10 +1,11 @@
 /**
- * Draft Date Poll Component (Real-Time Cloud Persistence)
+ * Draft Date Poll Component (100% Persistent Cloud Sync)
  */
 
 const LOCAL_STORAGE_KEY = "gains_league_poll_user";
 const LOCAL_POLL_DATA_KEY = "gains_league_poll_cache";
-const CLOUD_FALLBACK_URL = "https://kvdb.io/4y9q9wN8CqU7vT8YvL6M1w/gains_poll_2026_v1";
+const CLOUD_DB_ID = "ff8081819ff5b11001a0127b78f13cda";
+const CLOUD_DB_URL = `https://api.restful-api.dev/objects/${CLOUD_DB_ID}`;
 
 const DEFAULT_OPTIONS = [
   {
@@ -55,25 +56,27 @@ export async function fetchPollData() {
     const res = await fetch("/api/poll");
     if (res.ok) {
       const data = await res.json();
-      localStorage.setItem(LOCAL_POLL_DATA_KEY, JSON.stringify(data));
-      return data;
+      if (data && Array.isArray(data.options)) {
+        localStorage.setItem(LOCAL_POLL_DATA_KEY, JSON.stringify(data));
+        return data;
+      }
     }
   } catch (err) {}
 
-  // 2. Intentar fallback directo a Cloud KV
+  // 2. Fallback directo a Cloud DB
   try {
-    const resCloud = await fetch(CLOUD_FALLBACK_URL);
+    const resCloud = await fetch(CLOUD_DB_URL);
     if (resCloud.ok) {
       const cloudJson = await resCloud.json();
-      if (cloudJson && Array.isArray(cloudJson.voters)) {
-        const formatted = formatVotersData(cloudJson.voters);
+      if (cloudJson && cloudJson.data && Array.isArray(cloudJson.data.voters)) {
+        const formatted = formatVotersData(cloudJson.data.voters);
         localStorage.setItem(LOCAL_POLL_DATA_KEY, JSON.stringify(formatted));
         return formatted;
       }
     }
   } catch (err) {}
 
-  // 3. Fallback a caché de localStorage
+  // 3. Fallback a caché local
   const cached = localStorage.getItem(LOCAL_POLL_DATA_KEY);
   if (cached) {
     try {
@@ -96,38 +99,47 @@ export async function submitVote(name, optionId) {
       body: JSON.stringify({ name: cleanName, optionId })
     });
     if (res.ok) {
-      updatedData = await res.json();
+      const json = await res.json();
+      if (json && Array.isArray(json.options)) {
+        updatedData = json;
+      }
     }
   } catch (err) {}
 
-  // 2. Si falló, intentar guardar directo en Cloud KV
-  if (!updatedData) {
-    try {
-      let currentCloud = { voters: [] };
-      const getRes = await fetch(CLOUD_FALLBACK_URL);
-      if (getRes.ok) {
-        currentCloud = await getRes.json();
-      }
-      const voters = currentCloud.voters || [];
-      const idx = voters.findIndex(v => v.name.toLowerCase() === cleanName.toLowerCase());
-      if (idx >= 0) {
-        voters[idx].optionId = optionId;
-        voters[idx].timestamp = Date.now();
-      } else {
-        voters.push({ name: cleanName, optionId, timestamp: Date.now() });
-      }
-      currentCloud.voters = voters;
+  // 2. Guardar directo en Cloud DB
+  try {
+    let currentVoters = [];
+    const getRes = await fetch(CLOUD_DB_URL);
+    if (getRes.ok) {
+      const currentJson = await getRes.json();
+      currentVoters = currentJson?.data?.voters || [];
+    }
 
-      await fetch(CLOUD_FALLBACK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(currentCloud)
-      });
-      updatedData = formatVotersData(voters);
-    } catch (err) {}
+    const idx = currentVoters.findIndex(v => v.name.toLowerCase() === cleanName.toLowerCase());
+    if (idx >= 0) {
+      currentVoters[idx].optionId = optionId;
+      currentVoters[idx].timestamp = Date.now();
+    } else {
+      currentVoters.push({ name: cleanName, optionId, timestamp: Date.now() });
+    }
+
+    await fetch(CLOUD_DB_URL, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "the_gains_league_poll_2026",
+        data: { voters: currentVoters }
+      })
+    });
+
+    if (!updatedData) {
+      updatedData = formatVotersData(currentVoters);
+    }
+  } catch (err) {
+    console.warn("Error en respaldo directo", err);
   }
 
-  // 3. Fallback local si no hay conexión
+  // 3. Fallback local si todo falla
   if (!updatedData) {
     const current = JSON.parse(localStorage.getItem(LOCAL_POLL_DATA_KEY) || '{"voters":[]}');
     const voters = current.voters || [];
@@ -232,7 +244,7 @@ export function renderDraftPoll(pollData) {
               </button>
             </div>
             <div class="poll-hint">
-              Total de votos registrados: <strong>${totalVotes}</strong> • Los resultados se actualizan para todos en tiempo real.
+              Total de votos registrados: <strong>${totalVotes}</strong> • Los resultados se guardan en la nube y se actualizan para todos.
             </div>
           </div>
           `}
