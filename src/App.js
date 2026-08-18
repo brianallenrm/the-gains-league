@@ -1,6 +1,7 @@
 import { loadLeagueData } from './api/sleeper.js';
 import { renderHeader }      from './components/Header.js';
 import { renderHero }        from './components/Hero.js';
+import { renderDraftPoll, fetchPollData, submitVote } from './components/DraftPoll.js';
 import { renderStandingsTab } from './components/Standings.js';
 import { renderMatchups }    from './components/Matchups.js';
 import { renderMarket }      from './components/TrendingMarket.js';
@@ -15,19 +16,25 @@ const TABS = [
 
 class GainsLeagueApp {
   constructor(root) {
-    this.root    = root;
-    this.tab     = 'home';
-    this.data    = null;
-    this.loading = true;
-    this.error   = null;
+    this.root     = root;
+    this.tab      = 'home';
+    this.data     = null;
+    this.pollData = null;
+    this.loading  = true;
+    this.error    = null;
   }
 
   /* ── Boot ───────────────────────────────────────────────── */
   async init() {
     this.showLoading();
     try {
-      this.data    = await loadLeagueData();
-      this.loading = false;
+      const [leagueData, pollData] = await Promise.all([
+        loadLeagueData(),
+        fetchPollData()
+      ]);
+      this.data     = leagueData;
+      this.pollData = pollData;
+      this.loading  = false;
     } catch (err) {
       this.error   = err.message;
       this.loading = false;
@@ -40,7 +47,12 @@ class GainsLeagueApp {
     if (btn) { btn.disabled = true; btn.textContent = '⟳ ...'; }
     this.error = null;
     try {
-      this.data = await loadLeagueData();
+      const [leagueData, pollData] = await Promise.all([
+        loadLeagueData(),
+        fetchPollData()
+      ]);
+      this.data     = leagueData;
+      this.pollData = pollData;
     } catch (err) {
       this.error = err.message;
     }
@@ -104,6 +116,8 @@ class GainsLeagueApp {
 
     ${renderHero(d.league, d.teams, d.users)}
 
+    ${d.isPreDraft ? renderDraftPoll(this.pollData) : ''}
+
     <div class="tabs-bar">
       <div class="container">
         <div class="tabs-inner">${tabsHtml}</div>
@@ -132,9 +146,14 @@ class GainsLeagueApp {
       </div>
     </footer>`;
 
-    /* ── Event Listeners ── */
+    this.attachEvents();
+  }
+
+  attachEvents() {
+    // Refresh button
     document.getElementById('btn-refresh')?.addEventListener('click', () => this.refresh());
 
+    // Tabs switching
     this.root.querySelectorAll('.tab').forEach(btn => {
       btn.addEventListener('click', () => {
         this.tab = btn.dataset.tab;
@@ -142,6 +161,54 @@ class GainsLeagueApp {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
+
+    // Poll option card selection
+    this.root.querySelectorAll('.poll-option-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const radio = card.querySelector('input[type="radio"]');
+        if (radio && e.target !== radio) {
+          radio.checked = true;
+        }
+        this.root.querySelectorAll('.poll-option-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+      });
+    });
+
+    // Submit vote button
+    const btnVote = document.getElementById('btn-submit-vote');
+    const nameInput = document.getElementById('poll-name-input');
+
+    if (btnVote && nameInput) {
+      btnVote.addEventListener('click', async () => {
+        const name = nameInput.value.trim();
+        const checkedRadio = this.root.querySelector('input[name="draft_option"]:checked');
+
+        if (!name) {
+          nameInput.focus();
+          nameInput.style.borderColor = '#ef4444';
+          setTimeout(() => { nameInput.style.borderColor = ''; }, 2000);
+          return;
+        }
+
+        if (!checkedRadio) {
+          alert('Por favor selecciona una fecha de la lista.');
+          return;
+        }
+
+        btnVote.disabled = true;
+        btnVote.textContent = 'Enviando...';
+
+        const res = await submitVote(name, checkedRadio.value);
+        if (res.success) {
+          this.pollData = res.data;
+          this.render();
+        } else {
+          btnVote.disabled = false;
+          btnVote.textContent = '🔥 Emitir mi Voto';
+          alert('Hubo un error al registrar tu voto. Intenta de nuevo.');
+        }
+      });
+    }
   }
 }
 
