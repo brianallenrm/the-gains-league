@@ -7,12 +7,14 @@ import { renderMatchups }    from './components/Matchups.js';
 import { renderMarket }      from './components/TrendingMarket.js';
 import { renderRules, attachRulesModalEvents } from './components/RulesSummary.js';
 import { renderPaymentSection } from './components/PaymentInfo.js';
+import { renderDraftRecapTab }  from './components/DraftRecap.js';
 
 const TABS = [
   { id: 'home',     icon: '📊', label: 'Tabla & Premios' },
-  { id: 'rules',    icon: '📜', label: 'Reglamento' },
+  { id: 'recap',    icon: '🏆', label: 'Draft Recap' },
   { id: 'matchups', icon: '⚔️', label: 'Enfrentamientos' },
   { id: 'market',   icon: '📈', label: 'Mercado' },
+  { id: 'rules',    icon: '📜', label: 'Reglamento' },
 ];
 
 class GainsLeagueApp {
@@ -76,6 +78,8 @@ class GainsLeagueApp {
     switch (this.tab) {
       case 'home':
         return renderStandingsTab(d.teams, d.league, d.isPreDraft, d.users);
+      case 'recap':
+        return renderDraftRecapTab(d.teams);
       case 'rules':
         return renderRules();
       case 'matchups':
