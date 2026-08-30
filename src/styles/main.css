@@ -2035,6 +2035,80 @@ tr.eliminated td { opacity: .7; }
 }
 
 /* ==========================================================
+   PROJECTED STANDINGS & DRAFT DISCLAIMER
+   ========================================================== */
+.draft-disclaimer-box {
+  background: linear-gradient(135deg, rgba(245,158,11,.14) 0%, rgba(56,189,248,.08) 100%);
+  border: 1px solid rgba(245,158,11,.35);
+  border-radius: var(--r-md);
+  padding: .95rem 1.2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,.3);
+}
+.disclaimer-header {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .35rem;
+}
+.disclaimer-icon { font-size: 1.15rem; }
+.disclaimer-title {
+  font-family: var(--font-head);
+  font-size: .95rem;
+  color: var(--gold-lt);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+.disclaimer-text {
+  font-size: .84rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  margin: 0;
+}
+.disclaimer-text strong {
+  color: #fff;
+}
+.projected-standings-table .highlight-user-row td {
+  background: rgba(16,185,129,.08);
+}
+.projected-standings-table .highlight-user-row td:first-child {
+  border-left: 3px solid #10b981;
+}
+.projected-elim td {
+  opacity: .85;
+}
+.odds-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .2rem .55rem;
+  border-radius: var(--r-pill);
+  font-family: var(--font-head);
+  font-size: .88rem;
+  font-weight: 700;
+}
+.odds-badge.high {
+  background: rgba(16,185,129,.15);
+  color: #34d399;
+  border: 1px solid rgba(16,185,129,.35);
+}
+.odds-badge.mid {
+  background: rgba(245,158,11,.15);
+  color: var(--gold-lt);
+  border: 1px solid rgba(245,158,11,.35);
+}
+.odds-badge.low {
+  background: rgba(239,68,68,.12);
+  color: #f87171;
+  border: 1px solid rgba(239,68,68,.3);
+}
+.champ-odds-val {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold-lt);
+}
+
+/* ==========================================================
    MISC UTILITIES
    ========================================================== */
 .text-gold   { color: var(--gold-lt); }

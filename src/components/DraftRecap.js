@@ -597,6 +597,21 @@ export const DRAFT_AWARDS = [
   }
 ];
 
+export const PROJECTED_STANDINGS_DATA = [
+  { rank: 1, rosterId: 1, name: 'brianallenrm', record: '10-4', playoffOdds: '98%', champOdds: '35%', isUser: true },
+  { rank: 2, rosterId: 9, name: 'SanzFC', record: '9-5', playoffOdds: '90%', champOdds: '19%' },
+  { rank: 3, rosterId: 12, name: 'DaniAlva08', record: '8-6', playoffOdds: '83%', champOdds: '14%' },
+  { rank: 4, rosterId: 5, name: 'versace4444', record: '8-6', playoffOdds: '81%', champOdds: '15%' },
+  { rank: 5, rosterId: 8, name: 'DonaldTrumpGoat', record: '7-7', playoffOdds: '57%', champOdds: '5%' },
+  { rank: 6, rosterId: 2, name: 'Carlosso', record: '7-7', playoffOdds: '56%', champOdds: '4%' },
+  { rank: 7, rosterId: 11, name: 'Emi69Hb', record: '7-7', playoffOdds: '54%', champOdds: '3%' },
+  { rank: 8, rosterId: 3, name: 'MALIK BUSINESS', record: '7-7', playoffOdds: '47%', champOdds: '3%' },
+  { rank: 9, rosterId: 6, name: 'carloverditraconis', record: '6-8', playoffOdds: '17%', champOdds: '<1%' },
+  { rank: 10, rosterId: 10, name: 'Cee Dee’z Nuts', record: '5-9', playoffOdds: '13%', champOdds: '<1%' },
+  { rank: 11, rosterId: 7, name: 'Danbengoa', record: '4-10', playoffOdds: '2%', champOdds: '<1%' },
+  { rank: 12, rosterId: 4, name: 'Osante', record: '3-11', playoffOdds: '1%', champOdds: '<1%' }
+];
+
 import { renderHonorBadgeHtml, getManagerHonor } from '../utils/managerBadges.js';
 
 /**
@@ -823,9 +838,34 @@ export function renderDraftRecapTab(teams = []) {
       '</div>' +
 
       '<button class="btn-view-strengths clickable-team-detail" data-roster-id="' + item.rosterId + '">' +
-        '📊 Ver Gráfica de Titulares & Posiciones' +
+        '📊 Ver Gráfica de Titulares &amp; Posiciones' +
       '</button>' +
     '</div>';
+  }).join('');
+
+  const projectedRowsHtml = PROJECTED_STANDINGS_DATA.map((row, idx) => {
+    const team = teamMap[row.rosterId] || { teamName: row.name, displayName: row.name, avatar: '/logo.jpg' };
+    const isPlayoffCut = idx === 5; // Top 6 qualify
+    const isElim = idx >= 6;
+    const isUser = row.isUser;
+    const pOddsNum = parseInt(row.playoffOdds, 10);
+    const oddsClass = pOddsNum >= 80 ? 'high' : (pOddsNum >= 40 ? 'mid' : 'low');
+
+    return '<tr class="' + (isPlayoffCut ? 'playoff-line ' : '') + (isUser ? 'highlight-user-row ' : '') + (isElim ? 'projected-elim ' : '') + '">' +
+      '<td><span class="rank-num ' + (idx < 3 ? 'r' + (idx + 1) : '') + '">' + row.rank + '</span></td>' +
+      '<td>' +
+        '<div class="team-cell clickable-team-detail" data-roster-id="' + row.rosterId + '" style="cursor:pointer">' +
+          '<img class="t-avatar" src="' + (team.avatar || '/logo.jpg') + '" alt="" onerror="this.src=\'/logo.jpg\'">' +
+          '<div>' +
+            '<div class="t-name">' + team.teamName + '</div>' +
+            '<div class="t-mgr">' + team.displayName + ' ' + renderHonorBadgeHtml(team.honor || getManagerHonor(team) || getManagerHonor({ rosterId: row.rosterId, displayName: team.displayName })) + '</div>' +
+          '</div>' +
+        '</div>' +
+      '</td>' +
+      '<td class="record text-center" style="font-family:var(--font-head); font-size:1.05rem;">' + row.record + '</td>' +
+      '<td class="text-center"><span class="odds-badge ' + oddsClass + '">' + row.playoffOdds + '</span></td>' +
+      '<td class="num text-center"><span class="champ-odds-val">' + row.champOdds + '</span></td>' +
+    '</tr>';
   }).join('');
 
   const awardsCardsHtml = DRAFT_AWARDS.map(aw => '<div class="award-card blue" style="padding:1.15rem;">' +
@@ -895,6 +935,47 @@ export function renderDraftRecapTab(teams = []) {
     '</div>' +
     '<div class="report-cards-grid">' +
       reportCardsHtml +
+    '</div>' +
+  '</div>' +
+
+  '<!-- Tabla Proyectada de Temporada (FantasyPros League Analyzer) -->' +
+  '<div class="card mb-1 mt-1">' +
+    '<div class="section-head">' +
+      '<div>' +
+        '<div class="section-title">🔮 Tabla Proyectada de Temporada (League Analyzer)</div>' +
+        '<p style="color:var(--c-muted); font-size:.82rem; margin-top:.2rem;">' +
+          'Pronóstico estadístico de FantasyPros para las 14 semanas de temporada regular y probabilidad de campeonato.' +
+        '</p>' +
+      '</div>' +
+      '<span class="section-badge">Top 6 a Playoffs</span>' +
+    '</div>' +
+
+    '<!-- Nota amistosa del Comisionado / Disclaimer -->' +
+    '<div class="draft-disclaimer-box mb-1">' +
+      '<div class="disclaimer-header">' +
+        '<span class="disclaimer-icon">📢</span>' +
+        '<span class="disclaimer-title">Nota del Comisionado • ¡Que no haya pánico ni hate! 😂</span>' +
+      '</div>' +
+      '<p class="disclaimer-text">' +
+        'Estos pronósticos y porcentajes de campeonato son calculados <strong>100% por los modelos matemáticos y algoritmos de FantasyPros</strong> basándose únicamente en cómo quedaron conformados los 12 rosters el día del Draft. Aparecer en <strong>#1 hoy NO te asegura el campeonato</strong>, ni estar en <strong>#12 significa estar fuera</strong>. Habrá actualizaciones en vivo semana a semana y todo se define en la cancha con los $100 FAAB de Waivers, lesiones, cambios y decisiones de alineación. ¡Que ruede el balón y a ganar cada domingo! 🏋️‍♂️🏈' +
+      '</p>' +
+    '</div>' +
+
+    '<div class="table-scroll">' +
+      '<table class="projected-standings-table">' +
+        '<thead>' +
+          '<tr>' +
+            '<th>RK</th>' +
+            '<th>Equipo & Mánager</th>' +
+            '<th class="text-center">Récord Proyectado</th>' +
+            '<th class="text-center">Prob. Playoffs</th>' +
+            '<th class="text-center">Prob. Campeón 🏆</th>' +
+          '</tr>' +
+        '</thead>' +
+        '<tbody>' +
+          projectedRowsHtml +
+        '</tbody>' +
+      '</table>' +
     '</div>' +
   '</div>' +
 
