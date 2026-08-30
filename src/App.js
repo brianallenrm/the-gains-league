@@ -1,28 +1,25 @@
 import { loadLeagueData } from './api/sleeper.js';
 import { renderHeader }      from './components/Header.js';
 import { renderHero }        from './components/Hero.js';
-import { renderDraftPoll, fetchPollData, submitVote } from './components/DraftPoll.js';
-import { renderStandingsTab } from './components/Standings.js';
 import { renderMatchups }    from './components/Matchups.js';
+import { renderDraftRecapTab, attachDraftRecapEvents }  from './components/DraftRecap.js';
 import { renderMarket }      from './components/TrendingMarket.js';
 import { renderRules, attachRulesModalEvents } from './components/RulesSummary.js';
-import { renderPaymentSection } from './components/PaymentInfo.js';
-import { renderDraftRecapTab, attachDraftRecapEvents }  from './components/DraftRecap.js';
+import { renderPrizesTab }   from './components/PrizesTab.js';
 
 const TABS = [
-  { id: 'home',     icon: '📊', label: 'Tabla & Premios' },
-  { id: 'recap',    icon: '🏆', label: 'Draft Recap' },
   { id: 'matchups', icon: '⚔️', label: 'Enfrentamientos' },
+  { id: 'recap',    icon: '🏆', label: 'Draft Recap' },
   { id: 'market',   icon: '📈', label: 'Mercado' },
   { id: 'rules',    icon: '📜', label: 'Reglamento' },
+  { id: 'prizes',   icon: '💰', label: 'Premios' },
 ];
 
 class GainsLeagueApp {
   constructor(root) {
     this.root     = root;
-    this.tab      = 'home';
+    this.tab      = 'matchups';
     this.data     = null;
-    this.pollData = null;
     this.loading  = true;
     this.error    = null;
   }
@@ -31,12 +28,8 @@ class GainsLeagueApp {
   async init() {
     this.showLoading();
     try {
-      const [leagueData, pollData] = await Promise.all([
-        loadLeagueData(),
-        fetchPollData()
-      ]);
+      const leagueData = await loadLeagueData();
       this.data     = leagueData;
-      this.pollData = pollData;
       this.loading  = false;
     } catch (err) {
       this.error   = err.message;
@@ -50,12 +43,8 @@ class GainsLeagueApp {
     if (btn) { btn.disabled = true; btn.textContent = '⟳ ...'; }
     this.error = null;
     try {
-      const [leagueData, pollData] = await Promise.all([
-        loadLeagueData(),
-        fetchPollData()
-      ]);
-      this.data     = leagueData;
-      this.pollData = pollData;
+      const leagueData = await loadLeagueData();
+      this.data = leagueData;
     } catch (err) {
       this.error = err.message;
     }
@@ -76,16 +65,16 @@ class GainsLeagueApp {
   getTabContent() {
     const d = this.data;
     switch (this.tab) {
-      case 'home':
-        return renderStandingsTab(d.teams, d.league, d.isPreDraft, d.users);
+      case 'matchups':
+        return renderMatchups(d.matchups, d.teams, d.currentWeek || 1, d.isPreDraft, d.league);
       case 'recap':
         return renderDraftRecapTab(d.teams);
-      case 'rules':
-        return renderRules();
-      case 'matchups':
-        return renderMatchups(d.matchups, d.teams, d.currentWeek, d.isPreDraft);
       case 'market':
         return renderMarket(d.trendingAdds, d.trendingDrops, d.transactions, d.teams);
+      case 'rules':
+        return renderRules();
+      case 'prizes':
+        return renderPrizesTab(d.teams, d.league, d.isPreDraft);
       default:
         return '';
     }
@@ -115,6 +104,7 @@ class GainsLeagueApp {
       if (this.tab === 'recap') {
         attachDraftRecapEvents(this.root);
       }
+      this.attachCopyEvents();
     }
   }
 
@@ -148,10 +138,6 @@ class GainsLeagueApp {
 
     ${renderHero(d.league, d.teams, d.users)}
 
-    ${d.isPreDraft ? renderDraftPoll(this.pollData) : ''}
-
-    ${d.isPreDraft ? renderPaymentSection() : ''}
-
     <div class="tabs-bar">
       <div class="container">
         <div class="tabs-inner">${tabsHtml}</div>
@@ -183,75 +169,7 @@ class GainsLeagueApp {
     this.attachEvents();
   }
 
-  attachEvents() {
-    // Refresh button
-    document.getElementById('btn-refresh')?.addEventListener('click', () => this.refresh());
-
-    // Tabs switching (In-place swap without page jump)
-    this.root.querySelectorAll('.tab').forEach(btn => {
-      btn.addEventListener('click', () => {
-        this.switchTab(btn.dataset.tab);
-      });
-    });
-
-    // Poll option card selection
-    this.root.querySelectorAll('.poll-option-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        const radio = card.querySelector('input[type="radio"]');
-        if (radio && e.target !== radio) {
-          radio.checked = true;
-        }
-        this.root.querySelectorAll('.poll-option-card').forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-      });
-    });
-
-    // Submit vote button
-    const btnVote = document.getElementById('btn-submit-vote');
-    const nameInput = document.getElementById('poll-name-input');
-
-    if (btnVote && nameInput) {
-      btnVote.addEventListener('click', async () => {
-        const name = nameInput.value.trim();
-        const checkedRadio = this.root.querySelector('input[name="draft_option"]:checked');
-
-        if (!name) {
-          nameInput.focus();
-          nameInput.style.borderColor = '#ef4444';
-          setTimeout(() => { nameInput.style.borderColor = ''; }, 2000);
-          return;
-        }
-
-        if (!checkedRadio) {
-          alert('Por favor selecciona una fecha de la lista.');
-          return;
-        }
-
-        btnVote.disabled = true;
-        btnVote.textContent = 'Enviando...';
-
-        const res = await submitVote(name, checkedRadio.value);
-        if (res.success) {
-          this.pollData = res.data;
-          const pollContainer = this.root.querySelector('.draft-poll-section');
-          if (pollContainer) {
-            // Re-render only poll without touching the rest of page
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = renderDraftPoll(this.pollData);
-            pollContainer.replaceWith(tempDiv.firstElementChild);
-            this.attachEvents();
-          } else {
-            this.render();
-          }
-        } else {
-          btnVote.disabled = false;
-          btnVote.textContent = '🔥 Emitir mi Voto';
-          alert('Hubo un error al registrar tu voto. Intenta de nuevo.');
-        }
-      });
-    }
-
-    // Inline copy buttons (e.g. on Standings tab)
+  attachCopyEvents() {
     this.root.querySelectorAll('.btn-copy-inline').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -271,6 +189,21 @@ class GainsLeagueApp {
         }
       });
     });
+  }
+
+  attachEvents() {
+    // Refresh button
+    document.getElementById('btn-refresh')?.addEventListener('click', () => this.refresh());
+
+    // Tabs switching (In-place swap without page jump)
+    this.root.querySelectorAll('.tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        this.switchTab(btn.dataset.tab);
+      });
+    });
+
+    // Copy buttons
+    this.attachCopyEvents();
 
     // Rules modal events
     if (this.tab === 'rules') {
