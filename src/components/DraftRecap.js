@@ -597,86 +597,147 @@ export const DRAFT_AWARDS = [
   }
 ];
 
+/**
+ * Helper to parse bold markdown into styled highlight spans
+ */
+export function formatMarkdown(text) {
+  if (!text) return '';
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong class="highlight-text"></strong>')
+    .replace(/conDrake/g, 'con Drake');
+}
+
+/**
+ * Calculates human-readable league rank, tiers and status for position groups (12 teams)
+ * @param {number} score 1 (lowest) to 12 (highest/best)
+ */
+export function getPosStrengthMeta(score) {
+  const rounded = Math.max(1, Math.min(12, Math.round(score)));
+  const rank = 13 - rounded; // 12 -> #1, 11 -> #2, ..., 1 -> #12
+  const pct = Math.round((rounded / 12) * 100);
+
+  if (rank === 1) {
+    return {
+      rankText: '#1 en la Liga',
+      tierBadge: '👑 #1 Élite',
+      tierClass: 'tier-elite',
+      barColor: 'linear-gradient(90deg, #10b981 0%, #34d399 100%)',
+      pct
+    };
+  } else if (rank <= 4) {
+    return {
+      rankText: 'Top #' + rank + ' de 12',
+      tierBadge: '🏆 Top ' + rank + ' (Fuerte)',
+      tierClass: 'tier-strong',
+      barColor: 'linear-gradient(90deg, #0284c7 0%, #38bdf8 100%)',
+      pct
+    };
+  } else if (rank <= 8) {
+    return {
+      rankText: 'Rank #' + rank + ' de 12',
+      tierBadge: '⚖️ #' + rank + ' (Promedio)',
+      tierClass: 'tier-avg',
+      barColor: 'linear-gradient(90deg, #d97706 0%, #fbbf24 100%)',
+      pct
+    };
+  } else {
+    return {
+      rankText: 'Rank #' + rank + ' de 12',
+      tierBadge: '⚠️ #' + rank + ' (A Mejorar)',
+      tierClass: 'tier-low',
+      barColor: 'linear-gradient(90deg, #dc2626 0%, #f87171 100%)',
+      pct
+    };
+  }
+}
+
 export function renderTeamDetailModalContent(rosterId) {
   const data = TEAM_LINEUP_STRENGTHS[rosterId];
   if (!data) return '';
 
   const barsHtml = data.starters.map(s => {
-    const isDef = s.slot === "DST";
+    const isDef = s.slot === 'DST';
     const avatarHtml = isDef
-      ? `<div class="bar-def-avatar">${s.team}</div>`
-      : `<img class="bar-player-avatar" src="https://sleepercdn.com/content/nfl/players/thumb/${s.pid}.jpg" onerror="this.src='/logo.jpg'" alt="${s.name}">`;
+      ? '<div class="bar-def-avatar">' + s.team + '</div>'
+      : '<img class="bar-player-avatar" src="https://sleepercdn.com/content/nfl/players/thumb/' + s.pid + '.jpg" onerror="this.src=\'/logo.jpg\'" alt="' + s.name + '">';
 
-    return `
-    <div class="team-strength-bar-col tier-${s.tier}">
-      <span class="bar-rank-label">${s.rank}</span>
-      <div class="bar-pillar">
-        <div class="bar-fill"></div>
-        ${avatarHtml}
-      </div>
-      <span class="bar-slot-label">${s.slot}</span>
-      <span class="bar-player-sub">${s.name.split(' ')[0]}</span>
-    </div>`;
+    return '<div class="team-strength-bar-col tier-' + s.tier + '">' +
+      '<span class="bar-rank-label">' + s.rank + '</span>' +
+      '<div class="bar-pillar">' +
+        '<div class="bar-fill"></div>' +
+        avatarHtml +
+      '</div>' +
+      '<span class="bar-slot-label">' + s.slot + '</span>' +
+      '<span class="bar-player-sub">' + s.name.split(' ')[0] + '</span>' +
+    '</div>';
   }).join('');
 
-  return `
-  <div class="team-strength-modal-inner">
-    <!-- Header Summary -->
-    <div class="ts-header-box">
-      <div class="ts-grade-badge ${data.gradeClass}">
-        ${data.gradeLetter}
-      </div>
-      <div>
-        <div class="ts-score-title">Puntuación: <strong>${data.scoreNum}</strong></div>
-        <div class="ts-score-sub">Alineación titular y fuerza posicional comparada con los 12 equipos de la liga.</div>
-      </div>
-    </div>
+  const groups = [
+    { label: 'QB (Quarterback)', score: data.radar.QB, icon: '🎯' },
+    { label: 'RB (Corredores)', score: data.radar.RB, icon: '🏃' },
+    { label: 'WR (Receptores)', score: data.radar.WR, icon: '🚀' },
+    { label: 'TE (Alas Cerradas)', score: data.radar.TE, icon: '🛡️' },
+    { label: 'FLEX (Flexibles)', score: data.radar.FLX, icon: '⚡' },
+    { label: 'DEF & K (Defensa / K)', score: (data.radar.DST + data.radar.K) / 2, icon: '🏈' },
+  ];
 
-    <!-- Starting Lineup Pillars Section -->
-    <div class="ts-section-block">
-      <div class="ts-block-title">📊 Calificación por Posición Titular</div>
-      <div class="team-strength-bars-track">
-        ${barsHtml}
-      </div>
-    </div>
+  const groupsHtml = groups.map(g => {
+    const meta = getPosStrengthMeta(g.score);
+    return '<div class="ts-group-pro-card ' + meta.tierClass + '">' +
+      '<div class="ts-group-pro-header">' +
+        '<span class="ts-group-pro-name">' + g.icon + ' ' + g.label + '</span>' +
+        '<span class="ts-group-pro-badge">' + meta.tierBadge + '</span>' +
+      '</div>' +
+      '<div class="ts-group-pro-bar-wrap">' +
+        '<div class="ts-group-pro-bar">' +
+          '<div class="ts-group-pro-fill" style="width: ' + meta.pct + '%; background: ' + meta.barColor + ';"></div>' +
+        '</div>' +
+        '<span class="ts-group-pro-rank">' + meta.rankText + '</span>' +
+      '</div>' +
+    '</div>';
+  }).join('');
 
-    <!-- Position Strength Table Breakdown -->
-    <div class="ts-section-block">
-      <div class="ts-block-title">🎯 Fuerza por Grupos de Posición</div>
-      <div class="ts-groups-grid">
-        <div class="ts-group-card">
-          <span class="ts-group-name">QB</span>
-          <div class="ts-group-bar"><div class="ts-group-fill" style="width: ${(data.radar.QB / 12) * 100}%"></div></div>
-          <span class="ts-group-score">${data.radar.QB}/12</span>
-        </div>
-        <div class="ts-group-card">
-          <span class="ts-group-name">RB</span>
-          <div class="ts-group-bar"><div class="ts-group-fill" style="width: ${(data.radar.RB / 12) * 100}%"></div></div>
-          <span class="ts-group-score">${data.radar.RB}/12</span>
-        </div>
-        <div class="ts-group-card">
-          <span class="ts-group-name">WR</span>
-          <div class="ts-group-bar"><div class="ts-group-fill" style="width: ${(data.radar.WR / 12) * 100}%"></div></div>
-          <span class="ts-group-score">${data.radar.WR}/12</span>
-        </div>
-        <div class="ts-group-card">
-          <span class="ts-group-name">TE</span>
-          <div class="ts-group-bar"><div class="ts-group-fill" style="width: ${(data.radar.TE / 12) * 100}%"></div></div>
-          <span class="ts-group-score">${data.radar.TE}/12</span>
-        </div>
-        <div class="ts-group-card">
-          <span class="ts-group-name">FLEX</span>
-          <div class="ts-group-bar"><div class="ts-group-fill" style="width: ${(data.radar.FLX / 12) * 100}%"></div></div>
-          <span class="ts-group-score">${data.radar.FLX}/12</span>
-        </div>
-        <div class="ts-group-card">
-          <span class="ts-group-name">DEF & K</span>
-          <div class="ts-group-bar"><div class="ts-group-fill" style="width: ${((data.radar.DST + data.radar.K) / 24) * 100}%"></div></div>
-          <span class="ts-group-score">${Math.round((data.radar.DST + data.radar.K)/2)}/12</span>
-        </div>
-      </div>
-    </div>
-  </div>`;
+  return '<div class="team-strength-modal-inner">' +
+    '<!-- Header Summary -->' +
+    '<div class="ts-header-box">' +
+      '<div class="ts-grade-badge ' + data.gradeClass + '">' +
+        data.gradeLetter +
+      '</div>' +
+      '<div>' +
+        '<div class="ts-score-title">Puntuación General: <strong>' + data.scoreNum + '</strong></div>' +
+        '<div class="ts-score-sub">Evaluación cuantitativa de titulares y banca frente a los 12 equipos de la liga.</div>' +
+      '</div>' +
+    '</div>' +
+
+    '<!-- Starting Lineup Pillars Section -->' +
+    '<div class="ts-section-block">' +
+      '<div class="ts-block-header">' +
+        '<div class="ts-block-title">📊 Calificación por Posición Titular</div>' +
+        '<div class="ts-block-subtitle">Rank de cada jugador dentro de su posición en la NFL para la Temporada 2026.</div>' +
+      '</div>' +
+      
+      '<div class="ts-pillars-legend">' +
+        '<span class="ts-leg-badge green"><span class="leg-indicator"></span> Ranks #1 al #4 (Élite)</span>' +
+        '<span class="ts-leg-badge yellow"><span class="leg-indicator"></span> Ranks #5 al #8 (Sólido)</span>' +
+        '<span class="ts-leg-badge red"><span class="leg-indicator"></span> Ranks #9 al #12 (Riesgo)</span>' +
+      '</div>' +
+
+      '<div class="team-strength-bars-track">' +
+        barsHtml +
+      '</div>' +
+    '</div>' +
+
+    '<!-- Position Strength Table Breakdown -->' +
+    '<div class="ts-section-block">' +
+      '<div class="ts-block-header">' +
+        '<div class="ts-block-title">🎯 Fuerza por Grupos de Posición</div>' +
+        '<div class="ts-block-subtitle">Comparativa entre los 12 equipos de la liga (#1 es la mejor posición de toda la liga).</div>' +
+      '</div>' +
+      '<div class="ts-groups-grid-pro">' +
+        groupsHtml +
+      '</div>' +
+    '</div>' +
+  '</div>';
 }
 
 export function renderDraftRecapTab(teams = []) {
@@ -686,169 +747,172 @@ export function renderDraftRecapTab(teams = []) {
   const sortedAnalyses = Object.values(DRAFT_ANALYSIS_DATA).sort((a, b) => a.projRank - b.projRank);
 
   const reportCardsHtml = sortedAnalyses.map(item => {
-    const team = teamMap[item.rosterId] || { teamName: `Equipo ${item.rosterId}`, displayName: 'Mánager', avatar: '/logo.jpg' };
+    const team = teamMap[item.rosterId] || { teamName: 'Equipo ' + item.rosterId, displayName: 'Mánager', avatar: '/logo.jpg' };
     
-    return `
-    <div class="draft-report-card">
-      <div class="report-card-header">
-        <div class="report-team-info clickable-team-detail" data-roster-id="${item.rosterId}" title="Haz clic para ver el desglose gráfico de titulares y posición">
-          <img class="report-avatar" src="${team.avatar || '/logo.jpg'}" alt="" onerror="this.src='/logo.jpg'">
-          <div>
-            <div class="report-rank-badge">Power Rank #${item.projRank} • Score: ${item.score} pts</div>
-            <h3 class="report-team-name team-name-link">${team.teamName} <span class="badge-click-info">Ver gráfica ↗</span></h3>
-            <div class="report-mgr-name">Mánager: <strong>${team.displayName}</strong></div>
-          </div>
-        </div>
-        <div class="report-grade-box ${item.gradeClass} clickable-team-detail" data-roster-id="${item.rosterId}" title="Ver desglose">
-          <div class="grade-letter">${item.grade}</div>
-          <div class="grade-label">Detalle</div>
-        </div>
-      </div>
+    return '<div class="draft-report-card">' +
+      '<div class="report-card-header">' +
+        '<div class="report-team-info clickable-team-detail" data-roster-id="' + item.rosterId + '" title="Haz clic para ver el desglose gráfico de titulares y posición">' +
+          '<img class="report-avatar" src="' + (team.avatar || '/logo.jpg') + '" alt="" onerror="this.src=\'/logo.jpg\'">' +
+          '<div>' +
+            '<div class="report-rank-badge">Power Rank #' + item.projRank + ' • Score: ' + item.score + ' pts</div>' +
+            '<h3 class="report-team-name team-name-link">' + team.teamName + ' <span class="badge-click-info">Ver gráfica ↗</span></h3>' +
+            '<div class="report-mgr-name">Mánager: <strong>' + team.displayName + '</strong></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="report-grade-box ' + item.gradeClass + ' clickable-team-detail" data-roster-id="' + item.rosterId + '" title="Ver desglose">' +
+          '<div class="grade-letter">' + item.grade + '</div>' +
+          '<div class="grade-label">Detalle</div>' +
+        '</div>' +
+      '</div>' +
 
-      <div class="report-headline-badge">
-        ${item.headline}
-      </div>
+      '<div class="report-headline-badge">' +
+        item.headline +
+      '</div>' +
 
-      <div class="report-metrics-bar">
-        <div class="report-metric-item">
-          <span class="metric-lbl">Récord Proyectado</span>
-          <span class="metric-val text-gold">${item.projRecord}</span>
-        </div>
-        <div class="report-metric-item">
-          <span class="metric-lbl">Prob. Playoffs</span>
-          <span class="metric-val text-green">${item.playoffOdds}</span>
-        </div>
-        <div class="report-metric-item">
-          <span class="metric-lbl">Ranks (Tit/Bca)</span>
-          <span class="metric-val" style="font-size:.82rem">#${item.startersRank} Tit / #${item.benchRank} Bca</span>
-        </div>
-      </div>
+      '<div class="report-metrics-bar">' +
+        '<div class="report-metric-item">' +
+          '<span class="metric-lbl">Récord Proyectado</span>' +
+          '<span class="metric-val text-gold">' + item.projRecord + '</span>' +
+        '</div>' +
+        '<div class="report-metric-item">' +
+          '<span class="metric-lbl">Prob. Playoffs</span>' +
+          '<span class="metric-val text-green">' + item.playoffOdds + '</span>' +
+        '</div>' +
+        '<div class="report-metric-item">' +
+          '<span class="metric-lbl">Ranks (Tit/Bca)</span>' +
+          '<span class="metric-val text-blue">#' + item.startersRank + ' Tit / #' + item.benchRank + ' Bca</span>' +
+        '</div>' +
+      '</div>' +
 
-      <div class="report-summary-text">
-        ${item.summary}
-      </div>
+      '<div class="report-summary-text">' +
+        formatMarkdown(item.summary) +
+      '</div>' +
 
-      <div class="report-highlights-grid">
-        <div class="highlight-col pros-col">
-          <div class="highlight-title">💪 Fortalezas</div>
-          <ul class="highlight-list">
-            ${item.pros.map(p => `<li>${p}</li>`).join('')}
-          </ul>
-        </div>
-        <div class="highlight-col cons-col">
-          <div class="highlight-title">⚠️ Puntos a Cuidar</div>
-          <ul class="highlight-list">
-            ${item.cons.map(c => `<li>${c}</li>`).join('')}
-          </ul>
-        </div>
-      </div>
+      '<div class="report-highlights-grid">' +
+        '<div class="highlight-col pros-col">' +
+          '<div class="highlight-title">💪 Fortalezas</div>' +
+          '<ul class="highlight-list">' +
+            item.pros.map(p => '<li>' + formatMarkdown(p) + '</li>').join('') +
+          '</ul>' +
+        '</div>' +
+        '<div class="highlight-col cons-col">' +
+          '<div class="highlight-title">⚠️ Puntos a Cuidar</div>' +
+          '<ul class="highlight-list">' +
+            item.cons.map(c => '<li>' + formatMarkdown(c) + '</li>').join('') +
+          '</ul>' +
+        '</div>' +
+      '</div>' +
 
-      <div class="report-picks-footer">
-        <div class="pick-tag steal">💎 <strong>Robo:</strong> ${item.stealPick}</div>
-        <div class="pick-tag risk">⚡ <strong>Riesgo:</strong> ${item.riskPick}</div>
-      </div>
+      '<div class="report-picks-footer">' +
+        '<div class="pick-tag steal">' +
+          '<span class="tag-icon">💎</span>' +
+          '<span class="tag-label">Robo:</span>' +
+          '<span class="tag-val">' + formatMarkdown(item.stealPick) + '</span>' +
+        '</div>' +
+        '<div class="pick-tag risk">' +
+          '<span class="tag-icon">⚡</span>' +
+          '<span class="tag-label">Riesgo:</span>' +
+          '<span class="tag-val">' + formatMarkdown(item.riskPick) + '</span>' +
+        '</div>' +
+      '</div>' +
 
-      <div class="report-verdict-bar">
-        <span>🎯 <strong>Veredicto:</strong> ${item.verdict}</span>
-      </div>
+      '<div class="report-verdict-bar">' +
+        '<span>🎯 <strong>Veredicto:</strong> ' + formatMarkdown(item.verdict) + '</span>' +
+      '</div>' +
 
-      <button class="btn-view-strengths clickable-team-detail" data-roster-id="${item.rosterId}">
-        📊 Ver Gráfica de Titulares &amp; Posiciones
-      </button>
-    </div>`;
+      '<button class="btn-view-strengths clickable-team-detail" data-roster-id="' + item.rosterId + '">' +
+        '📊 Ver Gráfica de Titulares & Posiciones' +
+      '</button>' +
+    '</div>';
   }).join('');
 
-  const awardsCardsHtml = DRAFT_AWARDS.map(aw => `
-    <div class="award-card blue" style="padding:1.15rem;">
-      <div style="font-size:1.8rem; margin-bottom:.4rem">${aw.icon}</div>
-      <div style="font-family:var(--font-head); font-size:1.1rem; color:var(--gold-lt); text-transform:uppercase; margin-bottom:.2rem;">
-        ${aw.title}
-      </div>
-      <div style="font-size:.9rem; font-weight:700; color:#fff; margin-bottom:.15rem;">
-        ${aw.winner}
-      </div>
-      <div style="font-size:.75rem; color:var(--blue); font-weight:700; text-transform:uppercase; margin-bottom:.5rem;">
-        ${aw.managers}
-      </div>
-      <p style="font-size:.82rem; color:var(--c-muted); line-height:1.45; margin:0;">
-        ${aw.desc}
-      </p>
-    </div>
-  `).join('');
+  const awardsCardsHtml = DRAFT_AWARDS.map(aw => '<div class="award-card blue" style="padding:1.15rem;">' +
+    '<div style="font-size:1.8rem; margin-bottom:.4rem">' + aw.icon + '</div>' +
+    '<div style="font-family:var(--font-head); font-size:1.1rem; color:var(--gold-lt); text-transform:uppercase; margin-bottom:.2rem;">' +
+      aw.title +
+    '</div>' +
+    '<div style="font-size:.9rem; font-weight:700; color:#fff; margin-bottom:.15rem;">' +
+      aw.winner +
+    '</div>' +
+    '<div style="font-size:.75rem; color:var(--blue); font-weight:700; text-transform:uppercase; margin-bottom:.5rem;">' +
+      aw.managers +
+    '</div>' +
+    '<p style="font-size:.82rem; color:var(--c-muted); line-height:1.45; margin:0;">' +
+      aw.desc +
+    '</p>' +
+  '</div>').join('');
 
-  return `
-  <!-- Header del Draft Recap -->
-  <div class="card mb-1" style="background: linear-gradient(135deg, rgba(245,158,11,.15) 0%, rgba(56,189,248,.1) 100%); border: 1px solid var(--c-border-gold); padding: 1.5rem;">
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
-      <div>
-        <div style="font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--gold-lt); margin-bottom:.25rem;">
-          🏈 Report Card Oficial • The Gains League 2026
-        </div>
-        <h2 style="font-family:var(--font-head); font-size:1.6rem; color:#fff; text-transform:uppercase; letter-spacing:.02em; line-height:1.15;">
-          Report Card &amp; Power Rankings del Draft
-        </h2>
-        <p style="font-size:.86rem; color:var(--c-muted); margin-top:.35rem; max-width:640px; line-height:1.5;">
-          Evaluación analítica y proyecciones de los 12 equipos de la liga. Toca cualquier equipo para ver su <strong>gráfica de posiciones y titulares</strong>.
-        </p>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:.5rem; align-items:flex-end;">
-        <span style="background:rgba(16,185,129,.15); border:1px solid #10b981; color:#34d399; font-family:var(--font-head); font-size:1.1rem; padding:.5rem 1rem; border-radius:var(--r-sm); font-weight:700;">
-          🏆 #1 Overall: brianallenrm (A+)
-        </span>
-      </div>
-    </div>
-  </div>
+  return '<!-- Header del Draft Recap -->' +
+  '<div class="card mb-1" style="background: linear-gradient(135deg, rgba(245,158,11,.15) 0%, rgba(56,189,248,.1) 100%); border: 1px solid var(--c-border-gold); padding: 1.5rem;">' +
+    '<div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">' +
+      '<div>' +
+        '<div style="font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--gold-lt); margin-bottom:.25rem;">' +
+          '🏈 Report Card Oficial • The Gains League 2026' +
+        '</div>' +
+        '<h2 style="font-family:var(--font-head); font-size:1.6rem; color:#fff; text-transform:uppercase; letter-spacing:.02em; line-height:1.15;">' +
+          'Report Card & Power Rankings del Draft' +
+        '</h2>' +
+        '<p style="font-size:.86rem; color:var(--c-muted); margin-top:.35rem; max-width:640px; line-height:1.5;">' +
+          'Evaluación analítica y proyecciones de los 12 equipos de la liga. Toca cualquier equipo para ver su <strong>gráfica de posiciones y titulares</strong>.' +
+        '</p>' +
+      '</div>' +
+      '<div style="display:flex; flex-direction:column; gap:.5rem; align-items:flex-end;">' +
+        '<span style="background:rgba(16,185,129,.15); border:1px solid #10b981; color:#34d399; font-family:var(--font-head); font-size:1.1rem; padding:.5rem 1rem; border-radius:var(--r-sm); font-weight:700;">' +
+          '🏆 #1 Overall: brianallenrm (A+)' +
+        '</span>' +
+      '</div>' +
+    '</div>' +
+  '</div>' +
 
-  <!-- Premios y Menciones Especiales del Draft -->
-  <div class="card mb-1">
-    <div class="section-head">
-      <div>
-        <div class="section-title">🌟 Premios &amp; Menciones del Draft</div>
-        <p style="color:var(--c-muted); font-size:.82rem; margin-top:.2rem;">
-          Los robos, tridentes estelares y jugadas maestras que marcaron las 15 rondas.
-        </p>
-      </div>
-      <span class="section-badge">Draft Insights</span>
-    </div>
-    <div class="awards-row" style="margin-bottom:0;">
-      ${awardsCardsHtml}
-    </div>
-  </div>
+  '<!-- Premios y Menciones Especiales del Draft -->' +
+  '<div class="card mb-1">' +
+    '<div class="section-head">' +
+      '<div>' +
+        '<div class="section-title">🌟 Premios & Menciones del Draft</div>' +
+        '<p style="color:var(--c-muted); font-size:.82rem; margin-top:.2rem;">' +
+          'Los robos, tridentes estelares y jugadas maestras que marcaron las 15 rondas.' +
+        '</p>' +
+      '</div>' +
+      '<span class="section-badge">Draft Insights</span>' +
+    '</div>' +
+    '<div class="awards-row" style="margin-bottom:0;">' +
+      awardsCardsHtml +
+    '</div>' +
+  '</div>' +
 
-  <!-- Report Cards Grid -->
-  <div class="draft-cards-container">
-    <div class="section-head mb-1">
-      <div>
-        <div class="section-title">📋 Calificaciones Oficiales por Equipo</div>
-        <p style="color:var(--c-muted); font-size:.82rem; margin-top:.2rem;">
-          Toca cualquier tarjeta para abrir el desglose de fortalezas por posición (Team Strengths).
-        </p>
-      </div>
-      <span class="section-badge">Power Rankings</span>
-    </div>
-    <div class="report-cards-grid">
-      ${reportCardsHtml}
-    </div>
-  </div>
+  '<!-- Report Cards Grid -->' +
+  '<div class="draft-cards-container">' +
+    '<div class="section-head mb-1">' +
+      '<div>' +
+        '<div class="section-title">📋 Calificaciones Oficiales por Equipo</div>' +
+        '<p style="color:var(--c-muted); font-size:.82rem; margin-top:.2rem;">' +
+          'Toca cualquier tarjeta para abrir el desglose de fortalezas por posición (Team Strengths).' +
+        '</p>' +
+      '</div>' +
+      '<span class="section-badge">Power Rankings</span>' +
+    '</div>' +
+    '<div class="report-cards-grid">' +
+      reportCardsHtml +
+    '</div>' +
+  '</div>' +
 
-  <!-- Modal Detallado de Fuerza de Equipo (Team Strengths) -->
-  <div id="team-strengths-modal" class="modal-overlay" style="display:none;">
-    <div class="modal-card" style="max-width:680px;">
-      <div class="modal-header">
-        <div class="modal-header-text">
-          <span id="ts-modal-badge" class="modal-badge-top">Team Strengths</span>
-          <h3 id="ts-modal-title" class="modal-title-text"></h3>
-          <div id="ts-modal-sub" class="modal-subtitle-text"></div>
-        </div>
-        <button id="btn-close-ts-modal" class="btn-modal-close" title="Cerrar ventana">✕</button>
-      </div>
-      <div id="ts-modal-body" class="modal-body-scroll"></div>
-      <div class="modal-footer">
-        <button id="btn-ts-got-it" class="btn-modal-action">¡Cerrar! 👍</button>
-      </div>
-    </div>
-  </div>
-  `;
+  '<!-- Modal Detallado de Fuerza de Equipo (Team Strengths) -->' +
+  '<div id="team-strengths-modal" class="modal-overlay" style="display:none;">' +
+    '<div class="modal-card" style="max-width:680px;">' +
+      '<div class="modal-header">' +
+        '<div class="modal-header-text">' +
+          '<span id="ts-modal-badge" class="modal-badge-top">Team Strengths</span>' +
+          '<h3 id="ts-modal-title" class="modal-title-text"></h3>' +
+          '<div id="ts-modal-sub" class="modal-subtitle-text"></div>' +
+        '</div>' +
+        '<button id="btn-close-ts-modal" class="btn-modal-close" title="Cerrar ventana">✕</button>' +
+      '</div>' +
+      '<div id="ts-modal-body" class="modal-body-scroll"></div>' +
+      '<div class="modal-footer">' +
+        '<button id="btn-ts-got-it" class="btn-modal-action">¡Cerrar! 👍</button>' +
+      '</div>' +
+    '</div>' +
+  '</div>';
 }
 
 export function attachDraftRecapEvents(container) {
@@ -863,8 +927,8 @@ export function attachDraftRecapEvents(container) {
     const data = TEAM_LINEUP_STRENGTHS[rosterId];
     if (!data || !modal) return;
 
-    title.textContent = `📊 Fuerza de Alineación • ${data.teamName}`;
-    sub.textContent = `Calificación de Draft: ${data.gradeLetter} (${data.scoreNum})`;
+    title.textContent = '📊 Fuerza de Alineación • ' + data.teamName;
+    sub.textContent = 'Calificación de Draft: ' + data.gradeLetter + ' (' + data.scoreNum + ')';
     body.innerHTML = renderTeamDetailModalContent(rosterId);
 
     modal.style.display = 'flex';
