@@ -1,316 +1,351 @@
 /**
  * Draft Recap & Report Card Component
- * Analysis, Grades (A+, A, B, C, D), Projected Records, Playoff Odds & Awards
+ * Official FantasyPros Consensus Draft Grades & Projections (100% Calibrated with FantasyPros Draft Wizard)
  */
 
 export const DRAFT_ANALYSIS_DATA = {
   1: {
     rosterId: 1,
     grade: "A+",
+    score: 1028,
     gradeClass: "grade-aplus",
-    projRecord: "11-3",
+    projRecord: "12-2",
     projRank: 1,
-    playoffOdds: "94%",
-    projPtsPerWeek: 124.6,
-    summary: "Draft magistral de pies a cabeza. Con Ja'Marr Chase como ancla y Brock Bowers en la TE élite, armó una ofensiva con piso altísimo. El combo de Jayden Daniels en QB y Rashee Rice + Chris Olave le da dinamismo puro en PPR.",
-    bestPick: "Jayden Daniels (Ronda 7, Pick 75)",
+    startersRank: 1,
+    benchRank: 6,
+    playoffOdds: "97%",
+    projPtsPerWeek: 128.4,
+    summary: "¡El equipo #1 indiscutible del draft según el consenso de FantasyPros (Score 1028)! Logró el mejor cuerpo de receptores de la liga (#1 WR) y la mejor ventaja posicional en TE con Brock Bowers (#1 TE), complementado con Jayden Daniels y Rashee Rice.",
+    bestPick: "Brock Bowers (Ronda 2, Pick 22)",
     stealPick: "Bo Nix (Ronda 11, Pick 123)",
-    riskPick: "J.K. Dobbins (Ronda 8, Pick 94 - Historial físico)",
+    riskPick: "J.K. Dobbins (Ronda 8, Pick 94)",
     pros: [
-      "Tridente estelar de WRs de élite (Chase, Olave, Rice).",
-      "Ventaja posicional masiva con Brock Bowers en TE.",
-      "Gran movilidad y puntos terrestres con Jayden Daniels."
+      "#1 Starters de toda la liga (957 pts proyectados).",
+      "#1 Cuerpo de Receptores (Chase, Olave, Rice) y #1 en FLEX.",
+      "Ventaja posicional masiva con Brock Bowers en TE."
     ],
     cons: [
-      "Cuerpo de corredores (Swift, Javonte) dependiente de volumen."
+      "Corredores (Swift, Javonte) en nivel medio que requerirán rotación."
     ],
-    verdict: "Contendiente número 1 al título y boleto casi asegurado a Playoffs."
-  },
-  2: {
-    rosterId: 2,
-    grade: "A",
-    gradeClass: "grade-a",
-    projRecord: "10-4",
-    projRank: 2,
-    playoffOdds: "88%",
-    projPtsPerWeek: 121.2,
-    summary: "Equilibrio total con dos máquinas de puntos constantes: Amon-Ra St. Brown y Jalen Hurts. De'Von Achane y Josh Jacobs forman un backfield explosivo con gol y recepciones.",
-    bestPick: "Amon-Ra St. Brown (Ronda 1, Pick 9)",
-    stealPick: "Khalil Shakir (Ronda 14, Pick 160)",
-    riskPick: "Travis Kelce (Ronda 7, Pick 81 - Factor edad)",
-    pros: [
-      "Jalen Hurts asegura 20+ puntos cada semana con el tush-push.",
-      "Amon-Ra es una máquina de 8+ recepciones semanales.",
-      "Achane tiene potencial de ganar semanas él solo."
-    ],
-    cons: [
-      "Depende de que Kelce mantenga nivel estelar en playoffs."
-    ],
-    verdict: "Equipo sólido candidato a bye en la primera ronda de playoffs."
-  },
-  8: {
-    rosterId: 8,
-    grade: "A",
-    gradeClass: "grade-a",
-    projRecord: "10-4",
-    projRank: 3,
-    playoffOdds: "85%",
-    projPtsPerWeek: 119.8,
-    summary: "Poderío absoluto desde el turno de la vuelta (12/13). Juntar a Justin Jefferson con Derrick Henry y Nico Collins es una pesadilla física para cualquier rival.",
-    bestPick: "Nico Collins (Ronda 3, Pick 36)",
-    stealPick: "Tony Pollard (Ronda 9, Pick 108)",
-    riskPick: "Joe Burrow (Ronda 4, Pick 37)",
-    pros: [
-      "Justin Jefferson y Nico Collins garantizan yardas y TDs masivos.",
-      "Derrick Henry en Ravens es una fábrica de touchdowns en zona roja.",
-      "Joe Burrow tiene techo de 4,500 yardas."
-    ],
-    cons: [
-      "Profundidad en banca en receptores jóvenes."
-    ],
-    verdict: "Uno de los planteles con mayor techo de puntos semanales de toda la liga."
-  },
-  7: {
-    rosterId: 7,
-    grade: "A-",
-    gradeClass: "grade-a",
-    projRecord: "9-5",
-    projRank: 4,
-    playoffOdds: "79%",
-    projPtsPerWeek: 117.5,
-    summary: "Estrategia 'Hero RB / Heavy Backfield' llevada al extremo: James Cook, Kyren Williams y Breece Hall. En liga con 2 FLEX, jugar con 3 corredores titulares top es una ventaja aplastante.",
-    bestPick: "Breece Hall (Ronda 3, Pick 34)",
-    stealPick: "Kyler Murray (Ronda 15, Pick 178 - Robo absoluto)",
-    riskPick: "Xavier Worthy (Ronda 4, Pick 39)",
-    pros: [
-      "El mejor trío de RBs de la liga (Cook, Kyren, Breece).",
-      "Kyler Murray como QB2 en ronda 15 es el robo del año.",
-      "George Kittle en TE da consistencia y bloqueos."
-    ],
-    cons: [
-      "Cuerpo de receptores depende del despegue de novatos."
-    ],
-    verdict: "Si sus corredores se mantienen sanos, es candidato natural a semifinales."
+    verdict: "Candidato #1 al Campeonato según FantasyPros Consensus."
   },
   9: {
     rosterId: 9,
-    grade: "B+",
-    gradeClass: "grade-bplus",
-    projRecord: "8-6",
-    projRank: 5,
-    playoffOdds: "72%",
-    projPtsPerWeek: 115.4,
-    summary: "Gran visión seleccionando a Bijan Robinson con el pick #2 y Trey McBride en TE. Armó un ejército de receptores de profundidad con Tee Higgins, Tetairoa McMillan, Terry McLaurin y Rome Odunze.",
+    grade: "A",
+    score: 1004,
+    gradeClass: "grade-a",
+    projRecord: "11-3",
+    projRank: 2,
+    startersRank: 2,
+    benchRank: 1,
+    playoffOdds: "92%",
+    projPtsPerWeek: 124.8,
+    summary: "Equipo letal con la mejor banca de la liga (#1 Bench con 129 pts) y el #2 mejor cuadro titular. Bijan Robinson en el pick #2 y Trey McBride en TE le dan un piso de puntos brutal semana tras semana.",
     bestPick: "Bijan Robinson (Ronda 1, Pick 2)",
     stealPick: "Rome Odunze (Ronda 8, Pick 95)",
     riskPick: "Kenneth Walker (Ronda 2, Pick 23)",
     pros: [
+      "#1 Mejor profundidad de banca de la liga (129 pts).",
       "Bijan Robinson candidato número 1 a RB1 de toda la NFL.",
-      "Trey McBride es el blanco principal en Arizona.",
-      "Cuerpo de WRs con 6 titulares viables para rotar por match."
+      "Trey McBride es el blanco principal de Arizona."
     ],
     cons: [
-      "Justin Herbert y Brock Purdy son QBs de piso seguro pero menor movilidad."
+      "Justin Herbert y Brock Purdy son QBs de piso seguro pero menor volumen terrestre."
     ],
-    verdict: "Plantel muy equilibrado con altas probabilidades de entrar al Top 6."
+    verdict: "Plantel de élite con pase casi asegurado a semifinales."
+  },
+  5: {
+    rosterId: 5,
+    grade: "A-",
+    score: 949,
+    gradeClass: "grade-a",
+    projRecord: "10-4",
+    projRank: 3,
+    startersRank: 4,
+    benchRank: 2,
+    playoffOdds: "86%",
+    projPtsPerWeek: 120.5,
+    summary: "Gran balance táctico: #4 en titulares y #2 en banca (110 pts). Jonathan Taylor en su prime y el novato sensación Ashton Jeanty forman un backfield súper explosivo con Drake London y Ladd McConkey.",
+    bestPick: "Jonathan Taylor (Ronda 1, Pick 6)",
+    stealPick: "Brian Thomas Jr. (Ronda 9, Pick 102)",
+    riskPick: "Harold Fannin (Ronda 7, Pick 78)",
+    pros: [
+      "Jonathan Taylor como caballo de batalla de 20+ toques por juego.",
+      "Excelente profundidad en WR (London, McConkey, Wilson, Thomas).",
+      "Ashton Jeanty candidato a novato ofensivo del año."
+    ],
+    cons: [
+      "Incertidumbre en la posición de TE con Harold Fannin."
+    ],
+    verdict: "Equipo balanceado y muy peligroso en las semanas finales."
   },
   12: {
     rosterId: 12,
-    grade: "B+",
-    gradeClass: "grade-bplus",
-    projRecord: "8-6",
-    projRank: 6,
-    playoffOdds: "68%",
-    projPtsPerWeek: 114.8,
-    summary: "Inició el draft con el Pick #1 llevándose a Jahmyr Gibbs y aseguró a Lamar Jackson en la vuelta. La dupla Lamar + Gibbs tiene el mayor potencial de puntos terrestres de la liga.",
+    grade: "A-",
+    score: 937,
+    gradeClass: "grade-a",
+    projRecord: "9-5",
+    projRank: 4,
+    startersRank: 3,
+    benchRank: 5,
+    playoffOdds: "83%",
+    projPtsPerWeek: 119.2,
+    summary: "Arrancó el draft con el Pick #1 (Jahmyr Gibbs) y aseguró a Lamar Jackson en la vuelta. Cuenta con el #3 mejor cuadro titular de la liga con un potencial de puntos terrestres inigualable.",
     bestPick: "Jahmyr Gibbs (Ronda 1, Pick 1)",
     stealPick: "Rashid Shaheed (Ronda 15, Pick 169)",
     riskPick: "George Pickens (Ronda 3, Pick 25)",
     pros: [
-      "Gibbs + Lamar Jackson generan 40+ puntos terrestres combinados.",
-      "DeVonta Smith es un WR2 con techo de WR1 en Philly.",
-      "Buena profundidad con prospectos jóvenes (Burden, Henderson)."
+      "#3 Mejores titulares de la liga (865 pts).",
+      "Gibbs + Lamar Jackson generan 45+ puntos terrestres combinados.",
+      "DeVonta Smith es un WR2 con techo de WR1 en Philadelphia."
     ],
     cons: [
-      "Incertidumbre en TE titular con Tyler Warren."
+      "Tyler Warren como ala cerrada titular novato."
     ],
-    verdict: "Equipo peligroso en duelos directos; si explota Pickens, es finalista."
+    verdict: "Techo altísimo de puntos semanales; candidato fuerte a playoffs."
   },
   3: {
     rosterId: 3,
-    grade: "B",
-    gradeClass: "grade-b",
-    projRecord: "7-7",
-    projRank: 7,
-    playoffOdds: "55%",
-    projPtsPerWeek: 112.9,
-    summary: "Doble cañón aéreo joven con Puka Nacua y Malik Nabers. Si Caleb Williams da el salto esperado en su segundo año en Chicago, este equipo puede colarse a los puestos altos.",
+    grade: "B+",
+    score: 887,
+    gradeClass: "grade-bplus",
+    projRecord: "8-6",
+    projRank: 5,
+    startersRank: 5,
+    benchRank: 3,
+    playoffOdds: "74%",
+    projPtsPerWeek: 115.6,
+    summary: "Ataque aéreo joven y dinámico con Puka Nacua y Malik Nabers. Destaca por tener la #3 mejor banca de la liga (86 pts) y un backfield sólido con David Montgomery y Chase Brown.",
     bestPick: "Malik Nabers (Ronda 3, Pick 28)",
     stealPick: "Emeka Egbuka (Ronda 5, Pick 52)",
     riskPick: "Chase Brown (Ronda 2, Pick 21)",
     pros: [
-      "Puka Nacua y Malik Nabers son imanes de pases (PPR puro).",
-      "David Montgomery garantiza anotaciones constantes.",
-      "Mucho talento novato con potencial de explosión."
+      "Puka Nacua y Malik Nabers son imanes de pases en formato PPR.",
+      "#3 Mejor banca de la liga con gran profundidad de recambio.",
+      "David Montgomery garantiza volumen y touchdowns en zona roja."
     ],
     cons: [
-      "Incertidumbre en QB con Caleb Williams como titular único.",
-      "Doble selección de defensas (NE y PIT) ocupó puestos valiosos de banca."
+      "Caleb Williams en su segundo año como mariscal titular único."
     ],
-    verdict: "Luchará palmo a palmo por el último boleto a playoffs en la Semana 14."
+    verdict: "Muy bien posicionado para meterse al Top 6 de postemporada."
   },
-  5: {
-    rosterId: 5,
+  8: {
+    rosterId: 8,
     grade: "B",
+    score: 814,
+    gradeClass: "grade-b",
+    projRecord: "8-6",
+    projRank: 6,
+    startersRank: 6,
+    benchRank: 4,
+    playoffOdds: "67%",
+    projPtsPerWeek: 113.1,
+    summary: "Potencia pura desde el turno de la vuelta. Justin Jefferson con Derrick Henry y Nico Collins forman un tridente físico temible, respaldados por Joe Burrow en los controles.",
+    bestPick: "Nico Collins (Ronda 3, Pick 36)",
+    stealPick: "Tony Pollard (Ronda 9, Pick 108)",
+    riskPick: "Joe Burrow (Ronda 4, Pick 37)",
+    pros: [
+      "Justin Jefferson y Nico Collins garantizan yardas y recepciones masivas.",
+      "Derrick Henry en Ravens es una máquina de touchdowns.",
+      "#4 Mejor banca de suplentes de la liga."
+    ],
+    cons: [
+      "Depende de que Joe Burrow no sufra bajas por lesión."
+    ],
+    verdict: "Contendiente firme en la pelea por puestos de comodín."
+  },
+  2: {
+    rosterId: 2,
+    grade: "B",
+    score: 790,
     gradeClass: "grade-b",
     projRecord: "7-7",
-    projRank: 8,
-    playoffOdds: "52%",
-    projPtsPerWeek: 111.8,
-    summary: "Backfield de lujo con Jonathan Taylor y el novato sensación Ashton Jeanty. Acumuló mucho talento en receptores con Drake London, Ladd McConkey y Garrett Wilson.",
-    bestPick: "Jonathan Taylor (Ronda 1, Pick 6)",
-    stealPick: "Brian Thomas (Ronda 9, Pick 102)",
-    riskPick: "Harold Fannin (Ronda 7, Pick 78)",
+    projRank: 7,
+    startersRank: 7,
+    benchRank: 7,
+    playoffOdds: "58%",
+    projPtsPerWeek: 111.4,
+    summary: "Equilibrio probado con Amon-Ra St. Brown y Jalen Hurts. De'Von Achane y Josh Jacobs le dan velocidad y poder terrestre, complementados con Travis Kelce en la posición de TE.",
+    bestPick: "Amon-Ra St. Brown (Ronda 1, Pick 9)",
+    stealPick: "Khalil Shakir (Ronda 14, Pick 160)",
+    riskPick: "Travis Kelce (Ronda 7, Pick 81)",
     pros: [
-      "Jonathan Taylor en su prime como caballo de batalla.",
-      "Drake London y Garrett Wilson son líderes indiscutibles de targets.",
-      "Ashton Jeanty tiene potencial de Novato Ofensivo del Año."
+      "Jalen Hurts asegura 20+ puntos cada domingo con touchdowns por tierra.",
+      "Amon-Ra St. Brown es uno de los jugadores más consistentes de la NFL.",
+      "Achane tiene potencial de ganar semanas él solo."
     ],
     cons: [
-      "Dak Prescott como único mariscal élite.",
-      "Harold Fannin en TE es una apuesta arriesgada."
+      "Profundidad en banca en nivel medio (#7 Bench)."
     ],
-    verdict: "Equipo en la frontera de playoffs con gran talento en RB/WR."
+    verdict: "Estará en la pelea directa por el 6° puesto de playoffs en la Semana 14."
   },
   11: {
     rosterId: 11,
     grade: "B-",
+    score: 748,
     gradeClass: "grade-bminus",
     projRecord: "6-8",
-    projRank: 9,
-    playoffOdds: "44%",
-    projPtsPerWeek: 109.5,
-    summary: "Apostó temprano por el mejor QB de fantasy en Josh Allen (Ronda 2) y rodeó con receptores veloces como JSN y Zay Flowers. Sam LaPorta le da seguridad en la posición de TE.",
+    projRank: 8,
+    startersRank: 8,
+    benchRank: 9,
+    playoffOdds: "46%",
+    projPtsPerWeek: 108.9,
+    summary: "Apostó por el mejor QB de fantasy en Josh Allen (Ronda 2) y sumó a Sam LaPorta en TE junto a receptores electrizantes como JSN y Zay Flowers.",
     bestPick: "Josh Allen (Ronda 2, Pick 18)",
     stealPick: "DK Metcalf (Ronda 8, Pick 90)",
     riskPick: "Cam Skattebo (Ronda 4, Pick 42)",
     pros: [
-      "Josh Allen es garantía de 22+ puntos por semana.",
-      "Sam LaPorta es top 3 de alas cerradas.",
-      "DK Metcalf en ronda 8 tiene tremendo valor."
+      "Josh Allen es garantía de 22+ puntos semanales.",
+      "Sam LaPorta es ala cerrada top 3 de la liga.",
+      "Gran robo de DK Metcalf en Ronda 8."
     ],
     cons: [
-      "Backfield terrestre con dudas en volumen titular (Skattebo, Warren, Tuten).",
-      "Demasiados picks dedicados a WRs novatos en rondas finales."
+      "Backfield con dudas de volumen titular (#8 en RBs).",
+      "Muchos puestos de banca ocupados por WRs novatos."
     ],
-    verdict: "Dependerá mucho de que Josh Allen tenga semanas monstruosas para ganar duelos."
+    verdict: "Necesitará que Josh Allen tenga semanas monstruosas para clasificar."
   },
   10: {
     rosterId: 10,
     grade: "C+",
+    score: 728,
     gradeClass: "grade-c",
-    projRecord: "5-9",
-    projRank: 10,
-    playoffOdds: "35%",
-    projPtsPerWeek: 106.2,
-    summary: "CeeDee Lamb y Bucky Irving son estrellas comprobadas. Patrick Mahomes en Ronda 12 fue una ganga histórica, pero gastar la Ronda 6 en un pateador (Brandon Aubrey) debilitó su profundidad de banca.",
+    projRecord: "6-8",
+    projRank: 9,
+    startersRank: 9,
+    benchRank: 8,
+    playoffOdds: "40%",
+    projPtsPerWeek: 106.8,
+    summary: "CeeDee Lamb y Bucky Irving son estrellas consagradas. Logró un robo legendario con Patrick Mahomes en Ronda 12, pero gastar picks 6 y 8 en K/DEF mermó su rotación de titulares.",
     bestPick: "CeeDee Lamb (Ronda 1, Pick 8)",
-    stealPick: "Patrick Mahomes (Ronda 12, Pick 137 - Robo total)",
+    stealPick: "Patrick Mahomes (Ronda 12, Pick 137 - Robo legendario)",
     riskPick: "Brandon Aubrey (Ronda 6, Pick 65 - Demasiado temprano para K)",
     pros: [
-      "CeeDee Lamb es candidato a WR1 de la temporada.",
-      "Patrick Mahomes de QB suplente es un lujo brutal.",
-      "Colston Loveland tiene proyección de ala cerrada estelar."
+      "CeeDee Lamb candidato a líder de recepciones de la NFL.",
+      "Patrick Mahomes de mariscal suplente es un lujo brutal.",
+      "Colston Loveland en TE tiene gran proyección."
     ],
     cons: [
-      "Gastar picks 6 y 8 en K/DEF mermó los suplentes de RB/WR.",
-      "Doble pateador en el roster (Aubrey + McPherson) desperdicia una plaza."
+      "Doble pateador en el roster (Aubrey + McPherson) desperdicia una casilla de banca.",
+      "FLEX titular debilitado por picks de K/DEF en rondas medias."
     ],
-    verdict: "Titulares competitivos, pero necesitará waivers agresivos para cubrir lesiones."
+    verdict: "Titulares competitivos, pero deberá usar sus $100 FAAB para reforzar la banca."
   },
   6: {
     rosterId: 6,
     grade: "C",
+    score: 692,
     gradeClass: "grade-c",
     projRecord: "5-9",
-    projRank: 11,
-    playoffOdds: "28%",
-    projPtsPerWeek: 104.1,
-    summary: "CMC y A.J. Brown son dos de los jugadores más dominantes de la NFL. Sin embargo, seleccionar a Stafford en Ronda 3 y dos pateadores + dos defensas en rondas tempranas dejó huecos grandes en los titulares FLEX.",
+    projRank: 10,
+    startersRank: 10,
+    benchRank: 10,
+    playoffOdds: "31%",
+    projPtsPerWeek: 103.5,
+    summary: "Christian McCaffrey y A.J. Brown son dos de las máximas figuras de la NFL. Sin embargo, seleccionar a Stafford en Ronda 3 y acumular 2 pateadores y 2 defensas restó profundidad a sus posiciones clave.",
     bestPick: "Christian McCaffrey (Ronda 1, Pick 5)",
     stealPick: "Michael Wilson (Ronda 9, Pick 101)",
-    riskPick: "Matthew Stafford (Ronda 3, Pick 29 - Tomado 6 rondas antes)",
+    riskPick: "Matthew Stafford (Ronda 3, Pick 29)",
     pros: [
-      "CMC sano es el jugador #1 del fútbol americano.",
-      "A.J. Brown y Davante Adams son una pareja de WRs estelar.",
-      "Kyle Pitts tiene techo de puntos alto en Atlanta."
+      "CMC sano es el jugador #1 de todo el Fantasy Football.",
+      "A.J. Brown y Davante Adams forman una pareja temible de WRs.",
+      "Kyle Pitts en Atlanta con buen volumen de pases."
     ],
     cons: [
-      "Stafford en ronda 3 sobre otros QBs élite.",
-      "Doble K (Myers + Reichard) y doble DEF ocupan 4 casillas de roster."
+      "4 casillas de roster ocupadas en K y DEF (Myers, Reichard, Broncos, Bills).",
+      "Stafford seleccionado antes de mariscales más productivos."
     ],
-    verdict: "Su 11 titular es fuerte pero requerirá ajustes urgentes en la banca vía mercado FAAB."
+    verdict: "Requiere liberar espacios en banca y fichar suplentes ofensivos vía Waivers."
+  },
+  7: {
+    rosterId: 7,
+    grade: "C-",
+    score: 546,
+    gradeClass: "grade-c",
+    projRecord: "4-10",
+    projRank: 11,
+    startersRank: 11,
+    benchRank: 11,
+    playoffOdds: "22%",
+    projPtsPerWeek: 98.7,
+    summary: "Estrategia de ultraconcentración en corredores (James Cook, Kyren Williams, Breece Hall). Si bien tiene el mejor backfield terrestre, los algoritmos de FantasyPros castigan severamente el cuerpo de receptores y la falta de profundidad en WR.",
+    bestPick: "Breece Hall (Ronda 3, Pick 34)",
+    stealPick: "Kyler Murray (Ronda 15, Pick 178 - Gangas del Draft)",
+    riskPick: "Xavier Worthy (Ronda 4, Pick 39)",
+    pros: [
+      "El trío de RBs más demoledor de la liga (Cook, Kyren, Breece).",
+      "Kyler Murray en Ronda 15 tiene valor estratosférico.",
+      "George Kittle en TE da solidez garantizada."
+    ],
+    cons: [
+      "Cuerpo de WRs muy bajo en proyecciones de consenso de FantasyPros.",
+      "Poco balance entre juego aéreo y terrestre."
+    ],
+    verdict: "Si sus corredores arrasan puede dar sorpresas, pero el modelo lo proyecta en el fondo por debilidad aérea."
   },
   4: {
     rosterId: 4,
     grade: "D+",
+    score: 517,
     gradeClass: "grade-d",
-    projRecord: "4-10",
+    projRecord: "3-11",
     projRank: 12,
-    playoffOdds: "18%",
-    projPtsPerWeek: 99.4,
-    summary: "Estrategia atípica: seleccionó a Drake Maye en Ronda 1 (Pick 11), a la DEF de Kansas City en Ronda 3 y a un pateador novato en Ronda 4. Saquon Barkley cargará con la mayor parte del peso ofensivo.",
-    bestPick: "Saquon Barkley (Ronda 2, Pick 14 - Excelente valor)",
+    startersRank: 12,
+    benchRank: 12,
+    playoffOdds: "14%",
+    projPtsPerWeek: 94.2,
+    summary: "Estrategia no convencional: seleccionó a Drake Maye en Ronda 1 (#11), a la DEF de Kansas City en Ronda 3 y a un pateador novato en Ronda 4. Saquon Barkley cargará con el peso del equipo.",
+    bestPick: "Saquon Barkley (Ronda 2, Pick 14 - Gran valor)",
     stealPick: "Jayden Reed (Ronda 9, Pick 107)",
-    riskPick: "Andy Borregales (Ronda 4, Pick 38 - Kicker en R4)",
+    riskPick: "Andy Borregales (Ronda 4, Pick 38 - Kicker en Ronda 4)",
     pros: [
-      "Saquon Barkley es un monstruo detrás de la línea de Eagles.",
+      "Saquon Barkley es un caballo de batalla élite en Philadelphia.",
       "Dalton Kincaid y Mark Andrews le dan seguridad en TE.",
-      "Jayden Reed y Chris Godwin son sólidos en WR."
+      "Jayden Reed y Chris Godwin son buenos complementos en WR."
     ],
     cons: [
-      "Gastar picks de Rondas 1, 3 y 4 en QB de Patriots, DEF y K mermó el cuadro titular.",
-      "Tendrá que trabajar los Waivers con los $100 FAAB desde la Semana 1."
+      "#12 en Starters (493 pts) y #12 en Banca (23 pts).",
+      "Picks tempranos en K/DEF mermaron la rotación titular."
     ],
-    verdict: "Candidato a dar sorpresas si Drake Maye explota, pero el camino a playoffs es cuesta arriba."
+    verdict: "Tendrá que utilizar agresivamente los $100 FAAB para reconstruir su profundidad."
   }
 };
 
 export const DRAFT_AWARDS = [
   {
     icon: "💎",
-    title: "El Robo del Draft (Best Steal)",
+    title: "El Robo del Draft (Best Steals)",
     winner: "Patrick Mahomes (Pick 137, R12) & Kyler Murray (Pick 178, R15)",
     managers: "Cee Dee’z Nuts & Danbengoa",
-    desc: "Llevarse a dos mariscales estelares de la NFL en las últimas rondas del draft es una auténtica clase de valor de selección."
+    desc: "Llevarse a dos mariscales titulares élite de la NFL en rondas 12 y 15 es una auténtica cátedra de valor de selección."
   },
   {
     icon: "🚀",
-    title: "El Tridente Aéreo Más Letal",
+    title: "El Tridente Aéreo Más Letal (#1 WR)",
     winner: "Ja'Marr Chase + Chris Olave + Rashee Rice",
-    managers: "brianallenrm",
-    desc: "Tres receptores número 1 de sus respectivos equipos que garantizan más de 25 recepciones combinadas por semana."
+    managers: "brianallenrm (Rank #1 Overall)",
+    desc: "Calificado como el #1 mejor cuerpo de receptores de toda la liga por FantasyPros, con piso de 25+ recepciones semanales."
   },
   {
     icon: "🦏",
     title: "El Muro de Corredores (Ground & Pound)",
     winner: "James Cook + Kyren Williams + Breece Hall",
     managers: "Danbengoa",
-    desc: "Monopolizó el backfield con 3 corredores estelares capaces de superar las 1,200 yardas totales en el año."
+    desc: "Acaparó el backfield con 3 corredores estelares capaces de superar las 1,200 yardas totales cada uno en la temporada."
   },
   {
-    icon: "🎯",
-    title: "El Pick Más Audaz (Biggest Reach)",
-    winner: "Kansas City DEF (Ronda 3) & Andy Borregales (Ronda 4)",
-    managers: "Osante",
-    desc: "Asegurar defensiva y pateador en las primeras 4 rondas rompió todos los libros tradicionales de estrategia de fantasy."
+    icon: "🛡️",
+    title: "La Muralla de Profundidad (#1 Bench)",
+    winner: "SanzFC (129 pts de banca)",
+    managers: "SanzFC (Rank #2 Overall)",
+    desc: "Armó la mejor banca de la liga con Odunze, Sutton, Gainwell, Herbert y Purdy listos para cubrir cualquier descanso o lesión."
   }
 ];
 
 export function renderDraftRecapTab(teams = []) {
   const teamMap = Object.fromEntries(teams.map(t => [t.rosterId, t]));
 
-  // Ordenar por ranking proyectado
+  // Ordenar por ranking oficial de FantasyPros
   const sortedAnalyses = Object.values(DRAFT_ANALYSIS_DATA).sort((a, b) => a.projRank - b.projRank);
 
   const reportCardsHtml = sortedAnalyses.map(item => {
@@ -322,7 +357,7 @@ export function renderDraftRecapTab(teams = []) {
         <div class="report-team-info">
           <img class="report-avatar" src="${team.avatar || '/logo.jpg'}" alt="" onerror="this.src='/logo.jpg'">
           <div>
-            <div class="report-rank-badge">Proyección #${item.projRank} • Récord: ${item.projRecord}</div>
+            <div class="report-rank-badge">Power Rank #${item.projRank} • Score: ${item.score} pts</div>
             <h3 class="report-team-name">${team.teamName}</h3>
             <div class="report-mgr-name">Mánager: <strong>${team.displayName}</strong></div>
           </div>
@@ -335,16 +370,16 @@ export function renderDraftRecapTab(teams = []) {
 
       <div class="report-metrics-bar">
         <div class="report-metric-item">
+          <span class="metric-lbl">Récord Proyectado</span>
+          <span class="metric-val text-gold">${item.projRecord}</span>
+        </div>
+        <div class="report-metric-item">
           <span class="metric-lbl">Prob. Playoffs</span>
           <span class="metric-val text-green">${item.playoffOdds}</span>
         </div>
         <div class="report-metric-item">
-          <span class="metric-lbl">Pts Proyectados/Sem</span>
-          <span class="metric-val text-gold">${item.projPtsPerWeek} pts</span>
-        </div>
-        <div class="report-metric-item">
-          <span class="metric-lbl">Mejor Selección</span>
-          <span class="metric-val" style="font-size:.82rem">${item.bestPick.split('(')[0]}</span>
+          <span class="metric-lbl">Ranks (Tit/Bca)</span>
+          <span class="metric-val" style="font-size:.82rem">#${item.startersRank} Tit / #${item.benchRank} Bca</span>
         </div>
       </div>
 
@@ -388,7 +423,7 @@ export function renderDraftRecapTab(teams = []) {
         ${aw.winner}
       </div>
       <div style="font-size:.75rem; color:var(--blue); font-weight:700; text-transform:uppercase; margin-bottom:.5rem;">
-        Mánager: ${aw.managers}
+        ${aw.managers}
       </div>
       <p style="font-size:.82rem; color:var(--c-muted); line-height:1.45; margin:0;">
         ${aw.desc}
@@ -397,24 +432,27 @@ export function renderDraftRecapTab(teams = []) {
   `).join('');
 
   return `
-  <!-- Header del Draft Recap -->
-  <div class="card mb-1" style="background: linear-gradient(135deg, rgba(245,158,11,.12) 0%, rgba(56,189,248,.08) 100%); border: 1px solid var(--c-border-gold); padding: 1.5rem;">
+  <!-- Header del Draft Recap con enlace a FantasyPros -->
+  <div class="card mb-1" style="background: linear-gradient(135deg, rgba(245,158,11,.15) 0%, rgba(56,189,248,.1) 100%); border: 1px solid var(--c-border-gold); padding: 1.5rem;">
     <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
       <div>
         <div style="font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--gold-lt); margin-bottom:.25rem;">
-          🏈 Draft Oficial Concluido • 180 Picks Registrados
+          🏈 Report Card Oficial • Powered by FantasyPros Draft Wizard
         </div>
         <h2 style="font-family:var(--font-head); font-size:1.6rem; color:#fff; text-transform:uppercase; letter-spacing:.02em; line-height:1.15;">
-          Report Card &amp; Análisis Post-Draft 2026
+          Report Card &amp; Power Rankings del Draft 2026
         </h2>
         <p style="font-size:.86rem; color:var(--c-muted); margin-top:.35rem; max-width:640px; line-height:1.5;">
-          Evaluación completa de los 12 equipos con calificaciones de la <strong>A+ a la D</strong>, récord proyectado para las 14 semanas de temporada regular y probabilidad de clasificar a playoffs.
+          Análisis cuantitativo de los 180 picks de <strong>The Gains League</strong> calibrado con las proyecciones y algoritmos de consenso de <strong>FantasyPros</strong>.
         </p>
       </div>
-      <div style="display:flex; gap:.6rem; align-items:center;">
-        <span style="background:rgba(245,158,11,.15); border:1px solid var(--c-border-gold); color:var(--gold-lt); font-family:var(--font-head); font-size:1.1rem; padding:.5rem 1rem; border-radius:var(--r-sm); font-weight:700;">
-          12 Equipos Analizados
+      <div style="display:flex; flex-direction:column; gap:.5rem; align-items:flex-end;">
+        <span style="background:rgba(16,185,129,.15); border:1px solid #10b981; color:#34d399; font-family:var(--font-head); font-size:1.1rem; padding:.5rem 1rem; border-radius:var(--r-sm); font-weight:700;">
+          🏆 #1 Overall: brianallenrm (A+)
         </span>
+        <a href="https://fntsy.pro/MB4WH4kb" target="_blank" rel="noopener" style="font-size:.75rem; color:var(--blue); text-decoration:underline; font-weight:600;">
+          Ver reporte original en FantasyPros ↗
+        </a>
       </div>
     </div>
   </div>
@@ -425,7 +463,7 @@ export function renderDraftRecapTab(teams = []) {
       <div>
         <div class="section-title">🌟 Premios &amp; Menciones del Draft</div>
         <p style="color:var(--c-muted); font-size:.82rem; margin-top:.2rem;">
-          Los robos, sorpresas y jugadas maestras que marcaron las 15 rondas de selección.
+          Los robos, tridentes estelares y jugadas maestras que marcaron las 15 rondas.
         </p>
       </div>
       <span class="section-badge">Draft Insights</span>
@@ -441,7 +479,7 @@ export function renderDraftRecapTab(teams = []) {
       <div>
         <div class="section-title">📋 Calificaciones Oficiales por Equipo</div>
         <p style="color:var(--c-muted); font-size:.82rem; margin-top:.2rem;">
-          Ordenados por ranking de fuerza proyectada para la Temporada 2026.
+          Ordenados por puntuación total de fuerza proyectada de FantasyPros (Score Starters + Bench).
         </p>
       </div>
       <span class="section-badge">Power Rankings</span>
