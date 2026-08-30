@@ -1506,6 +1506,18 @@ tr.eliminated td { opacity: .7; }
   opacity: .8;
 }
 
+.report-headline-badge {
+  font-family: var(--font-head);
+  font-size: .92rem;
+  color: var(--gold-lt);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  background: rgba(245,158,11,.08);
+  border: 1px solid var(--c-border-gold);
+  border-radius: var(--r-sm);
+  padding: .4rem .65rem;
+}
+
 .report-metrics-bar {
   display: grid;
   grid-template-columns: 1fr 1fr 1.2fr;
