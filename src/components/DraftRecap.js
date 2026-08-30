@@ -597,13 +597,15 @@ export const DRAFT_AWARDS = [
   }
 ];
 
+import { renderHonorBadgeHtml, getManagerHonor } from '../utils/managerBadges.js';
+
 /**
  * Helper to parse bold markdown into styled highlight spans
  */
 export function formatMarkdown(text) {
   if (!text) return '';
   return text
-    .replace(/\*\*(.*?)\*\*/g, '<strong class="highlight-text"></strong>')
+    .replace(/\*\*(.*?)\*\*/g, '<strong class="highlight-text">$1</strong>')
     .replace(/conDrake/g, 'con Drake');
 }
 
@@ -704,8 +706,8 @@ export function renderTeamDetailModalContent(rosterId) {
         data.gradeLetter +
       '</div>' +
       '<div>' +
-        '<div class="ts-score-title">Puntuación General: <strong>' + data.scoreNum + '</strong></div>' +
-        '<div class="ts-score-sub">Evaluación cuantitativa de titulares y banca frente a los 12 equipos de la liga.</div>' +
+        '<div class="ts-score-title">' + data.teamName + ' ' + renderHonorBadgeHtml(getManagerHonor({ rosterId, displayName: data.teamName })) + ' • <strong>' + data.scoreNum + '</strong></div>' +
+        '<div class="ts-score-sub">Calificación cuantitativa de titulares y banca frente a los 12 equipos de la liga.</div>' +
       '</div>' +
     '</div>' +
 
@@ -756,7 +758,7 @@ export function renderDraftRecapTab(teams = []) {
           '<div>' +
             '<div class="report-rank-badge">Power Rank #' + item.projRank + ' • Score: ' + item.score + ' pts</div>' +
             '<h3 class="report-team-name team-name-link">' + team.teamName + ' <span class="badge-click-info">Ver gráfica ↗</span></h3>' +
-            '<div class="report-mgr-name">Mánager: <strong>' + team.displayName + '</strong></div>' +
+            '<div class="report-mgr-name">Mánager: <strong>' + team.displayName + '</strong> ' + renderHonorBadgeHtml(team.honor || getManagerHonor(team) || getManagerHonor({ rosterId: item.rosterId, displayName: team.displayName })) + '</div>' +
           '</div>' +
         '</div>' +
         '<div class="report-grade-box ' + item.gradeClass + ' clickable-team-detail" data-roster-id="' + item.rosterId + '" title="Ver desglose">' +

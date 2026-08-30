@@ -1,3 +1,5 @@
+import { renderHonorBadgeHtml, getManagerHonor } from '../utils/managerBadges.js';
+
 /* renderMembers — tabla de miembros actuales en pre-draft */
 function renderMembers(teams, users = [], total = 12) {
   // Obtener equipos con dueño real o usar la lista de usuarios
@@ -25,7 +27,7 @@ function renderMembers(teams, users = [], total = 12) {
           onerror="this.src='/logo.jpg'">
         <div class="member-info">
           <div class="m-name">${t.teamName}</div>
-          <div class="m-mgr">${t.displayName}</div>
+          <div class="m-mgr">${t.displayName} ${renderHonorBadgeHtml(t.honor || getManagerHonor(t))}</div>
         </div>
         <span class="member-badge">Confirmado</span>
       </div>`;
@@ -198,7 +200,7 @@ export function renderStandingsTab(teams, league, isPreDraft, users = []) {
           <img class="t-avatar" src="${t.avatar || '/logo.jpg'}" alt="" onerror="this.src='/logo.jpg'">
           <div>
             <div class="t-name">${t.teamName}</div>
-            <div class="t-mgr">${t.displayName}</div>
+            <div class="t-mgr">${t.displayName} ${renderHonorBadgeHtml(t.honor || getManagerHonor(t))}</div>
           </div>
         </div>
       </td>

@@ -2001,6 +2001,40 @@ tr.eliminated td { opacity: .7; }
 .ts-group-pro-card.tier-low .ts-group-pro-rank { color: #f87171; }
 
 /* ==========================================================
+   MANAGER HONORS & BADGES (CHAMPION, RUNNER-UP, ROOKIES)
+   ========================================================== */
+.honor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  padding: .15rem .45rem;
+  border-radius: var(--r-pill);
+  vertical-align: middle;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin-left: .35rem;
+}
+.honor-badge.honor-champion {
+  background: linear-gradient(135deg, rgba(245,158,11,.22) 0%, rgba(245,158,11,.08) 100%);
+  border: 1px solid var(--c-border-gold);
+  color: var(--gold-lt);
+  box-shadow: 0 0 10px rgba(245,158,11,.2);
+}
+.honor-badge.honor-runnerup {
+  background: linear-gradient(135deg, rgba(203,213,225,.2) 0%, rgba(203,213,225,.08) 100%);
+  border: 1px solid rgba(203,213,225,.4);
+  color: #e2e8f0;
+}
+.honor-badge.honor-rookie {
+  background: linear-gradient(135deg, rgba(56,189,248,.18) 0%, rgba(56,189,248,.06) 100%);
+  border: 1px solid rgba(56,189,248,.35);
+  color: #38bdf8;
+}
+
+/* ==========================================================
    MISC UTILITIES
    ========================================================== */
 .text-gold   { color: var(--gold-lt); }

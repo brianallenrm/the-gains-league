@@ -3,6 +3,8 @@
  * League ID: 1393074729073520640
  */
 
+import { getManagerHonor } from '../utils/managerBadges.js';
+
 export const LEAGUE_ID = "1393074729073520640";
 const BASE_URL = "https://api.sleeper.app/v1";
 const CDN_AVATARS = "https://sleepercdn.com/avatars";
@@ -121,6 +123,7 @@ export async function loadLeagueData() {
       players      : roster.players || [],
       starters     : roster.starters || [],
       reserve      : roster.reserve || [],
+      honor        : getManagerHonor({ displayName: user.display_name, teamName: user.metadata?.team_name, rosterId: roster.roster_id }),
       roster,
     };
   });

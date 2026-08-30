@@ -1,3 +1,5 @@
+import { renderHonorBadgeHtml, getManagerHonor } from '../utils/managerBadges.js';
+
 export function renderMatchups(matchups, teams, week, isPreDraft) {
   // Build teamMap by roster_id
   const teamMap = Object.fromEntries(teams.map(t => [t.rosterId, t]));
@@ -35,7 +37,7 @@ export function renderMatchups(matchups, teams, week, isPreDraft) {
     <div class="matchup-row ${sa > sb ? 'winner' : ''}">
       <div class="team-cell">
         <img class="t-avatar" src="${ta.avatar || '/logo.jpg'}" alt="" onerror="this.src='/logo.jpg'">
-        <div><div class="t-name">${ta.teamName}</div><div class="t-mgr">${ta.displayName}</div></div>
+        <div><div class="t-name">${ta.teamName}</div><div class="t-mgr">${ta.displayName} ${renderHonorBadgeHtml(ta.honor || getManagerHonor(ta))}</div></div>
       </div>
       <div class="m-score">${sa.toFixed(2)}</div>
     </div>`;
@@ -44,7 +46,7 @@ export function renderMatchups(matchups, teams, week, isPreDraft) {
     <div class="matchup-row ${sb > sa ? 'winner' : ''}">
       <div class="team-cell">
         <img class="t-avatar" src="${tb.avatar || '/logo.jpg'}" alt="" onerror="this.src='/logo.jpg'">
-        <div><div class="t-name">${tb.teamName}</div><div class="t-mgr">${tb.displayName}</div></div>
+        <div><div class="t-name">${tb.teamName}</div><div class="t-mgr">${tb.displayName} ${renderHonorBadgeHtml(tb.honor || getManagerHonor(tb))}</div></div>
       </div>
       <div class="m-score">${sb.toFixed(2)}</div>
     </div>`;
