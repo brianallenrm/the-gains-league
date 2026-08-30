@@ -246,6 +246,273 @@ export const TEAM_LINEUP_STRENGTHS = {
   }
 };
 
+export const DRAFT_ANALYSIS_DATA = {
+  "1": {
+    "rosterId": 1,
+    "projRank": 1,
+    "score": 97,
+    "grade": "A+",
+    "gradeClass": "grade-aplus",
+    "headline": "An\u00e1lisis y Proyecci\u00f3n FantasyPros",
+    "projRecord": "13-1",
+    "playoffOdds": "92%",
+    "startersRank": 1,
+    "benchRank": 12,
+    "summary": "Reporte estad\u00edstico basado en ADP y proyecciones de FantasyPros. Evaluando la calidad de titulares y banca.",
+    "pros": [
+      "S\u00f3lida proyecci\u00f3n base"
+    ],
+    "cons": [
+      "Depende de salud"
+    ],
+    "stealPick": "TBD",
+    "riskPick": "TBD",
+    "verdict": "Con posibilidades reales de postemporada."
+  },
+  "9": {
+    "rosterId": 9,
+    "projRank": 2,
+    "score": 94,
+    "grade": "A",
+    "gradeClass": "grade-a",
+    "headline": "An\u00e1lisis y Proyecci\u00f3n FantasyPros",
+    "projRecord": "12-2",
+    "playoffOdds": "85%",
+    "startersRank": 2,
+    "benchRank": 11,
+    "summary": "Reporte estad\u00edstico basado en ADP y proyecciones de FantasyPros. Evaluando la calidad de titulares y banca.",
+    "pros": [
+      "S\u00f3lida proyecci\u00f3n base"
+    ],
+    "cons": [
+      "Depende de salud"
+    ],
+    "stealPick": "TBD",
+    "riskPick": "TBD",
+    "verdict": "Con posibilidades reales de postemporada."
+  },
+  "5": {
+    "rosterId": 5,
+    "projRank": 3,
+    "score": 88,
+    "grade": "B+",
+    "gradeClass": "grade-bplus",
+    "headline": "An\u00e1lisis y Proyecci\u00f3n FantasyPros",
+    "projRecord": "11-3",
+    "playoffOdds": "78%",
+    "startersRank": 3,
+    "benchRank": 10,
+    "summary": "Reporte estad\u00edstico basado en ADP y proyecciones de FantasyPros. Evaluando la calidad de titulares y banca.",
+    "pros": [
+      "S\u00f3lida proyecci\u00f3n base"
+    ],
+    "cons": [
+      "Depende de salud"
+    ],
+    "stealPick": "TBD",
+    "riskPick": "TBD",
+    "verdict": "Con posibilidades reales de postemporada."
+  },
+  "12": {
+    "rosterId": 12,
+    "projRank": 4,
+    "score": 87,
+    "grade": "A-",
+    "gradeClass": "grade-a",
+    "headline": "An\u00e1lisis y Proyecci\u00f3n FantasyPros",
+    "projRecord": "10-4",
+    "playoffOdds": "71%",
+    "startersRank": 4,
+    "benchRank": 9,
+    "summary": "Reporte estad\u00edstico basado en ADP y proyecciones de FantasyPros. Evaluando la calidad de titulares y banca.",
+    "pros": [
+      "S\u00f3lida proyecci\u00f3n base"
+    ],
+    "cons": [
+      "Depende de salud"
+    ],
+    "stealPick": "TBD",
+    "riskPick": "TBD",
+    "verdict": "Con posibilidades reales de postemporada."
+  },
+  "3": {
+    "rosterId": 3,
+    "projRank": 5,
+    "score": 83,
+    "grade": "B+",
+    "gradeClass": "grade-bplus",
+    "headline": "An\u00e1lisis y Proyecci\u00f3n FantasyPros",
+    "projRecord": "9-5",
+    "playoffOdds": "64%",
+    "startersRank": 5,
+    "benchRank": 8,
+    "summary": "Reporte estad\u00edstico basado en ADP y proyecciones de FantasyPros. Evaluando la calidad de titulares y banca.",
+    "pros": [
+      "S\u00f3lida proyecci\u00f3n base"
+    ],
+    "cons": [
+      "Depende de salud"
+    ],
+    "stealPick": "TBD",
+    "riskPick": "TBD",
+    "verdict": "Con posibilidades reales de postemporada."
+  },
+  "8": {
+    "rosterId": 8,
+    "projRank": 6,
+    "score": 78,
+    "grade": "B",
+    "gradeClass": "grade-b",
+    "headline": "An\u00e1lisis y Proyecci\u00f3n FantasyPros",
+    "projRecord": "8-6",
+    "playoffOdds": "57%",
+    "startersRank": 6,
+    "benchRank": 7,
+    "summary": "Reporte estad\u00edstico basado en ADP y proyecciones de FantasyPros. Evaluando la calidad de titulares y banca.",
+    "pros": [
+      "S\u00f3lida proyecci\u00f3n base"
+    ],
+    "cons": [
+      "Depende de salud"
+    ],
+    "stealPick": "TBD",
+    "riskPick": "TBD",
+    "verdict": "Con posibilidades reales de postemporada."
+  },
+  "2": {
+    "rosterId": 2,
+    "projRank": 7,
+    "score": 75,
+    "grade": "B",
+    "gradeClass": "grade-b",
+    "headline": "An\u00e1lisis y Proyecci\u00f3n FantasyPros",
+    "projRecord": "7-7",
+    "playoffOdds": "50%",
+    "startersRank": 7,
+    "benchRank": 6,
+    "summary": "Reporte estad\u00edstico basado en ADP y proyecciones de FantasyPros. Evaluando la calidad de titulares y banca.",
+    "pros": [
+      "S\u00f3lida proyecci\u00f3n base"
+    ],
+    "cons": [
+      "Depende de salud"
+    ],
+    "stealPick": "TBD",
+    "riskPick": "TBD",
+    "verdict": "Requerir\u00e1 movimientos agresivos en el mercado."
+  },
+  "11": {
+    "rosterId": 11,
+    "projRank": 8,
+    "score": 71,
+    "grade": "B-",
+    "gradeClass": "grade-bminus",
+    "headline": "An\u00e1lisis y Proyecci\u00f3n FantasyPros",
+    "projRecord": "6-8",
+    "playoffOdds": "43%",
+    "startersRank": 8,
+    "benchRank": 5,
+    "summary": "Reporte estad\u00edstico basado en ADP y proyecciones de FantasyPros. Evaluando la calidad de titulares y banca.",
+    "pros": [
+      "S\u00f3lida proyecci\u00f3n base"
+    ],
+    "cons": [
+      "Depende de salud"
+    ],
+    "stealPick": "TBD",
+    "riskPick": "TBD",
+    "verdict": "Requerir\u00e1 movimientos agresivos en el mercado."
+  },
+  "10": {
+    "rosterId": 10,
+    "projRank": 9,
+    "score": 68,
+    "grade": "C+",
+    "gradeClass": "grade-c",
+    "headline": "An\u00e1lisis y Proyecci\u00f3n FantasyPros",
+    "projRecord": "5-9",
+    "playoffOdds": "36%",
+    "startersRank": 9,
+    "benchRank": 4,
+    "summary": "Reporte estad\u00edstico basado en ADP y proyecciones de FantasyPros. Evaluando la calidad de titulares y banca.",
+    "pros": [
+      "S\u00f3lida proyecci\u00f3n base"
+    ],
+    "cons": [
+      "Depende de salud"
+    ],
+    "stealPick": "TBD",
+    "riskPick": "TBD",
+    "verdict": "Requerir\u00e1 movimientos agresivos en el mercado."
+  },
+  "6": {
+    "rosterId": 6,
+    "projRank": 10,
+    "score": 64,
+    "grade": "C",
+    "gradeClass": "grade-c",
+    "headline": "An\u00e1lisis y Proyecci\u00f3n FantasyPros",
+    "projRecord": "4-10",
+    "playoffOdds": "29%",
+    "startersRank": 10,
+    "benchRank": 3,
+    "summary": "Reporte estad\u00edstico basado en ADP y proyecciones de FantasyPros. Evaluando la calidad de titulares y banca.",
+    "pros": [
+      "S\u00f3lida proyecci\u00f3n base"
+    ],
+    "cons": [
+      "Depende de salud"
+    ],
+    "stealPick": "TBD",
+    "riskPick": "TBD",
+    "verdict": "Requerir\u00e1 movimientos agresivos en el mercado."
+  },
+  "7": {
+    "rosterId": 7,
+    "projRank": 11,
+    "score": 52,
+    "grade": "C-",
+    "gradeClass": "grade-c",
+    "headline": "An\u00e1lisis y Proyecci\u00f3n FantasyPros",
+    "projRecord": "3-11",
+    "playoffOdds": "22%",
+    "startersRank": 11,
+    "benchRank": 2,
+    "summary": "Reporte estad\u00edstico basado en ADP y proyecciones de FantasyPros. Evaluando la calidad de titulares y banca.",
+    "pros": [
+      "S\u00f3lida proyecci\u00f3n base"
+    ],
+    "cons": [
+      "Depende de salud"
+    ],
+    "stealPick": "TBD",
+    "riskPick": "TBD",
+    "verdict": "Requerir\u00e1 movimientos agresivos en el mercado."
+  },
+  "4": {
+    "rosterId": 4,
+    "projRank": 12,
+    "score": 48,
+    "grade": "D+",
+    "gradeClass": "grade-d",
+    "headline": "An\u00e1lisis y Proyecci\u00f3n FantasyPros",
+    "projRecord": "2-12",
+    "playoffOdds": "15%",
+    "startersRank": 12,
+    "benchRank": 1,
+    "summary": "Reporte estad\u00edstico basado en ADP y proyecciones de FantasyPros. Evaluando la calidad de titulares y banca.",
+    "pros": [
+      "S\u00f3lida proyecci\u00f3n base"
+    ],
+    "cons": [
+      "Depende de salud"
+    ],
+    "stealPick": "TBD",
+    "riskPick": "TBD",
+    "verdict": "Requerir\u00e1 movimientos agresivos en el mercado."
+  }
+};
+
 export const DRAFT_AWARDS = [
   {
     icon: "💎",
