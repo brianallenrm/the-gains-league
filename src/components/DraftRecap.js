@@ -763,10 +763,10 @@ export function renderDraftRecapTab(teams = []) {
   // Ordenar por ranking oficial de FantasyPros
   const sortedAnalyses = Object.values(DRAFT_ANALYSIS_DATA).sort((a, b) => a.projRank - b.projRank);
 
-  const reportCardsHtml = sortedAnalyses.map(item => {
+  const reportCardsHtml = sortedAnalyses.map((item, idx) => {
     const team = teamMap[item.rosterId] || { teamName: 'Equipo ' + item.rosterId, displayName: 'Mánager', avatar: '/logo.jpg' };
     
-    return '<div class="draft-report-card">' +
+    return '<div class="draft-report-card carousel-slide ' + (idx === 0 ? 'active-slide' : '') + '" data-slide-index="' + idx + '">' +
       '<div class="report-card-header">' +
         '<div class="report-team-info clickable-team-detail" data-roster-id="' + item.rosterId + '" title="Haz clic para ver el desglose gráfico de titulares y posición">' +
           '<img class="report-avatar" src="' + (team.avatar || '/logo.jpg') + '" alt="" onerror="this.src=\'/logo.jpg\'">' +
@@ -884,6 +884,26 @@ export function renderDraftRecapTab(teams = []) {
     '</p>' +
   '</div>').join('');
 
+  const carouselSelectOptions = sortedAnalyses.map((item, idx) => {
+    const team = teamMap[item.rosterId] || { teamName: 'Equipo ' + item.rosterId };
+    return '<option value="' + idx + '">#' + item.projRank + ' ' + team.teamName + ' (' + item.grade + ')</option>';
+  }).join('');
+
+  const carouselControlsHtml = '<!-- Mobile Carousel Controls -->' +
+    '<div class="recap-carousel-controls">' +
+      '<div class="recap-select-wrap">' +
+        '<label for="recap-team-select" class="recap-select-label">🔍 Seleccionar Equipo para ver:</label>' +
+        '<select id="recap-team-select" class="recap-team-select">' +
+          carouselSelectOptions +
+        '</select>' +
+      '</div>' +
+      '<div class="recap-nav-btns">' +
+        '<button id="btn-recap-prev" class="btn-recap-nav" title="Equipo anterior"><span>◀</span> Anterior</button>' +
+        '<div id="recap-slide-counter" class="recap-slide-counter">Equipo 1 de 12</div>' +
+        '<button id="btn-recap-next" class="btn-recap-nav" title="Siguiente equipo">Siguiente <span>▶</span></button>' +
+      '</div>' +
+    '</div>';
+
   return '<!-- Header del Draft Recap -->' +
   '<div class="card mb-1" style="background: linear-gradient(135deg, rgba(245,158,11,.15) 0%, rgba(56,189,248,.1) 100%); border: 1px solid var(--c-border-gold); padding: 1.5rem;">' +
     '<div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">' +
@@ -933,6 +953,7 @@ export function renderDraftRecapTab(teams = []) {
       '</div>' +
       '<span class="section-badge">Power Rankings</span>' +
     '</div>' +
+    carouselControlsHtml +
     '<div class="report-cards-grid">' +
       reportCardsHtml +
     '</div>' +
@@ -1037,4 +1058,68 @@ export function attachDraftRecapEvents(container) {
   modal?.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
   });
+
+  // Carousel Navigation Logic
+  const slides = container.querySelectorAll('.draft-report-card.carousel-slide');
+  const select = container.querySelector('#recap-team-select');
+  const btnPrev = container.querySelector('#btn-recap-prev');
+  const btnNext = container.querySelector('#btn-recap-next');
+  const counter = container.querySelector('#recap-slide-counter');
+
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+    if (totalSlides === 0) return;
+    currentSlide = (index + totalSlides) % totalSlides;
+
+    slides.forEach((slide, i) => {
+      if (i === currentSlide) {
+        slide.classList.add('active-slide');
+      } else {
+        slide.classList.remove('active-slide');
+      }
+    });
+
+    if (select) select.value = String(currentSlide);
+    if (counter) counter.textContent = 'Equipo ' + (currentSlide + 1) + ' de ' + totalSlides;
+  }
+
+  select?.addEventListener('change', (e) => {
+    showSlide(parseInt(e.target.value, 10));
+  });
+
+  btnPrev?.addEventListener('click', (e) => {
+    e.preventDefault();
+    showSlide(currentSlide - 1);
+  });
+
+  btnNext?.addEventListener('click', (e) => {
+    e.preventDefault();
+    showSlide(currentSlide + 1);
+  });
+
+  // Touch swipe support for mobile
+  const cardsGrid = container.querySelector('.report-cards-grid');
+  if (cardsGrid) {
+    let startX = 0;
+    cardsGrid.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches[0]) {
+        startX = e.touches[0].clientX;
+      }
+    }, { passive: true });
+
+    cardsGrid.addEventListener('touchend', (e) => {
+      if (e.changedTouches && e.changedTouches[0]) {
+        const diffX = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diffX) > 40) {
+          if (diffX > 0) {
+            showSlide(currentSlide + 1); // Swipe left -> next
+          } else {
+            showSlide(currentSlide - 1); // Swipe right -> prev
+          }
+        }
+      }
+    }, { passive: true });
+  }
 }

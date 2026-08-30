@@ -2321,83 +2321,174 @@ tr.eliminated td { opacity: .7; }
   color: var(--gold-lt);
 }
 
+/* ==========================================================
+   PROJECTED STANDINGS TABLE (WITH HORIZONTAL SCROLL & AMPLE HEADERS)
+   ========================================================== */
 .projected-standings-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 530px;
+}
+.projected-standings-table th {
+  white-space: nowrap;
+  padding: .75rem .65rem;
+  font-size: .8rem;
+  letter-spacing: .03em;
+}
+.projected-standings-table td {
+  padding: .65rem .65rem;
+  font-size: .85rem;
 }
 
 @media (max-width: 600px) {
   .projected-standings-table {
+    min-width: 510px;
     width: 100%;
-    table-layout: fixed;
   }
   .projected-standings-table th,
   .projected-standings-table td {
-    padding: .45rem .2rem !important;
-    font-size: .74rem;
+    padding: .65rem .5rem !important;
+    font-size: .82rem;
   }
-  .projected-standings-table th:nth-child(1),
-  .projected-standings-table td:nth-child(1) {
-    width: 24px;
-    padding-left: .2rem !important;
-    padding-right: .1rem !important;
+  .projected-standings-table th {
+    white-space: nowrap !important;
+    font-size: .76rem;
   }
-  .projected-standings-table th:nth-child(2),
-  .projected-standings-table td:nth-child(2) {
-    width: auto;
-    overflow: hidden;
-  }
-  .projected-standings-table th:nth-child(3),
-  .projected-standings-table td:nth-child(3) {
-    width: 46px;
-    text-align: center;
-  }
-  .projected-standings-table th:nth-child(4),
-  .projected-standings-table td:nth-child(4) {
-    width: 58px;
-    text-align: center;
-  }
-  .projected-standings-table th:nth-child(5),
-  .projected-standings-table td:nth-child(5) {
-    width: 52px;
-    text-align: center;
-  }
-
   .projected-standings-table .team-cell {
-    gap: .35rem;
-    min-width: 0;
+    gap: .45rem;
   }
   .projected-standings-table .t-avatar {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     flex-shrink: 0;
   }
   .projected-standings-table .t-name {
-    font-size: .76rem;
-    line-height: 1.15;
+    font-size: .84rem;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100px;
   }
   .projected-standings-table .t-mgr {
-    font-size: .62rem;
+    font-size: .7rem;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100px;
-  }
-  .projected-standings-table .honor-badge {
-    font-size: .52rem;
-    padding: .1rem .25rem;
-    margin-left: .15rem;
   }
   .projected-standings-table .odds-badge {
-    font-size: .72rem;
-    padding: .12rem .35rem;
+    font-size: .8rem;
+    padding: .15rem .45rem;
   }
   .projected-standings-table .champ-odds-val {
-    font-size: .8rem;
+    font-size: .9rem;
+  }
+}
+
+/* ==========================================================
+   DRAFT RECAP MOBILE CAROUSEL (1-by-1 WITH SELECTOR & ARROWS)
+   ========================================================== */
+.recap-carousel-controls {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .recap-carousel-controls {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    margin-bottom: 1.15rem;
+    background: radial-gradient(circle at 50% 0%, rgba(30,41,59,.8) 0%, rgba(15,23,42,.95) 100%);
+    border: 1px solid var(--c-border-gold);
+    border-radius: var(--r-md);
+    padding: .85rem 1rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,.35);
+  }
+  .recap-select-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+  }
+  .recap-select-label {
+    font-size: .72rem;
+    color: var(--gold-lt);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+  }
+  .recap-team-select {
+    width: 100%;
+    padding: .65rem .85rem;
+    background: rgba(6,11,20,.95);
+    border: 1px solid var(--c-border-gold);
+    border-radius: var(--r-sm);
+    color: #fff;
+    font-family: var(--font-head);
+    font-size: .95rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  }
+  .recap-team-select option {
+    background: #0f172a;
+    color: #fff;
+    padding: .5rem;
+  }
+  .recap-nav-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+  }
+  .btn-recap-nav {
+    flex: 1;
+    padding: .65rem .75rem;
+    background: rgba(56,189,248,.12);
+    border: 1px solid rgba(56,189,248,.35);
+    border-radius: var(--r-sm);
+    color: #38bdf8;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: .9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: all .2s ease;
+  }
+  .btn-recap-nav:hover, .btn-recap-nav:active {
+    background: rgba(56,189,248,.25);
+    border-color: #38bdf8;
+  }
+  .recap-slide-counter {
+    font-family: var(--font-head);
+    font-size: .88rem;
+    color: var(--gold-lt);
+    min-width: 95px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: .02em;
+  }
+  .report-cards-grid {
+    display: block !important;
+    position: relative;
+  }
+  .draft-report-card.carousel-slide {
+    display: none;
+  }
+  .draft-report-card.carousel-slide.active-slide {
+    display: flex !important;
+    animation: fadeInSlide .3s cubic-bezier(.16,1,.3,1);
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
