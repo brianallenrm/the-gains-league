@@ -1636,6 +1636,246 @@ tr.eliminated td { opacity: .7; }
   padding: .45rem .75rem;
 }
 
+.clickable-team-detail {
+  cursor: pointer;
+}
+.clickable-team-detail:hover .team-name-link {
+  color: var(--gold-lt);
+}
+.badge-click-info {
+  font-size: .62rem;
+  color: var(--blue);
+  background: rgba(56,189,248,.12);
+  border: 1px solid var(--c-border-blue);
+  padding: .1rem .4rem;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  margin-left: .35rem;
+  vertical-align: middle;
+}
+.btn-view-strengths {
+  background: rgba(56,189,248,.12);
+  border: 1px solid var(--c-border-blue);
+  color: var(--blue);
+  font-family: var(--font-head);
+  font-size: .88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: .55rem .95rem;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: all .2s ease;
+}
+.btn-view-strengths:hover {
+  background: var(--blue);
+  color: #040814;
+  box-shadow: 0 0 16px rgba(56,189,248,.3);
+}
+
+/* ==========================================================
+   TEAM STRENGTHS DETAIL MODAL (STARTING LINEUP & GROUPS)
+   ========================================================== */
+.team-strength-modal-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.ts-header-box {
+  background: rgba(6,11,20,.7);
+  border: 1px solid var(--c-border-gold);
+  border-radius: var(--r-md);
+  padding: 1rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.ts-grade-badge {
+  font-family: var(--font-head);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  width: 58px;
+  height: 58px;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ts-score-title {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+.ts-score-title strong {
+  color: var(--gold-lt);
+}
+.ts-score-sub {
+  font-size: .8rem;
+  color: var(--c-muted);
+  margin-top: .15rem;
+}
+.ts-section-block {
+  background: var(--c-surface2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 1rem 1.15rem;
+}
+.ts-block-title {
+  font-family: var(--font-head);
+  font-size: .95rem;
+  color: var(--gold-lt);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  margin-bottom: 1rem;
+}
+
+/* Starting Lineup Pillars Track */
+.team-strength-bars-track {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: .35rem;
+  padding: 1.5rem 0 .5rem;
+  min-height: 180px;
+  overflow-x: auto;
+}
+.team-strength-bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 48px;
+  gap: .3rem;
+}
+.bar-rank-label {
+  font-family: var(--font-head);
+  font-size: .88rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: .2rem;
+}
+.bar-pillar {
+  width: 38px;
+  border-radius: var(--r-sm) var(--r-sm) 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: .35rem .2rem;
+  position: relative;
+  transition: transform .2s ease;
+}
+.team-strength-bar-col.tier-green .bar-pillar {
+  background: linear-gradient(180deg, rgba(52,211,153,.85) 0%, rgba(16,185,129,.35) 100%);
+  height: 130px;
+}
+.team-strength-bar-col.tier-green .bar-rank-label {
+  color: #34d399;
+}
+.team-strength-bar-col.tier-yellow .bar-pillar {
+  background: linear-gradient(180deg, rgba(251,191,36,.85) 0%, rgba(245,158,11,.35) 100%);
+  height: 95px;
+}
+.team-strength-bar-col.tier-yellow .bar-rank-label {
+  color: var(--gold-lt);
+}
+.team-strength-bar-col.tier-red .bar-pillar {
+  background: linear-gradient(180deg, rgba(248,113,113,.75) 0%, rgba(239,68,68,.3) 100%);
+  height: 65px;
+}
+.team-strength-bar-col.tier-red .bar-rank-label {
+  color: #fca5a5;
+}
+.bar-player-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255,255,255,.8);
+  background: var(--c-surface3);
+  box-shadow: 0 2px 6px rgba(0,0,0,.5);
+}
+.bar-def-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-sm);
+  background: rgba(6,11,20,.8);
+  border: 1.5px solid rgba(255,255,255,.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: .65rem;
+  font-weight: 700;
+  color: #fff;
+}
+.bar-slot-label {
+  font-family: var(--font-head);
+  font-size: .78rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  margin-top: .15rem;
+}
+.bar-player-sub {
+  font-size: .62rem;
+  color: var(--c-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 48px;
+  text-align: center;
+}
+
+/* Position Groups Grid */
+.ts-groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: .65rem;
+}
+.ts-group-card {
+  background: var(--c-surface3);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-sm);
+  padding: .5rem .65rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.ts-group-name {
+  font-family: var(--font-head);
+  font-size: .8rem;
+  font-weight: 700;
+  color: #fff;
+  width: 32px;
+}
+.ts-group-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,.08);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+.ts-group-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--gold) 100%);
+  border-radius: var(--r-pill);
+}
+.ts-group-score {
+  font-family: var(--font-mono, monospace);
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--gold-lt);
+}
+
 /* ==========================================================
    MISC UTILITIES
    ========================================================== */
