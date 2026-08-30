@@ -18,8 +18,8 @@ export function getManagerHonor(teamOrManager) {
     };
   }
 
-  // Subcampeón 2025 (Osante)
-  if (name === 'Osante' || rosterId === 4) {
+  // Subcampeón 2025 (channels98 / Cee Dee’z Nuts)
+  if (name === 'channels98' || name === 'Cee Dee’z Nuts' || rosterId === 10) {
     return {
       title: '🥈 Subcampeón',
       shortTitle: '🥈 Subcampeón',
