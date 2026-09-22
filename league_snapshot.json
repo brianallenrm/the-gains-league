@@ -1,0 +1,2398 @@
+{
+  "updatedAt": "2026-09-22T23:36:56.551Z",
+  "leagueInfo": {
+    "leagueId": "1393074729073520640",
+    "name": "The Gains League ",
+    "season": "2026",
+    "totalTeams": 12,
+    "currentWeek": 3
+  },
+  "standings": [
+    {
+      "rank": 1,
+      "rosterId": 11,
+      "teamName": "Emi69Hb",
+      "displayName": "Emi69Hb",
+      "wins": 2,
+      "losses": 0,
+      "fpts": 329.38,
+      "fptsAgainst": 233.5,
+      "faabRemaining": 90,
+      "streak": "2W"
+    },
+    {
+      "rank": 2,
+      "rosterId": 1,
+      "teamName": "Bowers Rangers",
+      "displayName": "brianallenrm",
+      "wins": 2,
+      "losses": 0,
+      "fpts": 310.1,
+      "fptsAgainst": 280.28,
+      "faabRemaining": 93,
+      "streak": "2W"
+    },
+    {
+      "rank": 3,
+      "rosterId": 2,
+      "teamName": "Carlosso",
+      "displayName": "Carlosso",
+      "wins": 2,
+      "losses": 0,
+      "fpts": 259.78,
+      "fptsAgainst": 198.92,
+      "faabRemaining": 100,
+      "streak": "2W"
+    },
+    {
+      "rank": 4,
+      "rosterId": 5,
+      "teamName": "versace4444",
+      "displayName": "versace4444",
+      "wins": 1,
+      "losses": 1,
+      "fpts": 290.96,
+      "fptsAgainst": 324.12,
+      "faabRemaining": 100,
+      "streak": "1W"
+    },
+    {
+      "rank": 5,
+      "rosterId": 3,
+      "teamName": "MALIK BUSINESS",
+      "displayName": "elchebu",
+      "wins": 1,
+      "losses": 1,
+      "fpts": 253.38,
+      "fptsAgainst": 285.5,
+      "faabRemaining": 82,
+      "streak": "1L"
+    },
+    {
+      "rank": 6,
+      "rosterId": 12,
+      "teamName": "DaniAlva08",
+      "displayName": "DaniAlva08",
+      "wins": 1,
+      "losses": 1,
+      "fpts": 245.66,
+      "fptsAgainst": 206.64,
+      "faabRemaining": 100,
+      "streak": "1W"
+    },
+    {
+      "rank": 7,
+      "rosterId": 4,
+      "teamName": "Osante",
+      "displayName": "Osante",
+      "wins": 1,
+      "losses": 1,
+      "fpts": 244.84,
+      "fptsAgainst": 252.92,
+      "faabRemaining": 100,
+      "streak": "1L"
+    },
+    {
+      "rank": 8,
+      "rosterId": 8,
+      "teamName": "DonaldTrumpGoat",
+      "displayName": "DonaldTrumpGoat",
+      "wins": 1,
+      "losses": 1,
+      "fpts": 242.54,
+      "fptsAgainst": 280.68,
+      "faabRemaining": 100,
+      "streak": "1L"
+    },
+    {
+      "rank": 9,
+      "rosterId": 7,
+      "teamName": "Danbengoa",
+      "displayName": "Danbengoa",
+      "wins": 1,
+      "losses": 1,
+      "fpts": 237.14,
+      "fptsAgainst": 247.84,
+      "faabRemaining": 100,
+      "streak": "1W"
+    },
+    {
+      "rank": 10,
+      "rosterId": 9,
+      "teamName": "SanzFC",
+      "displayName": "SanzFC",
+      "wins": 0,
+      "losses": 2,
+      "fpts": 287.24,
+      "fptsAgainst": 299.3,
+      "faabRemaining": 100,
+      "streak": "2L"
+    },
+    {
+      "rank": 11,
+      "rosterId": 10,
+      "teamName": "Cee Dee’z Nuts",
+      "displayName": "channels98",
+      "wins": 0,
+      "losses": 2,
+      "fpts": 279.96,
+      "fptsAgainst": 310.32,
+      "faabRemaining": 100,
+      "streak": "2L"
+    },
+    {
+      "rank": 12,
+      "rosterId": 6,
+      "teamName": "carloverditraconis",
+      "displayName": "carloverditraconis",
+      "wins": 0,
+      "losses": 2,
+      "fpts": 221.58,
+      "fptsAgainst": 282.54,
+      "faabRemaining": 100,
+      "streak": "2L"
+    }
+  ],
+  "myTeam": {
+    "rank": 2,
+    "rosterId": 1,
+    "teamName": "Bowers Rangers",
+    "displayName": "brianallenrm",
+    "wins": 2,
+    "losses": 0,
+    "ties": 0,
+    "fpts": 310.1,
+    "fptsAgainst": 280.28,
+    "faabRemaining": 93,
+    "streak": "2W",
+    "starters": [
+      {
+        "id": "11566",
+        "name": "Jayden Daniels",
+        "pos": "QB",
+        "nflTeam": "WAS",
+        "isStarter": true
+      },
+      {
+        "id": "7588",
+        "name": "Javonte Williams",
+        "pos": "RB",
+        "nflTeam": "DAL",
+        "isStarter": true
+      },
+      {
+        "id": "6790",
+        "name": "D'Andre Swift",
+        "pos": "RB",
+        "nflTeam": "CHI",
+        "isStarter": true
+      },
+      {
+        "id": "7564",
+        "name": "Ja'Marr Chase",
+        "pos": "WR",
+        "nflTeam": "CIN",
+        "isStarter": true
+      },
+      {
+        "id": "8144",
+        "name": "Chris Olave",
+        "pos": "WR",
+        "nflTeam": "NO",
+        "isStarter": true
+      },
+      {
+        "id": "7600",
+        "name": "Pat Freiermuth",
+        "pos": "TE",
+        "nflTeam": "PIT",
+        "isStarter": true
+      },
+      {
+        "id": "10229",
+        "name": "Rashee Rice",
+        "pos": "WR",
+        "nflTeam": "KC",
+        "isStarter": true
+      },
+      {
+        "id": "9487",
+        "name": "Parker Washington",
+        "pos": "WR",
+        "nflTeam": "JAX",
+        "isStarter": true
+      },
+      {
+        "id": "4227",
+        "name": "Harrison Butker",
+        "pos": "K",
+        "nflTeam": "KC",
+        "isStarter": true
+      },
+      {
+        "id": "TB",
+        "name": "Tampa Bay Buccaneers",
+        "pos": "DEF",
+        "nflTeam": "TB",
+        "isStarter": true
+      }
+    ],
+    "bench": [
+      {
+        "id": "11581",
+        "name": "MarShawn Lloyd",
+        "pos": "RB",
+        "nflTeam": "GB",
+        "isStarter": false
+      },
+      {
+        "id": "11604",
+        "name": "Brock Bowers",
+        "pos": "TE",
+        "nflTeam": "LV",
+        "isStarter": false
+      },
+      {
+        "id": "12492",
+        "name": "Pat Bryant",
+        "pos": "WR",
+        "nflTeam": "DEN",
+        "isStarter": false
+      },
+      {
+        "id": "13414",
+        "name": "Kaelon Black",
+        "pos": "RB",
+        "nflTeam": "SF",
+        "isStarter": false
+      },
+      {
+        "id": "6806",
+        "name": "J.K. Dobbins",
+        "pos": "RB",
+        "nflTeam": "DEN",
+        "isStarter": false
+      },
+      {
+        "id": "8408",
+        "name": "Jordan Mason",
+        "pos": "RB",
+        "nflTeam": "MIN",
+        "isStarter": false
+      }
+    ],
+    "totalPlayers": 16,
+    "nextMatchup": {
+      "matchupId": "6",
+      "teamA": {
+        "rosterId": 1,
+        "teamName": "Bowers Rangers",
+        "displayName": "brianallenrm",
+        "record": "2-0"
+      },
+      "teamB": {
+        "rosterId": 7,
+        "teamName": "Danbengoa",
+        "displayName": "Danbengoa",
+        "record": "1-1"
+      }
+    }
+  },
+  "allTeams": [
+    {
+      "rank": 1,
+      "rosterId": 11,
+      "teamName": "Emi69Hb",
+      "displayName": "Emi69Hb",
+      "wins": 2,
+      "losses": 0,
+      "ties": 0,
+      "fpts": 329.38,
+      "fptsAgainst": 233.5,
+      "faabRemaining": 90,
+      "streak": "2W",
+      "starters": [
+        {
+          "id": "4984",
+          "name": "Josh Allen",
+          "pos": "QB",
+          "nflTeam": "BUF",
+          "isStarter": true
+        },
+        {
+          "id": "12481",
+          "name": "Cam Skattebo",
+          "pos": "RB",
+          "nflTeam": "NYG",
+          "isStarter": true
+        },
+        {
+          "id": "12490",
+          "name": "Bhayshul Tuten",
+          "pos": "RB",
+          "nflTeam": "JAX",
+          "isStarter": true
+        },
+        {
+          "id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "pos": "WR",
+          "nflTeam": "SEA",
+          "isStarter": true
+        },
+        {
+          "id": "9486",
+          "name": "Dontayvion Wicks",
+          "pos": "WR",
+          "nflTeam": "PHI",
+          "isStarter": true
+        },
+        {
+          "id": "10859",
+          "name": "Sam LaPorta",
+          "pos": "TE",
+          "nflTeam": "DET",
+          "isStarter": true
+        },
+        {
+          "id": "8228",
+          "name": "Jaylen Warren",
+          "pos": "RB",
+          "nflTeam": "PIT",
+          "isStarter": true
+        },
+        {
+          "id": "5846",
+          "name": "DK Metcalf",
+          "pos": "WR",
+          "nflTeam": "PIT",
+          "isStarter": true
+        },
+        {
+          "id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "pos": "K",
+          "nflTeam": "HOU",
+          "isStarter": true
+        },
+        {
+          "id": "PHI",
+          "name": "Philadelphia Eagles",
+          "pos": "DEF",
+          "nflTeam": "PHI",
+          "isStarter": true
+        }
+      ],
+      "bench": [
+        {
+          "id": "12530",
+          "name": "Travis Hunter",
+          "pos": "DB",
+          "nflTeam": "JAX",
+          "isStarter": false
+        },
+        {
+          "id": "13298",
+          "name": "KC Concepcion",
+          "pos": "WR",
+          "nflTeam": "CLE",
+          "isStarter": false
+        },
+        {
+          "id": "5870",
+          "name": "Daniel Jones",
+          "pos": "QB",
+          "nflTeam": "IND",
+          "isStarter": false
+        },
+        {
+          "id": "9997",
+          "name": "Zay Flowers",
+          "pos": "WR",
+          "nflTeam": "BAL",
+          "isStarter": false
+        }
+      ],
+      "totalPlayers": 14
+    },
+    {
+      "rank": 2,
+      "rosterId": 1,
+      "teamName": "Bowers Rangers",
+      "displayName": "brianallenrm",
+      "wins": 2,
+      "losses": 0,
+      "ties": 0,
+      "fpts": 310.1,
+      "fptsAgainst": 280.28,
+      "faabRemaining": 93,
+      "streak": "2W",
+      "starters": [
+        {
+          "id": "11566",
+          "name": "Jayden Daniels",
+          "pos": "QB",
+          "nflTeam": "WAS",
+          "isStarter": true
+        },
+        {
+          "id": "7588",
+          "name": "Javonte Williams",
+          "pos": "RB",
+          "nflTeam": "DAL",
+          "isStarter": true
+        },
+        {
+          "id": "6790",
+          "name": "D'Andre Swift",
+          "pos": "RB",
+          "nflTeam": "CHI",
+          "isStarter": true
+        },
+        {
+          "id": "7564",
+          "name": "Ja'Marr Chase",
+          "pos": "WR",
+          "nflTeam": "CIN",
+          "isStarter": true
+        },
+        {
+          "id": "8144",
+          "name": "Chris Olave",
+          "pos": "WR",
+          "nflTeam": "NO",
+          "isStarter": true
+        },
+        {
+          "id": "7600",
+          "name": "Pat Freiermuth",
+          "pos": "TE",
+          "nflTeam": "PIT",
+          "isStarter": true
+        },
+        {
+          "id": "10229",
+          "name": "Rashee Rice",
+          "pos": "WR",
+          "nflTeam": "KC",
+          "isStarter": true
+        },
+        {
+          "id": "9487",
+          "name": "Parker Washington",
+          "pos": "WR",
+          "nflTeam": "JAX",
+          "isStarter": true
+        },
+        {
+          "id": "4227",
+          "name": "Harrison Butker",
+          "pos": "K",
+          "nflTeam": "KC",
+          "isStarter": true
+        },
+        {
+          "id": "TB",
+          "name": "Tampa Bay Buccaneers",
+          "pos": "DEF",
+          "nflTeam": "TB",
+          "isStarter": true
+        }
+      ],
+      "bench": [
+        {
+          "id": "11581",
+          "name": "MarShawn Lloyd",
+          "pos": "RB",
+          "nflTeam": "GB",
+          "isStarter": false
+        },
+        {
+          "id": "11604",
+          "name": "Brock Bowers",
+          "pos": "TE",
+          "nflTeam": "LV",
+          "isStarter": false
+        },
+        {
+          "id": "12492",
+          "name": "Pat Bryant",
+          "pos": "WR",
+          "nflTeam": "DEN",
+          "isStarter": false
+        },
+        {
+          "id": "13414",
+          "name": "Kaelon Black",
+          "pos": "RB",
+          "nflTeam": "SF",
+          "isStarter": false
+        },
+        {
+          "id": "6806",
+          "name": "J.K. Dobbins",
+          "pos": "RB",
+          "nflTeam": "DEN",
+          "isStarter": false
+        },
+        {
+          "id": "8408",
+          "name": "Jordan Mason",
+          "pos": "RB",
+          "nflTeam": "MIN",
+          "isStarter": false
+        }
+      ],
+      "totalPlayers": 16
+    },
+    {
+      "rank": 3,
+      "rosterId": 2,
+      "teamName": "Carlosso",
+      "displayName": "Carlosso",
+      "wins": 2,
+      "losses": 0,
+      "ties": 0,
+      "fpts": 259.78,
+      "fptsAgainst": 198.92,
+      "faabRemaining": 100,
+      "streak": "2W",
+      "starters": [
+        {
+          "id": "6904",
+          "name": "Jalen Hurts",
+          "pos": "QB",
+          "nflTeam": "PHI",
+          "isStarter": true
+        },
+        {
+          "id": "9226",
+          "name": "De'Von Achane",
+          "pos": "RB",
+          "nflTeam": "MIA",
+          "isStarter": true
+        },
+        {
+          "id": "13287",
+          "name": "Jeremiyah Love",
+          "pos": "RB",
+          "nflTeam": "ARI",
+          "isStarter": true
+        },
+        {
+          "id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "pos": "WR",
+          "nflTeam": "DET",
+          "isStarter": true
+        },
+        {
+          "id": "7526",
+          "name": "Jaylen Waddle",
+          "pos": "WR",
+          "nflTeam": "DEN",
+          "isStarter": true
+        },
+        {
+          "id": "1466",
+          "name": "Travis Kelce",
+          "pos": "TE",
+          "nflTeam": "KC",
+          "isStarter": true
+        },
+        {
+          "id": "9756",
+          "name": "Jordan Addison",
+          "pos": "WR",
+          "nflTeam": "MIN",
+          "isStarter": true
+        },
+        {
+          "id": "12501",
+          "name": "Matthew Golden",
+          "pos": "WR",
+          "nflTeam": "GB",
+          "isStarter": true
+        },
+        {
+          "id": "8259",
+          "name": "Cameron Dicker",
+          "pos": "K",
+          "nflTeam": "LAC",
+          "isStarter": true
+        },
+        {
+          "id": "BAL",
+          "name": "Baltimore Ravens",
+          "pos": "DEF",
+          "nflTeam": "BAL",
+          "isStarter": true
+        }
+      ],
+      "bench": [
+        {
+          "id": "11834",
+          "name": "Devaughn Vele",
+          "pos": "WR",
+          "nflTeam": "NO",
+          "isStarter": false
+        },
+        {
+          "id": "12474",
+          "name": "Woody Marks",
+          "pos": "RB",
+          "nflTeam": "HOU",
+          "isStarter": false
+        },
+        {
+          "id": "12508",
+          "name": "Jaxson Dart",
+          "pos": "QB",
+          "nflTeam": "NYG",
+          "isStarter": false
+        },
+        {
+          "id": "5850",
+          "name": "Josh Jacobs",
+          "pos": "RB",
+          "nflTeam": "GB",
+          "isStarter": false
+        },
+        {
+          "id": "8134",
+          "name": "Khalil Shakir",
+          "pos": "WR",
+          "nflTeam": "BUF",
+          "isStarter": false
+        }
+      ],
+      "totalPlayers": 15
+    },
+    {
+      "rank": 4,
+      "rosterId": 5,
+      "teamName": "versace4444",
+      "displayName": "versace4444",
+      "wins": 1,
+      "losses": 1,
+      "ties": 0,
+      "fpts": 290.96,
+      "fptsAgainst": 324.12,
+      "faabRemaining": 100,
+      "streak": "1W",
+      "starters": [
+        {
+          "id": "3294",
+          "name": "Dak Prescott",
+          "pos": "QB",
+          "nflTeam": "DAL",
+          "isStarter": true
+        },
+        {
+          "id": "6813",
+          "name": "Jonathan Taylor",
+          "pos": "RB",
+          "nflTeam": "IND",
+          "isStarter": true
+        },
+        {
+          "id": "12527",
+          "name": "Ashton Jeanty",
+          "pos": "RB",
+          "nflTeam": "LV",
+          "isStarter": true
+        },
+        {
+          "id": "8112",
+          "name": "Drake London",
+          "pos": "WR",
+          "nflTeam": "ATL",
+          "isStarter": true
+        },
+        {
+          "id": "8146",
+          "name": "Garrett Wilson",
+          "pos": "WR",
+          "nflTeam": "NYJ",
+          "isStarter": true
+        },
+        {
+          "id": "12506",
+          "name": "Harold Fannin",
+          "pos": "TE",
+          "nflTeam": "CLE",
+          "isStarter": true
+        },
+        {
+          "id": "11635",
+          "name": "Ladd McConkey",
+          "pos": "WR",
+          "nflTeam": "LAC",
+          "isStarter": true
+        },
+        {
+          "id": "2216",
+          "name": "Mike Evans",
+          "pos": "WR",
+          "nflTeam": "SF",
+          "isStarter": true
+        },
+        {
+          "id": "12015",
+          "name": "Harrison Mevis",
+          "pos": "K",
+          "nflTeam": "LAR",
+          "isStarter": true
+        },
+        {
+          "id": "MIN",
+          "name": "Minnesota Vikings",
+          "pos": "DEF",
+          "nflTeam": "MIN",
+          "isStarter": true
+        }
+      ],
+      "bench": [
+        {
+          "id": "11586",
+          "name": "Blake Corum",
+          "pos": "RB",
+          "nflTeam": "LAR",
+          "isStarter": false
+        },
+        {
+          "id": "11631",
+          "name": "Brian Thomas",
+          "pos": "WR",
+          "nflTeam": "JAX",
+          "isStarter": false
+        },
+        {
+          "id": "13330",
+          "name": "Kenyon Sadiq",
+          "pos": "TE",
+          "nflTeam": "NYJ",
+          "isStarter": false
+        },
+        {
+          "id": "7021",
+          "name": "Rico Dowdle",
+          "pos": "RB",
+          "nflTeam": "PIT",
+          "isStarter": false
+        },
+        {
+          "id": "8136",
+          "name": "Rachaad White",
+          "pos": "RB",
+          "nflTeam": "WAS",
+          "isStarter": false
+        }
+      ],
+      "totalPlayers": 15
+    },
+    {
+      "rank": 5,
+      "rosterId": 3,
+      "teamName": "MALIK BUSINESS",
+      "displayName": "elchebu",
+      "wins": 1,
+      "losses": 1,
+      "ties": 0,
+      "fpts": 253.38,
+      "fptsAgainst": 285.5,
+      "faabRemaining": 82,
+      "streak": "1L",
+      "starters": [
+        {
+          "id": "11560",
+          "name": "Caleb Williams",
+          "pos": "QB",
+          "nflTeam": "CHI",
+          "isStarter": true
+        },
+        {
+          "id": "9224",
+          "name": "Chase Brown",
+          "pos": "RB",
+          "nflTeam": "CIN",
+          "isStarter": true
+        },
+        {
+          "id": "5892",
+          "name": "David Montgomery",
+          "pos": "RB",
+          "nflTeam": "HOU",
+          "isStarter": true
+        },
+        {
+          "id": "13296",
+          "name": "Caleb Douglas",
+          "pos": "WR",
+          "nflTeam": "MIA",
+          "isStarter": true
+        },
+        {
+          "id": "11632",
+          "name": "Malik Nabers",
+          "pos": "WR",
+          "nflTeam": "NYG",
+          "isStarter": true
+        },
+        {
+          "id": "8131",
+          "name": "Isaiah Likely",
+          "pos": "TE",
+          "nflTeam": "NYG",
+          "isStarter": true
+        },
+        {
+          "id": "12514",
+          "name": "Emeka Egbuka",
+          "pos": "WR",
+          "nflTeam": "TB",
+          "isStarter": true
+        },
+        {
+          "id": "13286",
+          "name": "Jadarian Price",
+          "pos": "RB",
+          "nflTeam": "SEA",
+          "isStarter": true
+        },
+        {
+          "id": "5189",
+          "name": "Eddy Pineiro",
+          "pos": "K",
+          "nflTeam": "SF",
+          "isStarter": true
+        },
+        {
+          "id": "PIT",
+          "name": "Pittsburgh Steelers",
+          "pos": "DEF",
+          "nflTeam": "PIT",
+          "isStarter": true
+        }
+      ],
+      "bench": [
+        {
+          "id": "12512",
+          "name": "Quinshon Judkins",
+          "pos": "RB",
+          "nflTeam": "CLE",
+          "isStarter": false
+        },
+        {
+          "id": "8110",
+          "name": "Jake Ferguson",
+          "pos": "TE",
+          "nflTeam": "DAL",
+          "isStarter": false
+        },
+        {
+          "id": "8121",
+          "name": "Romeo Doubs",
+          "pos": "WR",
+          "nflTeam": "NE",
+          "isStarter": false
+        },
+        {
+          "id": "9493",
+          "name": "Puka Nacua",
+          "pos": "WR",
+          "nflTeam": "LAR",
+          "isStarter": false
+        },
+        {
+          "id": "NE",
+          "name": "New England Patriots",
+          "pos": "DEF",
+          "nflTeam": "NE",
+          "isStarter": false
+        }
+      ],
+      "totalPlayers": 15
+    },
+    {
+      "rank": 6,
+      "rosterId": 12,
+      "teamName": "DaniAlva08",
+      "displayName": "DaniAlva08",
+      "wins": 1,
+      "losses": 1,
+      "ties": 0,
+      "fpts": 245.66,
+      "fptsAgainst": 206.64,
+      "faabRemaining": 100,
+      "streak": "1W",
+      "starters": [
+        {
+          "id": "4881",
+          "name": "Lamar Jackson",
+          "pos": "QB",
+          "nflTeam": "BAL",
+          "isStarter": true
+        },
+        {
+          "id": "9221",
+          "name": "Jahmyr Gibbs",
+          "pos": "RB",
+          "nflTeam": "DET",
+          "isStarter": true
+        },
+        {
+          "id": "11583",
+          "name": "Jonathon Brooks",
+          "pos": "RB",
+          "nflTeam": "CAR",
+          "isStarter": true
+        },
+        {
+          "id": "8137",
+          "name": "George Pickens",
+          "pos": "WR",
+          "nflTeam": "DAL",
+          "isStarter": true
+        },
+        {
+          "id": "7525",
+          "name": "DeVonta Smith",
+          "pos": "WR",
+          "nflTeam": "PHI",
+          "isStarter": true
+        },
+        {
+          "id": "12518",
+          "name": "Tyler Warren",
+          "pos": "TE",
+          "nflTeam": "IND",
+          "isStarter": true
+        },
+        {
+          "id": "12519",
+          "name": "Luther Burden",
+          "pos": "WR",
+          "nflTeam": "CHI",
+          "isStarter": true
+        },
+        {
+          "id": "11646",
+          "name": "Jalen Coker",
+          "pos": "WR",
+          "nflTeam": "CAR",
+          "isStarter": true
+        },
+        {
+          "id": "11539",
+          "name": "Jake Bates",
+          "pos": "K",
+          "nflTeam": "DET",
+          "isStarter": true
+        },
+        {
+          "id": "LAR",
+          "name": "Los Angeles Rams",
+          "pos": "DEF",
+          "nflTeam": "LAR",
+          "isStarter": true
+        }
+      ],
+      "bench": [
+        {
+          "id": "12529",
+          "name": "TreVeyon Henderson",
+          "pos": "RB",
+          "nflTeam": "NE",
+          "isStarter": false
+        },
+        {
+          "id": "13294",
+          "name": "Makai Lemon",
+          "pos": "WR",
+          "nflTeam": "PHI",
+          "isStarter": false
+        },
+        {
+          "id": "4892",
+          "name": "Baker Mayfield",
+          "pos": "QB",
+          "nflTeam": "TB",
+          "isStarter": false
+        },
+        {
+          "id": "8676",
+          "name": "Rashid Shaheed",
+          "pos": "WR",
+          "nflTeam": "SEA",
+          "isStarter": false
+        },
+        {
+          "id": "9480",
+          "name": "Brenton Strange",
+          "pos": "TE",
+          "nflTeam": "JAX",
+          "isStarter": false
+        }
+      ],
+      "totalPlayers": 15
+    },
+    {
+      "rank": 7,
+      "rosterId": 4,
+      "teamName": "Osante",
+      "displayName": "Osante",
+      "wins": 1,
+      "losses": 1,
+      "ties": 0,
+      "fpts": 244.84,
+      "fptsAgainst": 252.92,
+      "faabRemaining": 100,
+      "streak": "1L",
+      "starters": [
+        {
+          "id": "11564",
+          "name": "Drake Maye",
+          "pos": "QB",
+          "nflTeam": "NE",
+          "isStarter": true
+        },
+        {
+          "id": "4866",
+          "name": "Saquon Barkley",
+          "pos": "RB",
+          "nflTeam": "PHI",
+          "isStarter": true
+        },
+        {
+          "id": "7611",
+          "name": "Rhamondre Stevenson",
+          "pos": "RB",
+          "nflTeam": "NE",
+          "isStarter": true
+        },
+        {
+          "id": "8167",
+          "name": "Christian Watson",
+          "pos": "WR",
+          "nflTeam": "GB",
+          "isStarter": true
+        },
+        {
+          "id": "5872",
+          "name": "Deebo Samuel",
+          "pos": "WR",
+          "nflTeam": "SF",
+          "isStarter": true
+        },
+        {
+          "id": "10236",
+          "name": "Dalton Kincaid",
+          "pos": "TE",
+          "nflTeam": "BUF",
+          "isStarter": true
+        },
+        {
+          "id": "5012",
+          "name": "Mark Andrews",
+          "pos": "TE",
+          "nflTeam": "BAL",
+          "isStarter": true
+        },
+        {
+          "id": "5001",
+          "name": "Dalton Schultz",
+          "pos": "TE",
+          "nflTeam": "HOU",
+          "isStarter": true
+        },
+        {
+          "id": "12713",
+          "name": "Andy Borregales",
+          "pos": "K",
+          "nflTeam": "NE",
+          "isStarter": true
+        },
+        {
+          "id": "KC",
+          "name": "Kansas City Chiefs",
+          "pos": "DEF",
+          "nflTeam": "KC",
+          "isStarter": true
+        }
+      ],
+      "bench": [
+        {
+          "id": "10222",
+          "name": "Jayden Reed",
+          "pos": "WR",
+          "nflTeam": "GB",
+          "isStarter": false
+        },
+        {
+          "id": "13269",
+          "name": "Fernando Mendoza",
+          "pos": "QB",
+          "nflTeam": "LV",
+          "isStarter": false
+        },
+        {
+          "id": "4037",
+          "name": "Chris Godwin",
+          "pos": "WR",
+          "nflTeam": "TB",
+          "isStarter": false
+        },
+        {
+          "id": "9754",
+          "name": "Quentin Johnston",
+          "pos": "WR",
+          "nflTeam": "LAC",
+          "isStarter": false
+        },
+        {
+          "id": "DET",
+          "name": "Detroit Lions",
+          "pos": "DEF",
+          "nflTeam": "DET",
+          "isStarter": false
+        }
+      ],
+      "totalPlayers": 15
+    },
+    {
+      "rank": 8,
+      "rosterId": 8,
+      "teamName": "DonaldTrumpGoat",
+      "displayName": "DonaldTrumpGoat",
+      "wins": 1,
+      "losses": 1,
+      "ties": 0,
+      "fpts": 242.54,
+      "fptsAgainst": 280.68,
+      "faabRemaining": 100,
+      "streak": "1L",
+      "starters": [
+        {
+          "id": "6770",
+          "name": "Joe Burrow",
+          "pos": "QB",
+          "nflTeam": "CIN",
+          "isStarter": true
+        },
+        {
+          "id": "3198",
+          "name": "Derrick Henry",
+          "pos": "RB",
+          "nflTeam": "BAL",
+          "isStarter": true
+        },
+        {
+          "id": "7543",
+          "name": "Travis Etienne",
+          "pos": "RB",
+          "nflTeam": "NO",
+          "isStarter": true
+        },
+        {
+          "id": "6794",
+          "name": "Justin Jefferson",
+          "pos": "WR",
+          "nflTeam": "MIN",
+          "isStarter": true
+        },
+        {
+          "id": "11610",
+          "name": "Malik Washington",
+          "pos": "WR",
+          "nflTeam": "MIA",
+          "isStarter": true
+        },
+        {
+          "id": "9484",
+          "name": "Tucker Kraft",
+          "pos": "TE",
+          "nflTeam": "GB",
+          "isStarter": true
+        },
+        {
+          "id": "3214",
+          "name": "Hunter Henry",
+          "pos": "TE",
+          "nflTeam": "NE",
+          "isStarter": true
+        },
+        {
+          "id": "8142",
+          "name": "Alec Pierce",
+          "pos": "WR",
+          "nflTeam": "IND",
+          "isStarter": true
+        },
+        {
+          "id": "11786",
+          "name": "Cam Little",
+          "pos": "K",
+          "nflTeam": "JAX",
+          "isStarter": true
+        },
+        {
+          "id": "HOU",
+          "name": "Houston Texans",
+          "pos": "DEF",
+          "nflTeam": "HOU",
+          "isStarter": true
+        }
+      ],
+      "bench": [
+        {
+          "id": "5967",
+          "name": "Tony Pollard",
+          "pos": "RB",
+          "nflTeam": "TEN",
+          "isStarter": false
+        },
+        {
+          "id": "6819",
+          "name": "Michael Pittman",
+          "pos": "WR",
+          "nflTeam": "PIT",
+          "isStarter": false
+        },
+        {
+          "id": "7569",
+          "name": "Nico Collins",
+          "pos": "WR",
+          "nflTeam": "HOU",
+          "isStarter": false
+        },
+        {
+          "id": "8126",
+          "name": "Wan'Dale Robinson",
+          "pos": "WR",
+          "nflTeam": "TEN",
+          "isStarter": false
+        },
+        {
+          "id": "9482",
+          "name": "Michael Mayer",
+          "pos": "TE",
+          "nflTeam": "LV",
+          "isStarter": false
+        }
+      ],
+      "totalPlayers": 15
+    },
+    {
+      "rank": 9,
+      "rosterId": 7,
+      "teamName": "Danbengoa",
+      "displayName": "Danbengoa",
+      "wins": 1,
+      "losses": 1,
+      "ties": 0,
+      "fpts": 237.14,
+      "fptsAgainst": 247.84,
+      "faabRemaining": 100,
+      "streak": "1W",
+      "starters": [
+        {
+          "id": "9758",
+          "name": "C.J. Stroud",
+          "pos": "QB",
+          "nflTeam": "HOU",
+          "isStarter": true
+        },
+        {
+          "id": "8138",
+          "name": "James Cook",
+          "pos": "RB",
+          "nflTeam": "BUF",
+          "isStarter": true
+        },
+        {
+          "id": "8150",
+          "name": "Kyren Williams",
+          "pos": "RB",
+          "nflTeam": "LAR",
+          "isStarter": true
+        },
+        {
+          "id": "11628",
+          "name": "Marvin Harrison",
+          "pos": "WR",
+          "nflTeam": "ARI",
+          "isStarter": true
+        },
+        {
+          "id": "9500",
+          "name": "Josh Downs",
+          "pos": "WR",
+          "nflTeam": "IND",
+          "isStarter": true
+        },
+        {
+          "id": "4217",
+          "name": "George Kittle",
+          "pos": "TE",
+          "nflTeam": "SF",
+          "isStarter": true
+        },
+        {
+          "id": "8155",
+          "name": "Breece Hall",
+          "pos": "RB",
+          "nflTeam": "NYJ",
+          "isStarter": true
+        },
+        {
+          "id": "4199",
+          "name": "Aaron Jones",
+          "pos": "RB",
+          "nflTeam": "MIN",
+          "isStarter": true
+        },
+        {
+          "id": "12711",
+          "name": "Tyler Loop",
+          "pos": "K",
+          "nflTeam": "BAL",
+          "isStarter": true
+        },
+        {
+          "id": "SF",
+          "name": "San Francisco 49ers",
+          "pos": "DEF",
+          "nflTeam": "SF",
+          "isStarter": true
+        }
+      ],
+      "bench": [
+        {
+          "id": "10219",
+          "name": "Chris Rodriguez",
+          "pos": "RB",
+          "nflTeam": "JAX",
+          "isStarter": false
+        },
+        {
+          "id": "11624",
+          "name": "Xavier Worthy",
+          "pos": "WR",
+          "nflTeam": "KC",
+          "isStarter": false
+        },
+        {
+          "id": "5849",
+          "name": "Kyler Murray",
+          "pos": "QB",
+          "nflTeam": "MIN",
+          "isStarter": false
+        },
+        {
+          "id": "5947",
+          "name": "Jakobi Meyers",
+          "pos": "WR",
+          "nflTeam": "JAX",
+          "isStarter": false
+        },
+        {
+          "id": "7002",
+          "name": "Juwan Johnson",
+          "pos": "TE",
+          "nflTeam": "NO",
+          "isStarter": false
+        }
+      ],
+      "totalPlayers": 15
+    },
+    {
+      "rank": 10,
+      "rosterId": 9,
+      "teamName": "SanzFC",
+      "displayName": "SanzFC",
+      "wins": 0,
+      "losses": 2,
+      "ties": 0,
+      "fpts": 287.24,
+      "fptsAgainst": 299.3,
+      "faabRemaining": 100,
+      "streak": "2L",
+      "starters": [
+        {
+          "id": "8183",
+          "name": "Brock Purdy",
+          "pos": "QB",
+          "nflTeam": "SF",
+          "isStarter": true
+        },
+        {
+          "id": "9509",
+          "name": "Bijan Robinson",
+          "pos": "RB",
+          "nflTeam": "ATL",
+          "isStarter": true
+        },
+        {
+          "id": "8151",
+          "name": "Kenneth Walker",
+          "pos": "RB",
+          "nflTeam": "KC",
+          "isStarter": true
+        },
+        {
+          "id": "6801",
+          "name": "Tee Higgins",
+          "pos": "WR",
+          "nflTeam": "CIN",
+          "isStarter": true
+        },
+        {
+          "id": "12526",
+          "name": "Tetairoa McMillan",
+          "pos": "WR",
+          "nflTeam": "CAR",
+          "isStarter": true
+        },
+        {
+          "id": "8130",
+          "name": "Trey McBride",
+          "pos": "TE",
+          "nflTeam": "ARI",
+          "isStarter": true
+        },
+        {
+          "id": "8148",
+          "name": "Jameson Williams",
+          "pos": "WR",
+          "nflTeam": "DET",
+          "isStarter": true
+        },
+        {
+          "id": "5927",
+          "name": "Terry McLaurin",
+          "pos": "WR",
+          "nflTeam": "WAS",
+          "isStarter": true
+        },
+        {
+          "id": "1945",
+          "name": "Chris Boswell",
+          "pos": "K",
+          "nflTeam": "PIT",
+          "isStarter": true
+        },
+        {
+          "id": "LAC",
+          "name": "Los Angeles Chargers",
+          "pos": "DEF",
+          "nflTeam": "LAC",
+          "isStarter": true
+        }
+      ],
+      "bench": [
+        {
+          "id": "11620",
+          "name": "Rome Odunze",
+          "pos": "WR",
+          "nflTeam": "CHI",
+          "isStarter": false
+        },
+        {
+          "id": "5045",
+          "name": "Courtland Sutton",
+          "pos": "WR",
+          "nflTeam": "DEN",
+          "isStarter": false
+        },
+        {
+          "id": "6797",
+          "name": "Justin Herbert",
+          "pos": "QB",
+          "nflTeam": "LAC",
+          "isStarter": false
+        },
+        {
+          "id": "6804",
+          "name": "Jordan Love",
+          "pos": "QB",
+          "nflTeam": "GB",
+          "isStarter": false
+        },
+        {
+          "id": "7567",
+          "name": "Kenny Gainwell",
+          "pos": "RB",
+          "nflTeam": "TB",
+          "isStarter": false
+        }
+      ],
+      "totalPlayers": 15
+    },
+    {
+      "rank": 11,
+      "rosterId": 10,
+      "teamName": "Cee Dee’z Nuts",
+      "displayName": "channels98",
+      "wins": 0,
+      "losses": 2,
+      "ties": 0,
+      "fpts": 279.96,
+      "fptsAgainst": 310.32,
+      "faabRemaining": 100,
+      "streak": "2L",
+      "starters": [
+        {
+          "id": "4046",
+          "name": "Patrick Mahomes",
+          "pos": "QB",
+          "nflTeam": "KC",
+          "isStarter": true
+        },
+        {
+          "id": "12507",
+          "name": "Omarion Hampton",
+          "pos": "RB",
+          "nflTeam": "LAC",
+          "isStarter": true
+        },
+        {
+          "id": "11584",
+          "name": "Bucky Irving",
+          "pos": "RB",
+          "nflTeam": "TB",
+          "isStarter": true
+        },
+        {
+          "id": "6786",
+          "name": "CeeDee Lamb",
+          "pos": "WR",
+          "nflTeam": "DAL",
+          "isStarter": true
+        },
+        {
+          "id": "4983",
+          "name": "DJ Moore",
+          "pos": "WR",
+          "nflTeam": "BUF",
+          "isStarter": true
+        },
+        {
+          "id": "12517",
+          "name": "Colston Loveland",
+          "pos": "TE",
+          "nflTeam": "CHI",
+          "isStarter": true
+        },
+        {
+          "id": "7594",
+          "name": "Chuba Hubbard",
+          "pos": "RB",
+          "nflTeam": "CAR",
+          "isStarter": true
+        },
+        {
+          "id": "2449",
+          "name": "Stefon Diggs",
+          "pos": "WR",
+          "nflTeam": "WAS",
+          "isStarter": true
+        },
+        {
+          "id": "11533",
+          "name": "Brandon Aubrey",
+          "pos": "K",
+          "nflTeam": "DAL",
+          "isStarter": true
+        },
+        {
+          "id": "SEA",
+          "name": "Seattle Seahawks",
+          "pos": "DEF",
+          "nflTeam": "SEA",
+          "isStarter": true
+        }
+      ],
+      "bench": [
+        {
+          "id": "12533",
+          "name": "Jacory Croskey-Merritt",
+          "pos": "RB",
+          "nflTeam": "WAS",
+          "isStarter": false
+        },
+        {
+          "id": "5844",
+          "name": "T.J. Hockenson",
+          "pos": "TE",
+          "nflTeam": "MIN",
+          "isStarter": false
+        },
+        {
+          "id": "7523",
+          "name": "Trevor Lawrence",
+          "pos": "QB",
+          "nflTeam": "JAX",
+          "isStarter": false
+        },
+        {
+          "id": "7839",
+          "name": "Evan McPherson",
+          "pos": "K",
+          "nflTeam": "CIN",
+          "isStarter": false
+        },
+        {
+          "id": "8132",
+          "name": "Tyler Allgeier",
+          "pos": "RB",
+          "nflTeam": "ARI",
+          "isStarter": false
+        }
+      ],
+      "totalPlayers": 15
+    },
+    {
+      "rank": 12,
+      "rosterId": 6,
+      "teamName": "carloverditraconis",
+      "displayName": "carloverditraconis",
+      "wins": 0,
+      "losses": 2,
+      "ties": 0,
+      "fpts": 221.58,
+      "fptsAgainst": 282.54,
+      "faabRemaining": 100,
+      "streak": "2L",
+      "starters": [
+        {
+          "id": "421",
+          "name": "Matthew Stafford",
+          "pos": "QB",
+          "nflTeam": "LAR",
+          "isStarter": true
+        },
+        {
+          "id": "4034",
+          "name": "Christian McCaffrey",
+          "pos": "RB",
+          "nflTeam": "SF",
+          "isStarter": true
+        },
+        {
+          "id": "12489",
+          "name": "RJ Harvey",
+          "pos": "RB",
+          "nflTeam": "DEN",
+          "isStarter": true
+        },
+        {
+          "id": "3634",
+          "name": "Kalif Raymond",
+          "pos": "WR",
+          "nflTeam": "CHI",
+          "isStarter": true
+        },
+        {
+          "id": "2133",
+          "name": "Davante Adams",
+          "pos": "WR",
+          "nflTeam": "LAR",
+          "isStarter": true
+        },
+        {
+          "id": "5022",
+          "name": "Dallas Goedert",
+          "pos": "TE",
+          "nflTeam": "PHI",
+          "isStarter": true
+        },
+        {
+          "id": "13279",
+          "name": "Carnell Tate",
+          "pos": "WR",
+          "nflTeam": "TEN",
+          "isStarter": true
+        },
+        {
+          "id": "10232",
+          "name": "Michael Wilson",
+          "pos": "WR",
+          "nflTeam": "ARI",
+          "isStarter": true
+        },
+        {
+          "id": "2747",
+          "name": "Jason Myers",
+          "pos": "K",
+          "nflTeam": "SEA",
+          "isStarter": true
+        },
+        {
+          "id": "DEN",
+          "name": "Denver Broncos",
+          "pos": "DEF",
+          "nflTeam": "DEN",
+          "isStarter": true
+        }
+      ],
+      "bench": [
+        {
+          "id": "11792",
+          "name": "Will Reichard",
+          "pos": "K",
+          "nflTeam": "MIN",
+          "isStarter": false
+        },
+        {
+          "id": "13345",
+          "name": "Jonah Coleman",
+          "pos": "RB",
+          "nflTeam": "DEN",
+          "isStarter": false
+        },
+        {
+          "id": "3163",
+          "name": "Jared Goff",
+          "pos": "QB",
+          "nflTeam": "DET",
+          "isStarter": false
+        },
+        {
+          "id": "5859",
+          "name": "A.J. Brown",
+          "pos": "WR",
+          "nflTeam": "NE",
+          "isStarter": false
+        },
+        {
+          "id": "7553",
+          "name": "Kyle Pitts",
+          "pos": "TE",
+          "nflTeam": "ATL",
+          "isStarter": false
+        },
+        {
+          "id": "BUF",
+          "name": "Buffalo Bills",
+          "pos": "DEF",
+          "nflTeam": "BUF",
+          "isStarter": false
+        }
+      ],
+      "totalPlayers": 16
+    }
+  ],
+  "week3Matchups": [
+    {
+      "matchupId": "1",
+      "teamA": {
+        "rosterId": 2,
+        "teamName": "Carlosso",
+        "displayName": "Carlosso",
+        "record": "2-0"
+      },
+      "teamB": {
+        "rosterId": 12,
+        "teamName": "DaniAlva08",
+        "displayName": "DaniAlva08",
+        "record": "1-1"
+      }
+    },
+    {
+      "matchupId": "2",
+      "teamA": {
+        "rosterId": 3,
+        "teamName": "MALIK BUSINESS",
+        "displayName": "elchebu",
+        "record": "1-1"
+      },
+      "teamB": {
+        "rosterId": 10,
+        "teamName": "Cee Dee’z Nuts",
+        "displayName": "channels98",
+        "record": "0-2"
+      }
+    },
+    {
+      "matchupId": "3",
+      "teamA": {
+        "rosterId": 4,
+        "teamName": "Osante",
+        "displayName": "Osante",
+        "record": "1-1"
+      },
+      "teamB": {
+        "rosterId": 11,
+        "teamName": "Emi69Hb",
+        "displayName": "Emi69Hb",
+        "record": "2-0"
+      }
+    },
+    {
+      "matchupId": "4",
+      "teamA": {
+        "rosterId": 5,
+        "teamName": "versace4444",
+        "displayName": "versace4444",
+        "record": "1-1"
+      },
+      "teamB": {
+        "rosterId": 9,
+        "teamName": "SanzFC",
+        "displayName": "SanzFC",
+        "record": "0-2"
+      }
+    },
+    {
+      "matchupId": "5",
+      "teamA": {
+        "rosterId": 6,
+        "teamName": "carloverditraconis",
+        "displayName": "carloverditraconis",
+        "record": "0-2"
+      },
+      "teamB": {
+        "rosterId": 8,
+        "teamName": "DonaldTrumpGoat",
+        "displayName": "DonaldTrumpGoat",
+        "record": "1-1"
+      }
+    },
+    {
+      "matchupId": "6",
+      "teamA": {
+        "rosterId": 1,
+        "teamName": "Bowers Rangers",
+        "displayName": "brianallenrm",
+        "record": "2-0"
+      },
+      "teamB": {
+        "rosterId": 7,
+        "teamName": "Danbengoa",
+        "displayName": "Danbengoa",
+        "record": "1-1"
+      }
+    }
+  ],
+  "trendingAdds": [
+    {
+      "playerId": "11435",
+      "name": "Emanuel Wilson",
+      "pos": "RB",
+      "team": "SEA",
+      "count": 2601315,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "11625",
+      "name": "Adonai Mitchell",
+      "pos": "WR",
+      "team": "NYJ",
+      "count": 1710408,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "9228",
+      "name": "Bryce Young",
+      "pos": "QB",
+      "team": "CAR",
+      "count": 1200804,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "12545",
+      "name": "Tyler Shough",
+      "pos": "QB",
+      "team": "NO",
+      "count": 1166824,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "10213",
+      "name": "Tre Tucker",
+      "pos": "WR",
+      "team": "LV",
+      "count": 998136,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "1339",
+      "name": "Zach Ertz",
+      "pos": "TE",
+      "team": "PHI",
+      "count": 736047,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "2505",
+      "name": "Darren Waller",
+      "pos": "TE",
+      "team": "CAR",
+      "count": 620253,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "11637",
+      "name": "Keon Coleman",
+      "pos": "WR",
+      "team": "BUF",
+      "count": 541917,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "13346",
+      "name": "Denzel Boston",
+      "pos": "WR",
+      "team": "CLE",
+      "count": 467450,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "13345",
+      "name": "Jonah Coleman",
+      "pos": "RB",
+      "team": "DEN",
+      "count": 440118,
+      "isAvailable": false,
+      "owner": "carloverditraconis (carloverditraconis)"
+    },
+    {
+      "playerId": "9225",
+      "name": "Tank Bigsby",
+      "pos": "RB",
+      "team": "PHI",
+      "count": 429849,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "MIN",
+      "name": "Minnesota Vikings",
+      "pos": "DEF",
+      "team": "MIN",
+      "count": 427315,
+      "isAvailable": false,
+      "owner": "versace4444 (versace4444)"
+    },
+    {
+      "playerId": "1166",
+      "name": "Kirk Cousins",
+      "pos": "QB",
+      "team": "LV",
+      "count": 408736,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "12487",
+      "name": "Terrance Ferguson",
+      "pos": "TE",
+      "team": "LAR",
+      "count": 368136,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "6650",
+      "name": "Chase McLaughlin",
+      "pos": "K",
+      "team": "TB",
+      "count": 357688,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "2307",
+      "name": "Marcus Mariota",
+      "pos": "QB",
+      "team": "WAS",
+      "count": 350436,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "5849",
+      "name": "Kyler Murray",
+      "pos": "QB",
+      "team": "MIN",
+      "count": 328656,
+      "isAvailable": false,
+      "owner": "Danbengoa (Danbengoa)"
+    },
+    {
+      "playerId": "9486",
+      "name": "Dontayvion Wicks",
+      "pos": "WR",
+      "team": "PHI",
+      "count": 301884,
+      "isAvailable": false,
+      "owner": "Emi69Hb (Emi69Hb)"
+    },
+    {
+      "playerId": "12493",
+      "name": "Oronde Gadsden",
+      "pos": "TE",
+      "team": "LAC",
+      "count": 286780,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "11256",
+      "name": "Tyson Bagent",
+      "pos": "QB",
+      "team": "CHI",
+      "count": 266622,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "12718",
+      "name": "Konata Mumpfield",
+      "pos": "WR",
+      "team": "LAR",
+      "count": 265545,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "3163",
+      "name": "Jared Goff",
+      "pos": "QB",
+      "team": "DET",
+      "count": 260060,
+      "isAvailable": false,
+      "owner": "carloverditraconis (carloverditraconis)"
+    },
+    {
+      "playerId": "13285",
+      "name": "Malachi Fields",
+      "pos": "WR",
+      "team": "NYG",
+      "count": 234430,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "8188",
+      "name": "Tyquan Thornton",
+      "pos": "WR",
+      "team": "KC",
+      "count": 178948,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "4035",
+      "name": "Alvin Kamara",
+      "pos": "RB",
+      "team": "NO",
+      "count": 174696,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    }
+  ],
+  "trendingDrops": [
+    {
+      "playerId": "TB",
+      "name": "Tampa Bay Buccaneers",
+      "pos": "DEF",
+      "team": "TB",
+      "count": 925960,
+      "isAvailable": false,
+      "owner": "Bowers Rangers (brianallenrm)"
+    },
+    {
+      "playerId": "13296",
+      "name": "Caleb Douglas",
+      "pos": "WR",
+      "team": "MIA",
+      "count": 625352,
+      "isAvailable": false,
+      "owner": "MALIK BUSINESS (elchebu)"
+    },
+    {
+      "playerId": "6130",
+      "name": "Devin Singletary",
+      "pos": "RB",
+      "team": "NYG",
+      "count": 506016,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "9482",
+      "name": "Michael Mayer",
+      "pos": "TE",
+      "team": "LV",
+      "count": 482238,
+      "isAvailable": false,
+      "owner": "DonaldTrumpGoat (DonaldTrumpGoat)"
+    },
+    {
+      "playerId": "10222",
+      "name": "Jayden Reed",
+      "pos": "WR",
+      "team": "GB",
+      "count": 475065,
+      "isAvailable": false,
+      "owner": "Osante (Osante)"
+    },
+    {
+      "playerId": "10219",
+      "name": "Chris Rodriguez",
+      "pos": "RB",
+      "team": "JAX",
+      "count": 391842,
+      "isAvailable": false,
+      "owner": "Danbengoa (Danbengoa)"
+    },
+    {
+      "playerId": "11566",
+      "name": "Jayden Daniels",
+      "pos": "QB",
+      "team": "WAS",
+      "count": 363232,
+      "isAvailable": false,
+      "owner": "Bowers Rangers (brianallenrm)"
+    },
+    {
+      "playerId": "9754",
+      "name": "Quentin Johnston",
+      "pos": "WR",
+      "team": "LAC",
+      "count": 336952,
+      "isAvailable": false,
+      "owner": "Osante (Osante)"
+    },
+    {
+      "playerId": "11581",
+      "name": "MarShawn Lloyd",
+      "pos": "RB",
+      "team": "GB",
+      "count": 287064,
+      "isAvailable": false,
+      "owner": "Bowers Rangers (brianallenrm)"
+    },
+    {
+      "playerId": "3161",
+      "name": "Carson Wentz",
+      "pos": "QB",
+      "team": "MIN",
+      "count": 280164,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "7567",
+      "name": "Kenny Gainwell",
+      "pos": "RB",
+      "team": "TB",
+      "count": 262136,
+      "isAvailable": false,
+      "owner": "SanzFC (SanzFC)"
+    },
+    {
+      "playerId": "8180",
+      "name": "Jalen Nailor",
+      "pos": "WR",
+      "team": "LV",
+      "count": 255231,
+      "isAvailable": true,
+      "owner": "DISPONIBLE (Free Agent / Waivers)"
+    },
+    {
+      "playerId": "13330",
+      "name": "Kenyon Sadiq",
+      "pos": "TE",
+      "team": "NYJ",
+      "count": 207720,
+      "isAvailable": false,
+      "owner": "versace4444 (versace4444)"
+    },
+    {
+      "playerId": "13414",
+      "name": "Kaelon Black",
+      "pos": "RB",
+      "team": "SF",
+      "count": 201600,
+      "isAvailable": false,
+      "owner": "Bowers Rangers (brianallenrm)"
+    },
+    {
+      "playerId": "13298",
+      "name": "KC Concepcion",
+      "pos": "WR",
+      "team": "CLE",
+      "count": 194841,
+      "isAvailable": false,
+      "owner": "Emi69Hb (Emi69Hb)"
+    }
+  ],
+  "recentTransactions": [
+    {
+      "status": "complete",
+      "type": "free_agent",
+      "metadata": null,
+      "created": 1790034221923,
+      "settings": null,
+      "leg": 2,
+      "draft_picks": [],
+      "creator": "1399478599907581952",
+      "transaction_id": "1407909206937423872",
+      "adds": null,
+      "drops": {
+        "13417": 11
+      },
+      "consenter_ids": [
+        11
+      ],
+      "roster_ids": [
+        11
+      ],
+      "status_updated": 1790034221923,
+      "waiver_budget": []
+    },
+    {
+      "status": "complete",
+      "type": "free_agent",
+      "metadata": null,
+      "created": 1789868286862,
+      "settings": null,
+      "leg": 2,
+      "draft_picks": [],
+      "creator": "1269051904084680704",
+      "transaction_id": "1407213224843137024",
+      "adds": {
+        "11610": 8
+      },
+      "drops": {
+        "4039": 8
+      },
+      "consenter_ids": [
+        8
+      ],
+      "roster_ids": [
+        8
+      ],
+      "status_updated": 1789868286862,
+      "waiver_budget": []
+    },
+    {
+      "status": "failed",
+      "type": "waiver",
+      "metadata": {
+        "notes": "This player was claimed by another owner."
+      },
+      "created": 1789749152371,
+      "settings": {
+        "seq": 1,
+        "waiver_bid": 0
+      },
+      "leg": 2,
+      "draft_picks": [],
+      "creator": "1283649836570144768",
+      "transaction_id": "1406713538575122432",
+      "adds": {
+        "8110": 3
+      },
+      "drops": null,
+      "consenter_ids": [
+        3
+      ],
+      "roster_ids": [
+        3
+      ],
+      "status_updated": 1789797777715,
+      "waiver_budget": []
+    },
+    {
+      "status": "complete",
+      "type": "waiver",
+      "metadata": {
+        "notes": "Your waiver claim was processed successfully!"
+      },
+      "created": 1789705397073,
+      "settings": {
+        "seq": 0,
+        "waiver_bid": 10
+      },
+      "leg": 2,
+      "draft_picks": [],
+      "creator": "1283649836570144768",
+      "transaction_id": "1406530015553703936",
+      "adds": {
+        "8110": 3
+      },
+      "drops": {
+        "4943": 3
+      },
+      "consenter_ids": [
+        3
+      ],
+      "roster_ids": [
+        3
+      ],
+      "status_updated": 1789797777715,
+      "waiver_budget": []
+    },
+    {
+      "status": "complete",
+      "type": "free_agent",
+      "metadata": null,
+      "created": 1789677152770,
+      "settings": null,
+      "leg": 2,
+      "draft_picks": [],
+      "creator": "1398071370054643712",
+      "transaction_id": "1406411550360612864",
+      "adds": {
+        "SF": 7
+      },
+      "drops": {
+        "LV": 7
+      },
+      "consenter_ids": [
+        7
+      ],
+      "roster_ids": [
+        7
+      ],
+      "status_updated": 1789677152770,
+      "waiver_budget": []
+    },
+    {
+      "status": "complete",
+      "type": "free_agent",
+      "metadata": null,
+      "created": 1789677013968,
+      "settings": null,
+      "leg": 2,
+      "draft_picks": [],
+      "creator": "1397669139924987904",
+      "transaction_id": "1406410968178741248",
+      "adds": {
+        "3634": 6
+      },
+      "drops": null,
+      "consenter_ids": [
+        6
+      ],
+      "roster_ids": [
+        6
+      ],
+      "status_updated": 1789677013968,
+      "waiver_budget": []
+    }
+  ]
+}
