@@ -27,7 +27,7 @@ function getMatchupFlavor(mid, tA, tB, week = 3) {
     if (hasRosters(3, 10) || mid == 2) {
       return {
         tag: '💥 Urgencia & Redención',
-        subtitle: `${recordHeader} • MALIK BUSINESS busca redimirse de los 50 burpees ante el Subcampeón obligado a salir del 0-2`,
+        subtitle: `${recordHeader} • MALIK BUSINESS busca sacudirse la humillación del sótano ante el Subcampeón obligado a salir del 0-2`,
         glowClass: 'glow-purple'
       };
     }
@@ -85,8 +85,8 @@ function getMatchupFlavor(mid, tA, tB, week = 3) {
     }
     if (hasRosters(3, 12) || mid == 1) {
       return {
-        tag: '💥 Descalabro & Burpees',
-        subtitle: `${recordHeader} • DaniAlva08 venció con autoridad a MALIK BUSINESS (68.92 FPs -> 50 burpees)`,
+        tag: '💥 Descalabro al Sótano',
+        subtitle: `${recordHeader} • DaniAlva08 venció con autoridad a MALIK BUSINESS mandándolo al último lugar de la jornada (68.92 FPs)`,
         glowClass: 'glow-purple'
       };
     }
@@ -154,8 +154,8 @@ function getMatchupFlavor(mid, tA, tB, week = 3) {
     }
     if (hasRosters(2, 6) || mid == 3) {
       return {
-        tag: '🤡 Primeros 50 Burpees',
-        subtitle: `${recordHeader} • Carlosso (115.32) ganó ante carloverditraconis (91.80), primer castigado del año`,
+        tag: '🤡 Al Fondo de la Tabla',
+        subtitle: `${recordHeader} • Carlosso (115.32) ganó ante carloverditraconis (91.80), primer último lugar del año`,
         glowClass: 'glow-slate'
       };
     }

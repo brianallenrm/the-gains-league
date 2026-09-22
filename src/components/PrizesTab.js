@@ -79,7 +79,7 @@ export function renderPrizesTab(teams = [], league = {}, isPreDraft = false, wee
       <div>
         <div class="section-title">🥇 Resultados de la Semana 2 (Concluida)</div>
         <p style="color:var(--c-muted); font-size:.82rem; margin-top:.2rem;">
-          Ganador de los $300 MXN y castigo oficial de los 50 burpees de la jornada.
+          Ganador de los $300 MXN y la humillación de ser el último de la jornada.
         </p>
       </div>
       <span class="section-badge">Semana 2 Oficial</span>
@@ -127,7 +127,7 @@ export function renderPrizesTab(teams = [], league = {}, isPreDraft = false, wee
           </div>
         </div>
         <div class="punishment-banner">
-          🏋️‍♂️ <strong>Castigo Oficial:</strong> Grabar video haciendo 50 burpees O invitar café/termo de proteína a Emi69Hb ☕
+          🤡 <strong>La Humillación Semanal:</strong> El sótano de la liga esta semana le pertenece a MALIK BUSINESS (68.92 FPs). ¡A aguantar la carrilla en el grupo de WhatsApp! 😂📉
         </div>
       </div>
     </div>
@@ -137,9 +137,9 @@ export function renderPrizesTab(teams = [], league = {}, isPreDraft = false, wee
   <div class="card mb-1">
     <div class="section-head">
       <div>
-        <div class="section-title">📜 Historial de Ganadores Semanales ($300 MXN) &amp; Castigados</div>
+        <div class="section-title">📜 Historial de Ganadores Semanales ($300 MXN) &amp; El Sótano</div>
         <p style="color:var(--c-muted); font-size:.82rem; margin-top:.2rem;">
-          Registro oficial semana a semana de quién se lleva el premio y quién paga castigo.
+          Registro oficial semana a semana de quién se lleva el premio y quién se queda con la humillación de ser el último.
         </p>
       </div>
       <span class="section-badge">$600 MXN Repartidos</span>
@@ -152,8 +152,8 @@ export function renderPrizesTab(teams = [], league = {}, isPreDraft = false, wee
             <th>Semana</th>
             <th>🥇 Mister Olympia ($300 MXN)</th>
             <th class="num text-center">Pts Ganador</th>
-            <th>🤡 Se Saltó Pierna (50 Burpees)</th>
-            <th class="num text-center">Pts Castigo</th>
+            <th>🤡 Se Saltó Pierna (El Sótano)</th>
+            <th class="num text-center">Pts Sótano</th>
             <th class="text-center">Estado Premio</th>
           </tr>
         </thead>

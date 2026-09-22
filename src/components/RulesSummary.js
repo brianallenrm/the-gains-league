@@ -309,9 +309,9 @@ export const RULES_DETAILS = {
       </div>
 
       <div class="modal-section-block">
-        <h4>🏋️‍♂️ 2. Retos &amp; Castigos del Gym</h4>
+        <h4>🤡 2. El Sótano Semanal &amp; The Sacko</h4>
         <ul class="modal-bullet-list">
-          <li><strong>El Castigo Semanal:</strong> El equipo con menor puntuación de la jornada debe <strong>grabarse haciendo 50 burpees en el gym</strong> (antes del jueves) <strong>O invitarle un café / termo / pre-entreno al mánager que hizo más puntos</strong> ☕🏋️‍♂️.</li>
+          <li><strong>La Humillación Semanal ("Se Saltó Día de Pierna"):</strong> El equipo con menor puntuación de la jornada se lleva la humillación oficial de ser el último lugar de la liga esa semana y aguantar la carrilla en el grupo de WhatsApp 😂📉.</li>
           <li><strong>The Sacko:</strong> El último lugar absoluto de la temporada cumple el castigo de honor acordado por la liga.</li>
         </ul>
       </div>
@@ -444,7 +444,7 @@ export function renderRules() {
           <li><strong>$7,200 MXN</strong> Bolsa Total</li>
           <li><strong>$300 MXN</strong> por semana (15 sem)</li>
           <li><strong>$2,700 MXN</strong> al Campeón 🏆</li>
-          <li><strong>Castigo:</strong> 50 burpees o invitar café ☕</li>
+          <li><strong>Último Lugar:</strong> La humillación de caer al sótano 🤡</li>
         </ul>
       </div>
 

@@ -23,7 +23,7 @@ export function renderWeeklyAwards(teams = [], matchups = [], week = 1) {
           </div>
         </div>
         <p style="color: var(--text-muted); text-align: center; padding: 1rem 0;">
-          ⏳ <strong>Modo Pre-Temporada:</strong> Los premios semanales (*Mister Olympia*, *Se Saltó Día de Pierna* y *Castigos de Burpees*) se calcularán en vivo a partir de la Semana 1.
+          ⏳ <strong>Modo Pre-Temporada:</strong> Los premios semanales (*Mister Olympia* y *Se Saltó Día de Pierna*) se calcularán en vivo a partir de la Semana 1.
         </p>
       </section>
     `;
@@ -85,7 +85,7 @@ export function renderWeeklyAwards(teams = [], matchups = [], week = 1) {
             </div>
           </div>
           <div class="award-punishment-badge">
-            🏋️‍♂️ <strong>Castigo del Gym:</strong> Debe grabar 50 burpees para el grupo antes del jueves.
+            🤡 <strong>La Humillación Semanal:</strong> Último lugar de la jornada. ¡A aguantar la carrilla en el grupo de WhatsApp! 😂📉
           </div>
         </div>
 
