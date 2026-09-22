@@ -1,48 +1,226 @@
 import { renderHonorBadgeHtml, getManagerHonor } from '../utils/managerBadges.js';
 
 /**
- * High-Impact Matchup Card Highlights
+ * High-Impact Matchup Card Highlights & Storylines
  */
-function getMatchupFlavor(mid, tA, tB, week = 1) {
-  // mid 6: DonaldTrumpGoat vs SanzFC (Week 1)
-  if (week === 1 && mid == 6) {
-    return { tag: '👑 Duelo de Titanes', subtitle: 'El Campeón Defensor vs #2 Power Rank', glowClass: 'glow-gold' };
-  }
-  // mid 2: mariobarbieri vs versace4444 (Week 1)
-  if (week === 1 && mid == 2) {
-    return { tag: '🌱 Choque de Debutantes', subtitle: 'Duelo directo entre Novatos 2026', glowClass: 'glow-cyan' };
-  }
-  // mid 4: brianallenrm vs Cee Dee'z Nuts (Week 1)
-  if (week === 1 && mid == 4) {
-    return { tag: '🥈 vs 🚀 Duelo de Alto Voltaje', subtitle: '#1 Proyectado vs Subcampeón 2025', glowClass: 'glow-blue' };
-  }
-  // Week 2 Highlights
-  if (week === 2 && mid == 5) {
-    return { tag: '🔥 Duelo al Límite', subtitle: 'Bowers Rangers (142.44) supera a SanzFC (139.98) por solo 2.4 pts', glowClass: 'glow-gold' };
-  }
-  if (week === 2 && mid == 4) {
-    return { tag: '⚡ Mr. Olympia de la Semana', subtitle: 'Emi69Hb se lleva los $300 MXN con 167.22 FPs', glowClass: 'glow-emerald' };
-  }
-  if (week === 2 && mid == 1) {
-    return { tag: '💥 Descalabro y Castigo', subtitle: 'DaniAlva08 vence a MALIK BUSINESS (68.92 FPs -> 50 burpees)', glowClass: 'glow-purple' };
-  }
-  if (week === 2 && mid == 6) {
-    return { tag: '🦏 Triunfo Terrestre', subtitle: 'Danbengoa (133.42) se impone a DonaldTrumpGoat (85.68)', glowClass: 'glow-blue' };
+function getMatchupFlavor(mid, tA, tB, week = 3) {
+  const recA = `${tA?.wins ?? 0}-${tA?.losses ?? 0}`;
+  const recB = `${tB?.wins ?? 0}-${tB?.losses ?? 0}`;
+  const recordHeader = `<strong>${tA?.teamName} (${recA}) vs ${tB?.teamName} (${recB})</strong>`;
+
+  const hasRosters = (r1, r2) =>
+    (tA?.rosterId === r1 && tB?.rosterId === r2) || (tA?.rosterId === r2 && tB?.rosterId === r1);
+
+  // ==========================================
+  // SEMANA 3 (CARTELERA ESTELAR)
+  // ==========================================
+  if (week === 3) {
+    // Carlosso (2-0) vs DaniAlva08 (1-1)
+    if (hasRosters(2, 12) || mid == 1) {
+      return {
+        tag: '🛡️ Invicto a Prueba',
+        subtitle: `${recordHeader} • Carlosso expone su paso perfecto (2-0) ante el novato revelación DaniAlva08 en ascenso`,
+        glowClass: 'glow-cyan'
+      };
+    }
+    // MALIK BUSINESS (1-1) vs Cee Dee'z Nuts (0-2)
+    if (hasRosters(3, 10) || mid == 2) {
+      return {
+        tag: '💥 Urgencia & Redención',
+        subtitle: `${recordHeader} • MALIK BUSINESS busca redimirse de los 50 burpees ante el Subcampeón obligado a salir del 0-2`,
+        glowClass: 'glow-purple'
+      };
+    }
+    // Osante (1-1) vs Emi69Hb (2-0)
+    if (hasRosters(4, 11) || mid == 3) {
+      return {
+        tag: '🎯 Caza al Líder Invicto',
+        subtitle: `${recordHeader} • El colmillo veterano de Osante intentará frenar la aplanadora de Emi69Hb (#1 y Mr. Olympia)`,
+        glowClass: 'glow-emerald'
+      };
+    }
+    // versace4444 (1-1) vs SanzFC (0-2)
+    if (hasRosters(5, 9) || mid == 4) {
+      return {
+        tag: '💣 Choque de Artillería',
+        subtitle: `${recordHeader} • Duelo de alto puntaje (+285 FPs c/u); SanzFC busca justicia tras caer por solo 2.4 pts`,
+        glowClass: 'glow-blue'
+      };
+    }
+    // carloverditraconis (0-2) vs DonaldTrumpGoat (1-1)
+    if (hasRosters(6, 8) || mid == 5) {
+      return {
+        tag: '👑 Furia del Campeón',
+        subtitle: `${recordHeader} • El Campeón Defensor busca rugir de nuevo frente a un rival urgido de salir del fondo`,
+        glowClass: 'glow-gold'
+      };
+    }
+    // Bowers Rangers (2-0) vs Danbengoa (1-1)
+    if (hasRosters(1, 7) || mid == 6) {
+      return {
+        tag: '🚀 En Defensa del Invicto',
+        subtitle: `${recordHeader} • Bowers Rangers (#2 general) expone su invicto ante Danbengoa, encendido tras vencer al campeón`,
+        glowClass: 'glow-gold'
+      };
+    }
   }
 
-  // Week 3 Highlights
-  if (week === 3 && (tA?.rosterId === 1 || tB?.rosterId === 1)) {
-    return { tag: '🚀 Choque Invicto', subtitle: 'Bowers Rangers (2-0) vs Danbengoa (1-1)', glowClass: 'glow-gold' };
-  }
-  if (week === 3 && mid == 1) {
-    return { tag: '🔥 Batalla por el Récord', subtitle: 'Carlosso (2-0) vs DaniAlva08 (1-1)', glowClass: 'glow-cyan' };
+  // ==========================================
+  // SEMANA 2 (RECAP HISTÓRICO)
+  // ==========================================
+  if (week === 2) {
+    if (hasRosters(1, 9) || mid == 5) {
+      return {
+        tag: '🔥 Final de Infarto',
+        subtitle: `${recordHeader} • Bowers Rangers (142.44) superó a SanzFC (139.98) por solo 2.4 pts en el cierre más dramático`,
+        glowClass: 'glow-gold'
+      };
+    }
+    if (hasRosters(6, 11) || mid == 4) {
+      return {
+        tag: '⚡ Mr. Olympia de la Semana',
+        subtitle: `${recordHeader} • Emi69Hb se llevó los $300 MXN con 167.22 FPs y asaltó el liderato general de la liga`,
+        glowClass: 'glow-emerald'
+      };
+    }
+    if (hasRosters(3, 12) || mid == 1) {
+      return {
+        tag: '💥 Descalabro & Burpees',
+        subtitle: `${recordHeader} • DaniAlva08 venció con autoridad a MALIK BUSINESS (68.92 FPs -> 50 burpees)`,
+        glowClass: 'glow-purple'
+      };
+    }
+    if (hasRosters(7, 8) || mid == 6) {
+      return {
+        tag: '🦏 Golpe al Campeón',
+        subtitle: `${recordHeader} • Danbengoa (133.42) propinó una sorpresiva derrota al Campeón Defensor DonaldTrumpGoat (85.68)`,
+        glowClass: 'glow-blue'
+      };
+    }
+    if (hasRosters(2, 4) || mid == 2) {
+      return {
+        tag: '🚀 Paso Firme al Invicto',
+        subtitle: `${recordHeader} • Carlosso (144.46) dominó a Osante (107.12) para mantenerse invicto (2-0)`,
+        glowClass: 'glow-cyan'
+      };
+    }
+    if (hasRosters(5, 10) || mid == 3) {
+      return {
+        tag: '🌱 Duelo al Alambre',
+        subtitle: `${recordHeader} • versace4444 (142.66) se llevó un duelo cerradísimo ante el Subcampeón Cee Dee’z Nuts (139.66)`,
+        glowClass: 'glow-slate'
+      };
+    }
   }
 
-  // Fallback generic
-  if (tA?.honor?.type === 'champion' || tB?.honor?.type === 'champion') {
-    return { tag: '👑 Frente al Campeón', subtitle: 'Prueba de fuego frente a DonaldTrumpGoat', glowClass: 'glow-gold' };
+  // ==========================================
+  // SEMANA 1 (RECAP HISTÓRICO)
+  // ==========================================
+  if (week === 1) {
+    if (hasRosters(3, 5) || mid == 2) {
+      return {
+        tag: '🏆 Mr. Olympia Inaugural',
+        subtitle: `${recordHeader} • MALIK BUSINESS arrancó encendido con 184.46 FPs para ganar los primeros $300 MXN`,
+        glowClass: 'glow-gold'
+      };
+    }
+    if (hasRosters(8, 9) || mid == 6) {
+      return {
+        tag: '👑 Duelo de Titanes',
+        subtitle: `${recordHeader} • DonaldTrumpGoat (156.86) defendió la corona en un partidazo ante SanzFC (147.26)`,
+        glowClass: 'glow-gold'
+      };
+    }
+    if (hasRosters(1, 10) || mid == 4) {
+      return {
+        tag: '🥈 vs 🚀 Duelo Estelar',
+        subtitle: `${recordHeader} • Bowers Rangers (167.66) venció al Subcampeón Cee Dee’z Nuts (140.30)`,
+        glowClass: 'glow-blue'
+      };
+    }
+    if (hasRosters(4, 12) || mid == 1) {
+      return {
+        tag: '🛡️ Prueba de Fuego',
+        subtitle: `${recordHeader} • Osante (137.72) se impuso con experiencia al debutante DaniAlva08 (108.46)`,
+        glowClass: 'glow-purple'
+      };
+    }
+    if (hasRosters(7, 11) || mid == 5) {
+      return {
+        tag: '🌱 Explosión Debutante',
+        subtitle: `${recordHeader} • Emi69Hb (162.16) se presentó en la liga con una victoria aplastante ante Danbengoa (103.72)`,
+        glowClass: 'glow-emerald'
+      };
+    }
+    if (hasRosters(2, 6) || mid == 3) {
+      return {
+        tag: '🤡 Primeros 50 Burpees',
+        subtitle: `${recordHeader} • Carlosso (115.32) ganó ante carloverditraconis (91.80), primer castigado del año`,
+        glowClass: 'glow-slate'
+      };
+    }
   }
-  return { tag: '⚔️ Choque Directo', subtitle: `Duelo oficial de Semana ${week} en The Gains League`, glowClass: 'glow-slate' };
+
+  // ==========================================
+  // DYNAMIC FALLBACK (CUALQUIER OTRA SEMANA)
+  // ==========================================
+  const isUndefeatedA = tA?.losses === 0 && (tA?.wins ?? 0) > 0;
+  const isUndefeatedB = tB?.losses === 0 && (tB?.wins ?? 0) > 0;
+  const isWinlessA = (tA?.wins ?? 0) === 0 && (tA?.losses ?? 0) > 0;
+  const isWinlessB = (tB?.wins ?? 0) === 0 && (tB?.losses ?? 0) > 0;
+  const isChamp = tA?.honor?.type === 'champion' || tB?.honor?.type === 'champion';
+  const isRookieA = tA?.honor?.type === 'rookie';
+  const isRookieB = tB?.honor?.type === 'rookie';
+
+  if (isUndefeatedA && isUndefeatedB) {
+    return {
+      tag: '🚀 Choque de Invictos',
+      subtitle: `${recordHeader} • Ambos equipos llegan invictos; uno perderá el paso perfecto`,
+      glowClass: 'glow-gold'
+    };
+  }
+  if (isUndefeatedA || isUndefeatedB) {
+    const undefeatedTeam = isUndefeatedA ? tA?.teamName : tB?.teamName;
+    return {
+      tag: '🛡️ Desafío al Invicto',
+      subtitle: `${recordHeader} • ${undefeatedTeam} expone su récord inmaculado en un duelo de máxima tensión`,
+      glowClass: 'glow-emerald'
+    };
+  }
+  if (isWinlessA && isWinlessB) {
+    return {
+      tag: '🔥 Salir del Fondo',
+      subtitle: `${recordHeader} • Duelo crucial donde uno conseguirá su primera victoria del año`,
+      glowClass: 'glow-purple'
+    };
+  }
+  if (isChamp) {
+    return {
+      tag: '👑 Frente al Campeón',
+      subtitle: `${recordHeader} • Choque de alta exigencia ante el Campeón Defensor`,
+      glowClass: 'glow-gold'
+    };
+  }
+  if (isRookieA && isRookieB) {
+    return {
+      tag: '🌱 Duelo de Debutantes',
+      subtitle: `${recordHeader} • Choque directo entre novatos buscando afianzarse en playoffs`,
+      glowClass: 'glow-cyan'
+    };
+  }
+  if ((isRookieA && !isRookieB) || (!isRookieA && isRookieB)) {
+    return {
+      tag: '🛡️ Veterano vs Novato',
+      subtitle: `${recordHeader} • La experiencia frente a la juventud en un duelo directo por la tabla`,
+      glowClass: 'glow-blue'
+    };
+  }
+
+  return {
+    tag: '⚔️ Choque Divisional Clave',
+    subtitle: `${recordHeader} • Partido fundamental en la pelea directa por los 6 boletos a playoffs`,
+    glowClass: 'glow-slate'
+  };
 }
 
 export function renderMatchupsCardsGrid(matchups = [], teams = [], week = 2) {
@@ -57,8 +235,8 @@ export function renderMatchupsCardsGrid(matchups = [], teams = [], week = 2) {
 
   return Object.entries(pairs).map(([mid, pair]) => {
     const [a, b] = pair;
-    const ta = teamMap[a?.roster_id] || { rosterId: a?.roster_id, teamName: `Equipo ${a?.roster_id}`, avatar: '/logo.jpg', displayName: 'Mánager' };
-    const tb = teamMap[b?.roster_id] || { rosterId: b?.roster_id, teamName: `Equipo ${b?.roster_id}`, avatar: '/logo.jpg', displayName: 'Mánager' };
+    const ta = teamMap[a?.roster_id] || { rosterId: a?.roster_id, teamName: `Equipo ${a?.roster_id}`, avatar: '/logo.jpg', displayName: 'Mánager', wins: 0, losses: 0 };
+    const tb = teamMap[b?.roster_id] || { rosterId: b?.roster_id, teamName: `Equipo ${b?.roster_id}`, avatar: '/logo.jpg', displayName: 'Mánager', wins: 0, losses: 0 };
     const sa = a?.points ?? 0;
     const sb = b?.points ?? 0;
     const hasStarted = sa > 0 || sb > 0;
@@ -67,6 +245,9 @@ export function renderMatchupsCardsGrid(matchups = [], teams = [], week = 2) {
     const aWon = isCompleted && sa > sb;
     const bWon = isCompleted && sb > sa;
     const diff = Math.abs(sa - sb).toFixed(2);
+
+    const recA = `${ta.wins ?? 0}-${ta.losses ?? 0}`;
+    const recB = `${tb.wins ?? 0}-${tb.losses ?? 0}`;
 
     return `
     <div class="matchup-card-pro ${flavor.glowClass} ${isCompleted ? 'is-final' : ''}">
@@ -85,7 +266,10 @@ export function renderMatchupsCardsGrid(matchups = [], teams = [], week = 2) {
             ${aWon ? '<span class="team-win-crown" title="Ganador">🏆</span>' : ''}
           </div>
           <div class="m-team-info">
-            <div class="m-team-title">${ta.teamName}</div>
+            <div class="m-team-title">
+              <span>${ta.teamName}</span>
+              <span class="m-team-rec-badge">(${recA})</span>
+            </div>
             <div class="m-team-mgr">${ta.displayName} ${renderHonorBadgeHtml(ta.honor || getManagerHonor(ta))}</div>
           </div>
           <div class="m-team-score ${aWon ? 'text-gold' : ''}">
@@ -98,7 +282,7 @@ export function renderMatchupsCardsGrid(matchups = [], teams = [], week = 2) {
         <!-- Centro VS -->
         <div class="m-vs-divider">
           <div class="vs-circle ${isCompleted ? 'final-vs' : ''}">
-            ${isCompleted ? 'VS' : 'VS'}
+            VS
           </div>
           <div class="vs-status ${isCompleted ? 'status-final' : ''}">
             ${isCompleted ? '🏁 Final' : '🏈 Kickoff'}
@@ -112,7 +296,10 @@ export function renderMatchupsCardsGrid(matchups = [], teams = [], week = 2) {
             ${bWon ? '<span class="team-win-crown" title="Ganador">🏆</span>' : ''}
           </div>
           <div class="m-team-info">
-            <div class="m-team-title">${tb.teamName}</div>
+            <div class="m-team-title">
+              <span class="m-team-rec-badge">(${recB})</span>
+              <span>${tb.teamName}</span>
+            </div>
             <div class="m-team-mgr">${tb.displayName} ${renderHonorBadgeHtml(tb.honor || getManagerHonor(tb))}</div>
           </div>
           <div class="m-team-score ${bWon ? 'text-gold' : ''}">
@@ -133,8 +320,8 @@ export function renderMatchupsCardsGrid(matchups = [], teams = [], week = 2) {
 export function renderMatchups(matchups = [], teams = [], week = 3, isPreDraft = false, league = {}, weeklyMatchups = {}, selectedWeek = null) {
   const playoffCut = league?.settings?.playoff_teams || 6;
 
-  // Determinar semana a mostrar por defecto: Semana 2 si ya concluyó, o la semana seleccionada
-  const activeWeek = selectedWeek || (weeklyMatchups[2]?.some(m => m.points > 0) ? 2 : week);
+  // Determinar semana a mostrar por defecto: Semana 3 si ya estamos en la 3, o Semana 2
+  const activeWeek = selectedWeek || week || 3;
   const activeMatchups = (weeklyMatchups[activeWeek] && weeklyMatchups[activeWeek].length > 0)
     ? weeklyMatchups[activeWeek]
     : matchups;
@@ -190,7 +377,7 @@ export function renderMatchups(matchups = [], teams = [], week = 3, isPreDraft =
           ⚔️ Enfrentamientos • <span id="m-active-week-title" style="color:var(--gold-lt)">Semana ${activeWeek}</span>
         </h2>
         <p style="font-size:.86rem; color:var(--c-muted); margin-top:.35rem; max-width:640px; line-height:1.5;">
-          Resultados en vivo sincronizados con Sleeper. Selecciona la semana para ver marcadores finales o los duelos de la próxima fecha.
+          Resultados en vivo sincronizados con Sleeper. Selecciona la semana para revivir marcadores o calentar los duelos de la próxima jornada.
         </p>
       </div>
 

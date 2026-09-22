@@ -921,13 +921,28 @@ tr.eliminated td { opacity: .7; }
 }
 .m-team-title {
   font-family: var(--font-head);
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   color: #fff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 135px;
   line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  flex-wrap: wrap;
+}
+.m-team-side.side-b .m-team-title {
+  justify-content: flex-end;
+}
+.m-team-rec-badge {
+  font-size: .72rem;
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--gold-lt);
+  background: rgba(245,158,11,.14);
+  border: 1px solid rgba(245,158,11,.28);
+  padding: .08rem .35rem;
+  border-radius: var(--r-sm);
+  display: inline-block;
+  vertical-align: middle;
 }
 .m-team-mgr {
   font-size: .72rem;
@@ -1030,16 +1045,21 @@ tr.eliminated td { opacity: .7; }
 
 .m-card-footer {
   margin-top: .75rem;
-  padding-top: .45rem;
-  border-top: 1px solid rgba(255,255,255,.05);
+  padding-top: .55rem;
+  border-top: 1px solid rgba(255,255,255,.07);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .m-footer-sub {
-  font-size: .72rem;
-  color: #94a3b8;
+  font-size: .78rem;
+  color: #cbd5e1;
   text-align: center;
+  line-height: 1.45;
+}
+.m-footer-sub strong {
+  color: var(--gold-lt);
+  font-weight: 700;
 }
 
 .matchups-grid {
