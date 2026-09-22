@@ -1,7 +1,7 @@
 import { loadLeagueData } from './api/sleeper.js';
 import { renderHeader }      from './components/Header.js';
 import { renderHero }        from './components/Hero.js';
-import { renderMatchups }    from './components/Matchups.js';
+import { renderMatchups, attachMatchupsEvents } from './components/Matchups.js';
 import { renderDraftRecapTab, attachDraftRecapEvents }  from './components/DraftRecap.js';
 import { renderMarket }      from './components/TrendingMarket.js';
 import { renderRules, attachRulesModalEvents } from './components/RulesSummary.js';
@@ -66,7 +66,7 @@ class GainsLeagueApp {
     const d = this.data;
     switch (this.tab) {
       case 'matchups':
-        return renderMatchups(d.matchups, d.teams, d.currentWeek || 1, d.isPreDraft, d.league);
+        return renderMatchups(d.matchups, d.teams, d.currentWeek || 3, d.isPreDraft, d.league, d.weeklyMatchups);
       case 'recap':
         return renderDraftRecapTab(d.teams);
       case 'market':
@@ -74,7 +74,7 @@ class GainsLeagueApp {
       case 'rules':
         return renderRules();
       case 'prizes':
-        return renderPrizesTab(d.teams, d.league, d.isPreDraft);
+        return renderPrizesTab(d.teams, d.league, d.isPreDraft, d.weeklyMatchups);
       default:
         return '';
     }
@@ -98,6 +98,9 @@ class GainsLeagueApp {
     const mainContainer = document.getElementById('main-tab-content');
     if (mainContainer) {
       mainContainer.innerHTML = this.getTabContent();
+      if (this.tab === 'matchups') {
+        attachMatchupsEvents(this.root, this.data?.weeklyMatchups, this.data?.teams);
+      }
       if (this.tab === 'rules') {
         attachRulesModalEvents(this.root);
       }
@@ -204,6 +207,11 @@ class GainsLeagueApp {
 
     // Copy buttons
     this.attachCopyEvents();
+
+    // Matchups week selector events
+    if (this.tab === 'matchups') {
+      attachMatchupsEvents(this.root, this.data?.weeklyMatchups, this.data?.teams);
+    }
 
     // Rules modal events
     if (this.tab === 'rules') {

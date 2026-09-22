@@ -737,8 +737,56 @@ tr.eliminated td { opacity: .7; }
 }
 
 /* ==========================================================
-   MATCHUPS (PRO ARENA CLASH CARDS)
+   MATCHUPS (PRO ARENA CLASH CARDS & WEEK SELECTOR)
    ========================================================== */
+.matchups-week-pills {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.m-week-pill {
+  background: rgba(15,23,42,.85);
+  border: 1px solid var(--c-border);
+  color: #cbd5e1;
+  font-family: var(--font-head);
+  font-size: .88rem;
+  font-weight: 700;
+  padding: .45rem .85rem;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  transition: all .2s ease;
+}
+.m-week-pill:hover {
+  border-color: var(--c-border-gold);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.m-week-pill.active {
+  background: linear-gradient(135deg, rgba(245,158,11,.25) 0%, rgba(245,158,11,.1) 100%);
+  border-color: var(--c-border-gold);
+  color: var(--gold-lt);
+  box-shadow: 0 0 12px rgba(245,158,11,.25);
+}
+.m-pill-status {
+  font-size: .62rem;
+  font-weight: 700;
+  padding: .1rem .35rem;
+  border-radius: var(--r-pill);
+  background: rgba(16,185,129,.15);
+  color: #34d399;
+  border: 1px solid rgba(16,185,129,.35);
+  text-transform: uppercase;
+}
+.m-pill-status.upcoming {
+  background: rgba(56,189,248,.15);
+  color: #38bdf8;
+  border-color: rgba(56,189,248,.35);
+}
+
 .matchups-pro-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -763,6 +811,9 @@ tr.eliminated td { opacity: .7; }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.matchup-card-pro.is-final {
+  border-color: rgba(255,255,255,.12);
 }
 .matchup-card-pro:hover {
   transform: translateY(-3px);
@@ -903,6 +954,45 @@ tr.eliminated td { opacity: .7; }
   font-weight: 600;
   color: var(--c-faint);
   text-transform: uppercase;
+}
+
+.m-team-side.winner-team {
+  position: relative;
+}
+.m-team-side.winner-team .m-team-avatar {
+  border-color: #34d399 !important;
+  box-shadow: 0 0 14px rgba(16,185,129,.5);
+}
+.team-win-crown {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  font-size: .85rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.6));
+}
+.win-pill-badge {
+  font-size: .62rem;
+  font-weight: 700;
+  padding: .12rem .4rem;
+  border-radius: var(--r-pill);
+  background: rgba(16,185,129,.18);
+  color: #34d399;
+  border: 1px solid rgba(16,185,129,.4);
+  margin-top: .15rem;
+  display: inline-block;
+  white-space: nowrap;
+}
+.m-team-side.loser-team {
+  opacity: .75;
+}
+.vs-circle.final-vs {
+  background: rgba(15,23,42,.9);
+  border-color: rgba(255,255,255,.2);
+  color: var(--c-muted);
+  box-shadow: none;
+}
+.vs-status.status-final {
+  color: #34d399;
 }
 
 .m-vs-divider {

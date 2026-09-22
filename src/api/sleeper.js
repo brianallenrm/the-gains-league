@@ -136,14 +136,29 @@ export async function loadLeagueData() {
   const currentWeek = (nflState?.leg || nflState?.week || 1);
   const isPreDraft  = league.status === "pre_draft";
 
+  // Cargar matchups de todas las semanas jugadas/activas
+  const maxWeek = Math.max(1, Math.min(14, currentWeek));
+  const weekList = Array.from({ length: maxWeek }, (_, i) => i + 1);
+
   // Carga paralela de datos semanales + base de jugadores
-  const [matchups, transactions, rawAdds, rawDrops, playerDb] = await Promise.all([
-    isPreDraft ? [] : getMatchups(currentWeek),
+  const [matchupsResults, txCurrent, txPrev, rawAdds, rawDrops, playerDb] = await Promise.all([
+    isPreDraft ? [] : Promise.all(weekList.map(w => getMatchups(w))),
     isPreDraft ? [] : getTransactions(currentWeek),
+    (isPreDraft || currentWeek <= 1) ? [] : getTransactions(currentWeek - 1),
     getTrending("add", 10),
     getTrending("drop", 10),
     getPlayerDatabase()
   ]);
+
+  const weeklyMatchups = {};
+  if (!isPreDraft && Array.isArray(matchupsResults)) {
+    weekList.forEach((w, idx) => {
+      weeklyMatchups[w] = matchupsResults[idx] || [];
+    });
+  }
+
+  const matchups = weeklyMatchups[currentWeek] || [];
+  const transactions = [...(txCurrent || []), ...(txPrev || [])];
 
   // Enriquecer trending con nombres reales, fotos, posiciones y equipos
   const enrichTrending = (list) => (list || []).map(item => {
@@ -163,6 +178,6 @@ export async function loadLeagueData() {
   return {
     league, users, rosters, teams, userMap, playerDb,
     nflState, currentWeek, isPreDraft,
-    matchups, transactions, trendingAdds, trendingDrops,
+    matchups, weeklyMatchups, transactions, trendingAdds, trendingDrops,
   };
 }
