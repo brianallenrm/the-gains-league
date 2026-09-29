@@ -3,7 +3,7 @@ import { renderHonorBadgeHtml, getManagerHonor } from '../utils/managerBadges.js
 /**
  * High-Impact Matchup Card Highlights & Storylines
  */
-function getMatchupFlavor(mid, tA, tB, week = 3) {
+function getMatchupFlavor(mid, tA, tB, week = 4) {
   const recA = `${tA?.wins ?? 0}-${tA?.losses ?? 0}`;
   const recB = `${tB?.wins ?? 0}-${tB?.losses ?? 0}`;
   const recordHeader = `<strong>${tA?.teamName} (${recA}) vs ${tB?.teamName} (${recB})</strong>`;
@@ -12,55 +12,103 @@ function getMatchupFlavor(mid, tA, tB, week = 3) {
     (tA?.rosterId === r1 && tB?.rosterId === r2) || (tA?.rosterId === r2 && tB?.rosterId === r1);
 
   // ==========================================
-  // SEMANA 3 (CARTELERA ESTELAR)
+  // SEMANA 4 (CARTELERA ESTELAR)
   // ==========================================
-  if (week === 3) {
-    // Carlosso (2-0) vs DaniAlva08 (1-1)
-    if (hasRosters(2, 12) || mid == 1) {
+  if (week === 4) {
+    // Cee Dee'z Nuts (1-2) vs DaniAlva08 (2-1)
+    if (hasRosters(10, 12) || mid == 1) {
       return {
-        tag: '🛡️ Invicto a Prueba',
-        subtitle: `${recordHeader} • Carlosso expone su paso perfecto (2-0) ante el novato revelación DaniAlva08 en ascenso`,
+        tag: '🌱 Choque de Alto Impacto',
+        subtitle: `${recordHeader} • DaniAlva08 (2-1) busca afianzarse en el Top 3 ante el Subcampeón Cee Dee’z Nuts que viene de sumar su primera victoria`,
         glowClass: 'glow-cyan'
       };
     }
-    // MALIK BUSINESS (1-1) vs Cee Dee'z Nuts (0-2)
-    if (hasRosters(3, 10) || mid == 2) {
+    // Carlosso (2-1) vs Emi69Hb (3-0)
+    if (hasRosters(2, 11) || mid == 2) {
       return {
-        tag: '💥 Urgencia & Redención',
-        subtitle: `${recordHeader} • MALIK BUSINESS busca sacudirse la humillación del sótano ante el Subcampeón obligado a salir del 0-2`,
-        glowClass: 'glow-purple'
-      };
-    }
-    // Osante (1-1) vs Emi69Hb (2-0)
-    if (hasRosters(4, 11) || mid == 3) {
-      return {
-        tag: '🎯 Caza al Líder Invicto',
-        subtitle: `${recordHeader} • El colmillo veterano de Osante intentará frenar la aplanadora de Emi69Hb (#1 y Mr. Olympia)`,
+        tag: '🚀 Desafío al Invicto',
+        subtitle: `${recordHeader} • Carlosso busca revancha tras perder el paso perfecto enfrentando a Emi69Hb (3-0), segundo invicto de la liga`,
         glowClass: 'glow-emerald'
       };
     }
-    // versace4444 (1-1) vs SanzFC (0-2)
-    if (hasRosters(5, 9) || mid == 4) {
+    // MALIK BUSINESS (1-2) vs SanzFC (1-2)
+    if (hasRosters(3, 9) || mid == 3) {
       return {
-        tag: '💣 Choque de Artillería',
-        subtitle: `${recordHeader} • Duelo de alto puntaje (+285 FPs c/u); SanzFC busca justicia tras caer por solo 2.4 pts`,
+        tag: '💣 Choque en Llamas',
+        subtitle: `${recordHeader} • MALIK BUSINESS busca sacudirse el sótano ante un SanzFC crecido tras ganar el Mr. Olympia con 190.48 FPs`,
+        glowClass: 'glow-gold'
+      };
+    }
+    // Osante (1-2) vs DonaldTrumpGoat (1-2)
+    if (hasRosters(4, 8) || mid == 4) {
+      return {
+        tag: '👑 Duelo de Supervivencia',
+        subtitle: `${recordHeader} • Orgullo herido: El Campeón DonaldTrumpGoat (#12) busca salir del fondo ante la experiencia de Osante (#11)`,
+        glowClass: 'glow-purple'
+      };
+    }
+    // versace4444 (1-2) vs Danbengoa (1-2)
+    if (hasRosters(5, 7) || mid == 5) {
+      return {
+        tag: '⚡ Batalla por Playoffs',
+        subtitle: `${recordHeader} • versace4444 (#2 anotador con 477.5 FPs) busca traducir sus puntos en victorias frente al muro de Danbengoa`,
         glowClass: 'glow-blue'
       };
     }
-    // carloverditraconis (0-2) vs DonaldTrumpGoat (1-1)
-    if (hasRosters(6, 8) || mid == 5) {
+    // Bowers Rangers (3-0) vs carloverditraconis (1-2)
+    if (hasRosters(1, 6) || mid == 6) {
       return {
-        tag: '👑 Furia del Campeón',
-        subtitle: `${recordHeader} • El Campeón Defensor busca rugir de nuevo frente a un rival urgido de salir del fondo`,
+        tag: '🚀 En Defensa del Trono',
+        subtitle: `${recordHeader} • Bowers Rangers (#1 invicto 3-0) pone en juego su liderato ante carloverditraconis tras su explosión de 164.30 FPs`,
         glowClass: 'glow-gold'
       };
     }
-    // Bowers Rangers (2-0) vs Danbengoa (1-1)
+  }
+
+  // ==========================================
+  // SEMANA 3 (RECAP HISTÓRICO)
+  // ==========================================
+  if (week === 3) {
+    if (hasRosters(5, 9) || mid == 4) {
+      return {
+        tag: '💣 Tiroteo del Año',
+        subtitle: `${recordHeader} • SanzFC (190.48) superó a versace4444 (186.54) en el partido con más puntos del año y se llevó los $300 MXN`,
+        glowClass: 'glow-gold'
+      };
+    }
+    if (hasRosters(2, 12) || mid == 1) {
+      return {
+        tag: '🌱 Caída del Invicto',
+        subtitle: `${recordHeader} • DaniAlva08 (144.74) dio la campanada quitándole el invicto a Carlosso (129.32) con una actuación brillante`,
+        glowClass: 'glow-cyan'
+      };
+    }
     if (hasRosters(1, 7) || mid == 6) {
       return {
-        tag: '🚀 En Defensa del Invicto',
-        subtitle: `${recordHeader} • Bowers Rangers (#2 general) expone su invicto ante Danbengoa, encendido tras vencer al campeón`,
-        glowClass: 'glow-gold'
+        tag: '🚀 Liderato en Solitario',
+        subtitle: `${recordHeader} • Bowers Rangers (160.54) venció a Danbengoa (127.62) para ponerse 3-0 y adueñarse del #1 general de la liga`,
+        glowClass: 'glow-emerald'
+      };
+    }
+    if (hasRosters(6, 8) || mid == 5) {
+      return {
+        tag: '⚡ Paliza al Campeón',
+        subtitle: `${recordHeader} • carloverditraconis (164.30) arrolló al Campeón DonaldTrumpGoat (95.38) propinándole una dolorosa caída`,
+        glowClass: 'glow-blue'
+      };
+    }
+    if (hasRosters(3, 10) || mid == 2) {
+      return {
+        tag: '💥 Primer Triunfo',
+        subtitle: `${recordHeader} • Cee Dee’z Nuts (95.84) consiguió su primera victoria de la campaña superando a MALIK BUSINESS (90.70)`,
+        glowClass: 'glow-purple'
+      };
+    }
+    if (hasRosters(4, 11) || mid == 3) {
+      return {
+        tag: '👑 Paso Perfecto',
+        subtitle: `${recordHeader} • Emi69Hb (120.72) mantuvo su marcha invicta (3-0) superando al veterano Osante (93.26)`,
+        glowClass: 'glow-emerald'
       };
     }
   }
@@ -223,7 +271,7 @@ function getMatchupFlavor(mid, tA, tB, week = 3) {
   };
 }
 
-export function renderMatchupsCardsGrid(matchups = [], teams = [], week = 2) {
+export function renderMatchupsCardsGrid(matchups = [], teams = [], week = 4) {
   const teamMap = Object.fromEntries(teams.map(t => [t.rosterId, t]));
 
   // Agrupar por matchup_id
@@ -317,11 +365,11 @@ export function renderMatchupsCardsGrid(matchups = [], teams = [], week = 2) {
   }).join('');
 }
 
-export function renderMatchups(matchups = [], teams = [], week = 3, isPreDraft = false, league = {}, weeklyMatchups = {}, selectedWeek = null) {
+export function renderMatchups(matchups = [], teams = [], week = 4, isPreDraft = false, league = {}, weeklyMatchups = {}, selectedWeek = null) {
   const playoffCut = league?.settings?.playoff_teams || 6;
 
-  // Determinar semana a mostrar por defecto: Semana 3 si ya estamos en la 3, o Semana 2
-  const activeWeek = selectedWeek || week || 3;
+  // Determinar semana a mostrar por defecto: Semana 4 (próxima) o Semana 3
+  const activeWeek = selectedWeek || week || 4;
   const activeMatchups = (weeklyMatchups[activeWeek] && weeklyMatchups[activeWeek].length > 0)
     ? weeklyMatchups[activeWeek]
     : matchups;
@@ -390,7 +438,10 @@ export function renderMatchups(matchups = [], teams = [], week = 3, isPreDraft =
           🔥 Semana 2 <span class="m-pill-status">Final</span>
         </button>
         <button class="m-week-pill ${activeWeek === 3 ? 'active' : ''}" data-week="3">
-          ⚡ Semana 3 <span class="m-pill-status upcoming">Próxima</span>
+          ⚡ Semana 3 <span class="m-pill-status">Final</span>
+        </button>
+        <button class="m-week-pill ${activeWeek === 4 ? 'active' : ''}" data-week="4">
+          🚀 Semana 4 <span class="m-pill-status upcoming">Próxima</span>
         </button>
       </div>
     </div>
@@ -405,9 +456,9 @@ export function renderMatchups(matchups = [], teams = [], week = 3, isPreDraft =
   <div class="card mt-1">
     <div class="section-head">
       <div>
-        <div class="section-title">📊 Tabla de Posiciones Oficial (Semana 2 Concluida)</div>
+        <div class="section-title">📊 Tabla de Posiciones Oficial (Semana 3 Concluida)</div>
         <p style="color:var(--c-muted); font-size:.82rem; margin-top:.2rem;">
-          Récord general tras 2 semanas completadas, puntos a favor/contra y presupuesto de waivers ($100 FAAB).
+          Récord general tras 3 semanas completadas, puntos a favor/contra y presupuesto de waivers ($100 FAAB).
         </p>
       </div>
       <span class="section-badge">Top ${playoffCut} a Playoffs</span>
