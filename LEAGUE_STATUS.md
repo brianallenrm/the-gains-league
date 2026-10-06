@@ -1,141 +1,141 @@
 # 🏈 The Gains League 2026 • Estado Oficial de la Liga
 
-> **Última actualización:** martes, 29 de septiembre de 2026, 1:39:56 p.m. (Semana 3 concluida • Rumbo a Semana 4)
+> **Última actualización:** martes, 6 de octubre de 2026, 2:52:58 p.m. (Semana 4 concluida • Rumbo a Semana 5)
 > **Liga en Sleeper ID:** `1393074729073520640` | **Formato:** Half PPR / 1 QB, 2 RB, 2 WR, 1 TE, 2 FLEX, 1 K, 1 DEF (10 titulares, 6 banca)
 > **Bolsa Total:** $7,200 MXN ($300 por semana x 14 semanas + $2,700 al Gran Campeón)
-> **Premios Asignados:** $900 MXN ($300 a MALIK en Sem 1, $300 a Emi69Hb en Sem 2, $300 a SanzFC en Sem 3)
+> **Premios Asignados:** $1200 MXN ($300 a MALIK en Sem 1, $300 a Emi69Hb en Sem 2, $300 a SanzFC en Sem 3, $300 a SanzFC en Sem 4)
 
 ---
 
 ## 👤 Mi Equipo: **Bowers Rangers** (@brianallenrm)
 
-- **Récord Actual:** **3-0** (100.0%)
-- **Posición en la Tabla:** **#1** de 12 equipos (¡Líder de la Liga 👑!)
-- **Puntos a Favor (FPs):** **470.64 pts** (#2 mejor ofensiva de la liga)
-- **Puntos en Contra:** 407.90 pts
-- **Presupuesto FAAB Restante:** **$85** de $100 iniciales
-- **Racha:** 3W
-- **Próximo Partido (Semana 4):** vs **carloverditraconis** (1-2)
+- **Récord Actual:** **4-0** (100.0%)
+- **Posición en la Tabla:** **#2** de 12 equipos (¡Líder de la Liga 👑!)
+- **Puntos a Favor (FPs):** **608.62 pts** (#2 mejor ofensiva de la liga)
+- **Puntos en Contra:** 526.88 pts
+- **Presupuesto FAAB Restante:** **$83** de $100 iniciales
+- **Racha:** 4W
+- **Próximo Partido (Semana 5):** vs **Osante** (1-3)
 
 ### 🌟 Alineación Titular (Starters)
 | Posición | Jugador | Equipo NFL |
 | :--- | :--- | :---: |
-| **QB** | Bryce Young | `CAR` |
-| **RB** | Javonte Williams | `DAL` |
+| **QB** | Jared Goff | `DET` |
 | **RB** | D'Andre Swift | `CHI` |
+| **RB** | Javonte Williams | `DAL` |
 | **WR** | Ja'Marr Chase | `CIN` |
 | **WR** | Parker Washington | `JAX` |
 | **TE** | Brock Bowers | `LV` |
 | **WR** | Chris Olave | `NO` |
-| **WR** | Rashee Rice | `KC` |
-| **K** | Harrison Butker | `KC` |
-| **DEF** | Carolina Panthers | `CAR` |
+| **WR** | Denzel Boston | `CLE` |
+| **K** | Spencer Shrader | `IND` |
+| **DEF** | Green Bay Packers | `GB` |
 
 ### 🪑 Banca (Bench)
 | Posición | Jugador | Equipo NFL |
 | :--- | :--- | :---: |
+| **WR** | Rashee Rice | `KC` |
 | **QB** | Jayden Daniels | `WAS` |
-| **WR** | Denzel Boston | `CLE` |
 | **WR** | Tyreek Hill | `FA` |
 | **RB** | J.K. Dobbins | `DEN` |
-| **TE** | Pat Freiermuth | `PIT` |
 | **RB** | Jordan Mason | `MIN` |
+| **QB** | Bryce Young | `CAR` |
 
 ---
 
-## 📊 Tabla General de Posiciones (Semana 3 Concluida)
+## 📊 Tabla General de Posiciones (Semana 4 Concluida)
 
 | # | Equipo | Mánager | Récord | %Vic | Pts Favor | Pts Contra | FAAB | Racha | Estatus |
 | :-: | :--- | :--- | :-: | :-: | :-: | :-: | :-: | :-: | :--- |
-| 1 | **Bowers Rangers** | @brianallenrm | **3-0** | 100.0% | 470.64 | 407.90 | $85 | 3W | 🏆 Playoffs |
-| 2 | Emi69Hb | @Emi69Hb | **3-0** | 100.0% | 450.10 | 326.76 | $82 | 3W | 🏆 Playoffs |
-| 3 | DaniAlva08 | @DaniAlva08 | **2-1** | 66.7% | 390.40 | 335.96 | $100 | 2W | 🏆 Playoffs |
-| 4 | Carlosso | @Carlosso | **2-1** | 66.7% | 389.10 | 343.66 | $100 | 1L | 🏆 Playoffs |
-| 5 | SanzFC | @SanzFC | **1-2** | 33.3% | 477.72 | 485.84 | $100 | 1W | 🏆 Playoffs |
-| 6 | versace4444 | @versace4444 | **1-2** | 33.3% | 477.50 | 514.60 | $100 | 1L | 🏆 Playoffs |
-| 7 | carloverditraconis | @carloverditraconis | **1-2** | 33.3% | 385.88 | 377.92 | $100 | 1W | — |
-| 8 | Cee Dee’z Nuts | @channels98 | **1-2** | 33.3% | 375.80 | 401.02 | $100 | 1W | — |
-| 9 | Danbengoa | @Danbengoa | **1-2** | 33.3% | 364.76 | 408.38 | $100 | 1L | — |
-| 10 | MALIK BUSINESS | @elchebu | **1-2** | 33.3% | 344.08 | 381.34 | $63 | 2L | — |
-| 11 | Osante | @Osante | **1-2** | 33.3% | 338.10 | 373.64 | $100 | 2L | — |
-| 12 | DonaldTrumpGoat | @DonaldTrumpGoat | **1-2** | 33.3% | 337.92 | 444.98 | $85 | 2L | — |
+| 1 | Emi69Hb | @Emi69Hb | **4-0** | 100.0% | 609.62 | 424.08 | $82 | 4W | 🏆 Playoffs |
+| 2 | **Bowers Rangers** | @brianallenrm | **4-0** | 100.0% | 608.62 | 526.88 | $83 | 4W | 🏆 Playoffs |
+| 3 | SanzFC | @SanzFC | **2-2** | 50.0% | 676.24 | 632.08 | $100 | 2W | 🏆 Playoffs |
+| 4 | Cee Dee’z Nuts | @channels98 | **2-2** | 50.0% | 540.10 | 520.60 | $100 | 2W | 🏆 Playoffs |
+| 5 | DonaldTrumpGoat | @DonaldTrumpGoat | **2-2** | 50.0% | 515.24 | 544.54 | $41 | 1W | 🏆 Playoffs |
+| 6 | Danbengoa | @Danbengoa | **2-2** | 50.0% | 511.24 | 531.38 | $100 | 1W | 🏆 Playoffs |
+| 7 | DaniAlva08 | @DaniAlva08 | **2-2** | 50.0% | 509.98 | 500.26 | $100 | 1L | — |
+| 8 | Carlosso | @Carlosso | **2-2** | 50.0% | 486.42 | 503.18 | $100 | 2L | — |
+| 9 | versace4444 | @versace4444 | **1-3** | 25.0% | 600.50 | 661.08 | $100 | 2L | — |
+| 10 | carloverditraconis | @carloverditraconis | **1-3** | 25.0% | 504.86 | 515.90 | $100 | 1L | — |
+| 11 | MALIK BUSINESS | @elchebu | **1-3** | 25.0% | 490.32 | 579.86 | $63 | 3L | — |
+| 12 | Osante | @Osante | **1-3** | 25.0% | 437.66 | 550.96 | $100 | 3L | — |
 
 *Nota: Los primeros 6 lugares avanzan a Playoffs al terminar la Semana 14.*
 
 ---
 
-## ⚔️ Próximos Enfrentamientos (Semana 4)
+## ⚔️ Próximos Enfrentamientos (Semana 5)
 
-- **Matchup #1:** **Cee Dee’z Nuts** (1-2) vs **DaniAlva08** (2-1)
-- **Matchup #2:** **Carlosso** (2-1) vs **Emi69Hb** (3-0)
-- **Matchup #3:** **MALIK BUSINESS** (1-2) vs **SanzFC** (1-2)
-- **Matchup #4:** **Osante** (1-2) vs **DonaldTrumpGoat** (1-2)
-- **Matchup #5:** **versace4444** (1-2) vs **Danbengoa** (1-2)
-- **Matchup #6:** **Bowers Rangers** (3-0) vs **carloverditraconis** (1-2)
+- **Matchup #1:** **Emi69Hb** (4-0) vs **DaniAlva08** (2-2)
+- **Matchup #2:** **SanzFC** (2-2) vs **Cee Dee’z Nuts** (2-2)
+- **Matchup #3:** **Carlosso** (2-2) vs **DonaldTrumpGoat** (2-2)
+- **Matchup #4:** **MALIK BUSINESS** (1-3) vs **Danbengoa** (2-2)
+- **Matchup #5:** **Bowers Rangers** (4-0) vs **Osante** (1-3)
+- **Matchup #6:** **versace4444** (1-3) vs **carloverditraconis** (1-3)
 
 ---
 
 ## 📋 Rosters Completos de los 12 Equipos
 
-### 1. Bowers Rangers (@brianallenrm)
-- **Récord:** 3-0 | **FPs:** 470.64 | **FAAB:** $85
-- **Titulares (10):** Bryce Young (QB-CAR), Javonte Williams (RB-DAL), D'Andre Swift (RB-CHI), Ja'Marr Chase (WR-CIN), Parker Washington (WR-JAX), Brock Bowers (TE-LV), Chris Olave (WR-NO), Rashee Rice (WR-KC), Harrison Butker (K-KC), Carolina Panthers (DEF-CAR)
-- **Banca (6):** Jayden Daniels (QB-WAS), Denzel Boston (WR-CLE), Tyreek Hill (WR-FA), J.K. Dobbins (RB-DEN), Pat Freiermuth (TE-PIT), Jordan Mason (RB-MIN)
-
-### 2. Emi69Hb (@Emi69Hb)
-- **Récord:** 3-0 | **FPs:** 450.10 | **FAAB:** $82
+### 1. Emi69Hb (@Emi69Hb)
+- **Récord:** 4-0 | **FPs:** 609.62 | **FAAB:** $82
 - **Titulares (10):** Josh Allen (QB-BUF), Cam Skattebo (RB-NYG), Bhayshul Tuten (RB-JAX), Jaxon Smith-Njigba (WR-SEA), Zay Flowers (WR-BAL), Sam LaPorta (TE-DET), Jaylen Warren (RB-PIT), DK Metcalf (WR-PIT), Ka'imi Fairbairn (K-HOU), Philadelphia Eagles (DEF-PHI)
 - **Banca (5):** Tre Tucker (WR-LV), Travis Hunter (DB-JAX), Emmett Johnson (RB-KC), Daniel Jones (QB-IND), Dontayvion Wicks (WR-PHI)
 
-### 3. DaniAlva08 (@DaniAlva08)
-- **Récord:** 2-1 | **FPs:** 390.40 | **FAAB:** $100
-- **Titulares (10):** Lamar Jackson (QB-BAL), Jahmyr Gibbs (RB-DET), TreVeyon Henderson (RB-NE), George Pickens (WR-DAL), DeVonta Smith (WR-PHI), Tyler Warren (TE-IND), Luther Burden (WR-CHI), Jalen Coker (WR-CAR), Jake Bates (K-DET), Los Angeles Rams (DEF-LAR)
-- **Banca (5):** Jonathon Brooks (RB-CAR), Makai Lemon (WR-PHI), Baker Mayfield (QB-TB), Rashid Shaheed (WR-SEA), Brenton Strange (TE-JAX)
+### 2. Bowers Rangers (@brianallenrm)
+- **Récord:** 4-0 | **FPs:** 608.62 | **FAAB:** $83
+- **Titulares (10):** Jared Goff (QB-DET), D'Andre Swift (RB-CHI), Javonte Williams (RB-DAL), Ja'Marr Chase (WR-CIN), Parker Washington (WR-JAX), Brock Bowers (TE-LV), Chris Olave (WR-NO), Denzel Boston (WR-CLE), Spencer Shrader (K-IND), Green Bay Packers (DEF-GB)
+- **Banca (6):** Rashee Rice (WR-KC), Jayden Daniels (QB-WAS), Tyreek Hill (WR-FA), J.K. Dobbins (RB-DEN), Jordan Mason (RB-MIN), Bryce Young (QB-CAR)
 
-### 4. Carlosso (@Carlosso)
-- **Récord:** 2-1 | **FPs:** 389.10 | **FAAB:** $100
-- **Titulares (10):** Jalen Hurts (QB-PHI), De'Von Achane (RB-MIA), Jeremiyah Love (RB-ARI), Amon-Ra St. Brown (WR-DET), Jaylen Waddle (WR-DEN), Travis Kelce (TE-KC), Jordan Addison (WR-MIN), Matthew Golden (WR-GB), Cameron Dicker (K-LAC), Baltimore Ravens (DEF-BAL)
-- **Banca (5):** Devaughn Vele (WR-NO), Woody Marks (RB-HOU), Jaxson Dart (QB-NYG), Josh Jacobs (RB-GB), Khalil Shakir (WR-BUF)
-
-### 5. SanzFC (@SanzFC)
-- **Récord:** 1-2 | **FPs:** 477.72 | **FAAB:** $100
+### 3. SanzFC (@SanzFC)
+- **Récord:** 2-2 | **FPs:** 676.24 | **FAAB:** $100
 - **Titulares (10):** Brock Purdy (QB-SF), Bijan Robinson (RB-ATL), Kenneth Walker (RB-KC), Tee Higgins (WR-CIN), Tetairoa McMillan (WR-CAR), Trey McBride (TE-ARI), Jameson Williams (WR-DET), Terry McLaurin (WR-WAS), Chris Boswell (K-PIT), Chicago Bears (DEF-CHI)
 - **Banca (5):** Rome Odunze (WR-CHI), Courtland Sutton (WR-DEN), Justin Herbert (QB-LAC), Jordan Love (QB-GB), Kenny Gainwell (RB-TB)
 
-### 6. versace4444 (@versace4444)
-- **Récord:** 1-2 | **FPs:** 477.50 | **FAAB:** $100
-- **Titulares (10):** Dak Prescott (QB-DAL), Jonathan Taylor (RB-IND), Ashton Jeanty (RB-LV), Drake London (WR-ATL), Garrett Wilson (WR-NYJ), Harold Fannin (TE-CLE), Ladd McConkey (WR-LAC), Jugador #0 (NFL-FA), Harrison Mevis (K-LAR), Minnesota Vikings (DEF-MIN)
-- **Banca (6):** Blake Corum (RB-LAR), Brian Thomas (WR-JAX), Kenyon Sadiq (TE-NYJ), Mike Evans (WR-SF), Rico Dowdle (RB-PIT), Rachaad White (RB-WAS)
+### 4. Cee Dee’z Nuts (@channels98)
+- **Récord:** 2-2 | **FPs:** 540.10 | **FAAB:** $100
+- **Titulares (10):** Patrick Mahomes (QB-KC), Chuba Hubbard (RB-CAR), Bucky Irving (RB-TB), CeeDee Lamb (WR-DAL), DJ Moore (WR-BUF), T.J. Hockenson (TE-MIN), Jacory Croskey-Merritt (RB-WAS), Stefon Diggs (WR-WAS), Brandon Aubrey (K-DAL), Seattle Seahawks (DEF-SEA)
+- **Banca (5):** Emanuel Wilson (RB-SEA), Omarion Hampton (RB-LAC), Colston Loveland (TE-CHI), Trevor Lawrence (QB-JAX), Evan McPherson (K-CIN)
 
-### 7. carloverditraconis (@carloverditraconis)
-- **Récord:** 1-2 | **FPs:** 385.88 | **FAAB:** $100
-- **Titulares (10):** Matthew Stafford (QB-LAR), Christian McCaffrey (RB-SF), RJ Harvey (RB-DEN), Kalif Raymond (WR-CHI), Davante Adams (WR-LAR), Kyle Pitts (TE-ATL), Carnell Tate (WR-TEN), Michael Wilson (WR-ARI), Jason Myers (K-SEA), Denver Broncos (DEF-DEN)
-- **Banca (6):** Will Reichard (K-MIN), Jonah Coleman (RB-DEN), Jared Goff (QB-DET), Dallas Goedert (TE-PHI), A.J. Brown (WR-NE), Buffalo Bills (DEF-BUF)
+### 5. DonaldTrumpGoat (@DonaldTrumpGoat)
+- **Récord:** 2-2 | **FPs:** 515.24 | **FAAB:** $41
+- **Titulares (10):** Joe Burrow (QB-CIN), Derrick Henry (RB-BAL), Ollie Gordon (RB-MIA), Nico Collins (WR-HOU), Malik Washington (WR-MIA), Tucker Kraft (TE-GB), Hunter Henry (TE-NE), Alvin Kamara (RB-NO), Cam Little (K-JAX), Houston Texans (DEF-HOU)
+- **Banca (7):** Adonai Mitchell (WR-NYJ), Jaylen Wright (RB-MIA), Konata Mumpfield (WR-LAR), Keenan Allen (WR-IND), Justin Jefferson (WR-MIN), Travis Etienne (RB-NO), Alec Pierce (WR-IND)
 
-### 8. Cee Dee’z Nuts (@channels98)
-- **Récord:** 1-2 | **FPs:** 375.80 | **FAAB:** $100
-- **Titulares (10):** Patrick Mahomes (QB-KC), Omarion Hampton (RB-LAC), Bucky Irving (RB-TB), CeeDee Lamb (WR-DAL), Rashod Bateman (WR-BAL), Oronde Gadsden (TE-LAC), Chuba Hubbard (RB-CAR), Stefon Diggs (WR-WAS), Brandon Aubrey (K-DAL), Seattle Seahawks (DEF-SEA)
-- **Banca (5):** Colston Loveland (TE-CHI), DJ Moore (WR-BUF), Tony Pollard (RB-TEN), Trevor Lawrence (QB-JAX), Evan McPherson (K-CIN)
+### 6. Danbengoa (@Danbengoa)
+- **Récord:** 2-2 | **FPs:** 511.24 | **FAAB:** $100
+- **Titulares (10):** C.J. Stroud (QB-HOU), James Cook (RB-BUF), Kyren Williams (RB-LAR), Marvin Harrison (WR-ARI), Josh Downs (WR-IND), Juwan Johnson (TE-NO), Aaron Jones (RB-MIN), Xavier Worthy (WR-KC), Tyler Loop (K-BAL), Los Angeles Chargers (DEF-LAC)
+- **Banca (5):** Braelon Allen (RB-NYJ), George Kittle (TE-SF), Kyler Murray (QB-MIN), Jakobi Meyers (WR-JAX), Breece Hall (RB-NYJ)
 
-### 9. Danbengoa (@Danbengoa)
-- **Récord:** 1-2 | **FPs:** 364.76 | **FAAB:** $100
-- **Titulares (10):** Kyler Murray (QB-MIN), James Cook (RB-BUF), Kyren Williams (RB-LAR), Marvin Harrison (WR-ARI), Josh Downs (WR-IND), George Kittle (TE-SF), Breece Hall (RB-NYJ), Xavier Worthy (WR-KC), Tyler Loop (K-BAL), San Francisco 49ers (DEF-SF)
-- **Banca (5):** Braelon Allen (RB-NYJ), Aaron Jones (RB-MIN), Jakobi Meyers (WR-JAX), Juwan Johnson (TE-NO), C.J. Stroud (QB-HOU)
+### 7. DaniAlva08 (@DaniAlva08)
+- **Récord:** 2-2 | **FPs:** 509.98 | **FAAB:** $100
+- **Titulares (10):** Lamar Jackson (QB-BAL), Jahmyr Gibbs (RB-DET), TreVeyon Henderson (RB-NE), George Pickens (WR-DAL), Makai Lemon (WR-PHI), Tyler Warren (TE-IND), Luther Burden (WR-CHI), Rashid Shaheed (WR-SEA), Jake Bates (K-DET), Los Angeles Rams (DEF-LAR)
+- **Banca (5):** Jonathon Brooks (RB-CAR), Jalen Coker (WR-CAR), Baker Mayfield (QB-TB), DeVonta Smith (WR-PHI), Brenton Strange (TE-JAX)
 
-### 10. MALIK BUSINESS (@elchebu)
-- **Récord:** 1-2 | **FPs:** 344.08 | **FAAB:** $63
-- **Titulares (10):** Tyler Shough (QB-NO), Chase Brown (RB-CIN), David Montgomery (RB-HOU), Emeka Egbuka (WR-TB), Malik Nabers (WR-NYG), Jake Ferguson (TE-DAL), Puka Nacua (WR-LAR), Quinshon Judkins (RB-CLE), Eddy Pineiro (K-SF), Pittsburgh Steelers (DEF-PIT)
-- **Banca (5):** Caleb Williams (QB-CHI), Jadarian Price (RB-SEA), Romeo Doubs (WR-NE), Isaiah Likely (TE-NYG), New England Patriots (DEF-NE)
+### 8. Carlosso (@Carlosso)
+- **Récord:** 2-2 | **FPs:** 486.42 | **FAAB:** $100
+- **Titulares (10):** Jalen Hurts (QB-PHI), De'Von Achane (RB-MIA), Jeremiyah Love (RB-ARI), Amon-Ra St. Brown (WR-DET), Jaylen Waddle (WR-DEN), Travis Kelce (TE-KC), Jordan Addison (WR-MIN), Matthew Golden (WR-GB), Cameron Dicker (K-LAC), Baltimore Ravens (DEF-BAL)
+- **Banca (5):** Devaughn Vele (WR-NO), Woody Marks (RB-HOU), Jaxson Dart (QB-NYG), Josh Jacobs (RB-GB), Khalil Shakir (WR-BUF)
 
-### 11. Osante (@Osante)
-- **Récord:** 1-2 | **FPs:** 338.10 | **FAAB:** $100
+### 9. versace4444 (@versace4444)
+- **Récord:** 1-3 | **FPs:** 600.50 | **FAAB:** $100
+- **Titulares (10):** Dak Prescott (QB-DAL), Jonathan Taylor (RB-IND), Ashton Jeanty (RB-LV), Drake London (WR-ATL), Garrett Wilson (WR-NYJ), Harold Fannin (TE-CLE), Ladd McConkey (WR-LAC), Mike Evans (WR-SF), Harrison Mevis (K-LAR), Minnesota Vikings (DEF-MIN)
+- **Banca (5):** Blake Corum (RB-LAR), Brian Thomas (WR-JAX), Kenyon Sadiq (TE-NYJ), Rico Dowdle (RB-PIT), Rachaad White (RB-WAS)
+
+### 10. carloverditraconis (@carloverditraconis)
+- **Récord:** 1-3 | **FPs:** 504.86 | **FAAB:** $100
+- **Titulares (10):** Matthew Stafford (QB-LAR), Christian McCaffrey (RB-SF), RJ Harvey (RB-DEN), Jauan Jennings (WR-MIN), Davante Adams (WR-LAR), Kyle Pitts (TE-ATL), Pat Freiermuth (TE-PIT), Michael Wilson (WR-ARI), Will Reichard (K-MIN), Buffalo Bills (DEF-BUF)
+- **Banca (7):** Carnell Tate (WR-TEN), Jonah Coleman (RB-DEN), Jason Myers (K-SEA), Kalif Raymond (WR-CHI), Dallas Goedert (TE-PHI), A.J. Brown (WR-NE), Denver Broncos (DEF-DEN)
+
+### 11. MALIK BUSINESS (@elchebu)
+- **Récord:** 1-3 | **FPs:** 490.32 | **FAAB:** $63
+- **Titulares (10):** Tyler Shough (QB-NO), Chase Brown (RB-CIN), David Montgomery (RB-HOU), Puka Nacua (WR-LAR), Malik Nabers (WR-NYG), Isaiah Likely (TE-NYG), Emeka Egbuka (WR-TB), Quinshon Judkins (RB-CLE), Eddy Pineiro (K-SF), Pittsburgh Steelers (DEF-PIT)
+- **Banca (5):** Caleb Williams (QB-CHI), Jadarian Price (RB-SEA), Jake Ferguson (TE-DAL), Romeo Doubs (WR-NE), New England Patriots (DEF-NE)
+
+### 12. Osante (@Osante)
+- **Récord:** 1-3 | **FPs:** 437.66 | **FAAB:** $100
 - **Titulares (10):** Drake Maye (QB-NE), Saquon Barkley (RB-PHI), Rhamondre Stevenson (RB-NE), Christian Watson (WR-GB), Deebo Samuel (WR-SF), Dalton Kincaid (TE-BUF), Mark Andrews (TE-BAL), Dalton Schultz (TE-HOU), Andy Borregales (K-NE), Kansas City Chiefs (DEF-KC)
 - **Banca (5):** Jayden Reed (WR-GB), Fernando Mendoza (QB-LV), Chris Godwin (WR-TB), Quentin Johnston (WR-LAC), Detroit Lions (DEF-DET)
-
-### 12. DonaldTrumpGoat (@DonaldTrumpGoat)
-- **Récord:** 1-2 | **FPs:** 337.92 | **FAAB:** $85
-- **Titulares (10):** Joe Burrow (QB-CIN), Derrick Henry (RB-BAL), Travis Etienne (RB-NO), Justin Jefferson (WR-MIN), Adonai Mitchell (WR-NYJ), Tucker Kraft (TE-GB), Hunter Henry (TE-NE), Malik Washington (WR-MIA), Cam Little (K-JAX), Houston Texans (DEF-HOU)
-- **Banca (6):** Emanuel Wilson (RB-SEA), Keon Coleman (WR-BUF), Alvin Kamara (RB-NO), Nico Collins (WR-HOU), Alec Pierce (WR-IND), Michael Mayer (TE-LV)
 
 ---
 
@@ -145,31 +145,31 @@
 
 | # | Jugador | Pos | Equipo | Reclamos NFL | Disponibilidad en The Gains League |
 | :-: | :--- | :-: | :-: | :-: | :--- |
-| 1 | **Ollie Gordon** | RB | `MIA` | +5,036,724 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 2 | **Braelon Allen** | RB | `NYJ` | +1,803,296 | 🔴 Tomado por Danbengoa (Danbengoa) |
-| 3 | **Kenyon Sadiq** | TE | `NYJ` | +1,686,591 | 🔴 Tomado por versace4444 (versace4444) |
-| 4 | **Alvin Kamara** | RB | `NO` | +573,912 | 🔴 Tomado por DonaldTrumpGoat (DonaldTrumpGoat) |
-| 5 | **Tyreek Hill** | WR | `FA` | +490,616 | 🔴 Tomado por Bowers Rangers (brianallenrm) |
-| 6 | **Konata Mumpfield** | WR | `LAR` | +466,056 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 7 | **Tyler Higbee** | TE | `LAR` | +437,832 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 8 | **Keaton Mitchell** | RB | `LAC` | +422,487 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 9 | **Keenan Allen** | WR | `IND` | +368,096 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 10 | **Jordan Addison** | WR | `MIN` | +348,030 | 🔴 Tomado por Carlosso (Carlosso) |
-| 11 | **Kalif Raymond** | WR | `CHI` | +332,876 | 🔴 Tomado por carloverditraconis (carloverditraconis) |
-| 12 | **Kirk Cousins** | QB | `LV` | +308,224 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 13 | **Las Vegas Raiders** | DEF | `LV` | +274,998 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 14 | **Darren Waller** | TE | `CAR` | +272,322 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 15 | **Isaiah Davis** | RB | `NYJ` | +259,551 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 16 | **Baltimore Ravens** | DEF | `BAL` | +241,452 | 🔴 Tomado por Carlosso (Carlosso) |
-| 17 | **Roman Wilson** | WR | `PIT` | +231,426 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 18 | **Minnesota Vikings** | DEF | `MIN` | +228,080 | 🔴 Tomado por versace4444 (versace4444) |
-| 19 | **Jaylen Wright** | RB | `MIA` | +220,178 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 20 | **Pittsburgh Steelers** | DEF | `PIT` | +172,008 | 🔴 Tomado por MALIK BUSINESS (elchebu) |
-| 21 | **Malik Washington** | WR | `MIA` | +158,976 | 🔴 Tomado por DonaldTrumpGoat (DonaldTrumpGoat) |
-| 22 | **Jakobi Meyers** | WR | `JAX` | +150,222 | 🔴 Tomado por Danbengoa (Danbengoa) |
-| 23 | **Sam Darnold** | QB | `SEA` | +148,221 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 24 | **Cleveland Browns** | DEF | `CLE` | +142,737 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
-| 25 | **Deshaun Watson** | QB | `CLE` | +132,392 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 1 | **Keon Coleman** | WR | `BUF` | +2,814,093 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 2 | **Dohnte Meyers** | WR | `CIN` | +1,918,944 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 3 | **Emanuel Wilson** | RB | `SEA` | +1,217,340 | 🔴 Tomado por Cee Dee’z Nuts (channels98) |
+| 4 | **Roman Wilson** | WR | `PIT` | +914,463 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 5 | **Will Shipley** | RB | `PHI` | +794,966 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 6 | **Jacksonville Jaguars** | DEF | `JAX` | +583,092 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 7 | **Kirk Cousins** | QB | `LV` | +576,720 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 8 | **Brian Robinson** | RB | `ATL` | +523,272 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 9 | **Tyreek Hill** | WR | `FA` | +510,944 | 🔴 Tomado por Bowers Rangers (brianallenrm) |
+| 10 | **Keaton Mitchell** | RB | `LAC` | +503,244 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 11 | **Romeo Doubs** | WR | `NE` | +431,520 | 🔴 Tomado por MALIK BUSINESS (elchebu) |
+| 12 | **Michael Mayer** | TE | `LV` | +362,520 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 13 | **Joe Mixon** | RB | `FA` | +342,652 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 14 | **Tyler Higbee** | TE | `LAR` | +297,234 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 15 | **Mike Gesicki** | TE | `CIN` | +265,492 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 16 | **Tyler Allgeier** | RB | `ARI` | +221,245 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 17 | **Matt Gay** | K | `LV` | +209,625 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 18 | **Darius Cooper** | WR | `PHI` | +194,488 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 19 | **Ollie Gordon** | RB | `MIA` | +188,363 | 🔴 Tomado por DonaldTrumpGoat (DonaldTrumpGoat) |
+| 20 | **Cleveland Browns** | DEF | `CLE` | +180,516 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 21 | **Aaron Rodgers** | QB | `PIT` | +178,036 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
+| 22 | **C.J. Stroud** | QB | `HOU` | +174,503 | 🔴 Tomado por Danbengoa (Danbengoa) |
+| 23 | **Houston Texans** | DEF | `HOU` | +150,730 | 🔴 Tomado por DonaldTrumpGoat (DonaldTrumpGoat) |
+| 24 | **Malik Washington** | WR | `MIA` | +142,688 | 🔴 Tomado por DonaldTrumpGoat (DonaldTrumpGoat) |
+| 25 | **Deshaun Watson** | QB | `CLE` | +142,200 | 🟢 **DISPONIBLE (Agente Libre / Waivers)** |
 
 ---
 
@@ -177,38 +177,41 @@
 
 | # | Jugador | Pos | Equipo | Cortes NFL | Estatus en The Gains League |
 | :-: | :--- | :-: | :-: | :-: | :--- |
-| 1 | **De'Von Achane** | RB | `MIA` | -986,496 | En roster de Carlosso (Carlosso) |
-| 2 | **Emanuel Wilson** | RB | `SEA` | -629,199 | En roster de DonaldTrumpGoat (DonaldTrumpGoat) |
-| 3 | **Terrance Ferguson** | TE | `LAR` | -605,800 | ⚪ Agente Libre |
-| 4 | **MarShawn Lloyd** | RB | `GB` | -517,077 | ⚪ Agente Libre |
-| 5 | **Tank Bigsby** | RB | `PHI` | -333,200 | ⚪ Agente Libre |
-| 6 | **Devin Singletary** | RB | `NYG` | -320,103 | ⚪ Agente Libre |
-| 7 | **Khalil Shakir** | WR | `BUF` | -280,863 | En roster de Carlosso (Carlosso) |
-| 8 | **Oronde Gadsden** | TE | `LAC` | -255,360 | En roster de Cee Dee’z Nuts (channels98) |
-| 9 | **Adonai Mitchell** | WR | `NYJ` | -241,872 | En roster de DonaldTrumpGoat (DonaldTrumpGoat) |
-| 10 | **KC Concepcion** | WR | `CLE` | -217,008 | ⚪ Agente Libre |
-| 11 | **Keon Coleman** | WR | `BUF` | -216,657 | En roster de DonaldTrumpGoat (DonaldTrumpGoat) |
-| 12 | **Kenny Gainwell** | RB | `TB` | -216,040 | En roster de SanzFC (SanzFC) |
-| 13 | **Emmett Johnson** | RB | `KC` | -214,650 | En roster de Emi69Hb (Emi69Hb) |
-| 14 | **Mark Andrews** | TE | `BAL` | -212,976 | En roster de Osante (Osante) |
-| 15 | **San Francisco 49ers** | DEF | `SF` | -205,179 | En roster de Danbengoa (Danbengoa) |
+| 1 | **Darren Waller** | TE | `CAR` | -540,045 | ⚪ Agente Libre |
+| 2 | **Isaiah Davis** | RB | `NYJ` | -383,832 | ⚪ Agente Libre |
+| 3 | **Jauan Jennings** | WR | `MIN` | -345,121 | En roster de carloverditraconis (carloverditraconis) |
+| 4 | **Kenyon Sadiq** | TE | `NYJ` | -342,153 | En roster de versace4444 (versace4444) |
+| 5 | **Tank Bigsby** | RB | `PHI` | -330,127 | ⚪ Agente Libre |
+| 6 | **Konata Mumpfield** | WR | `LAR` | -272,664 | En roster de DonaldTrumpGoat (DonaldTrumpGoat) |
+| 7 | **Courtland Sutton** | WR | `DEN` | -263,673 | En roster de SanzFC (SanzFC) |
+| 8 | **Jadarian Price** | RB | `SEA` | -240,894 | En roster de MALIK BUSINESS (elchebu) |
+| 9 | **Kyler Murray** | QB | `MIN` | -228,256 | En roster de Danbengoa (Danbengoa) |
+| 10 | **Quentin Johnston** | WR | `LAC` | -223,559 | En roster de Osante (Osante) |
+| 11 | **Chase McLaughlin** | K | `TB` | -222,968 | ⚪ Agente Libre |
+| 12 | **Adonai Mitchell** | WR | `NYJ` | -218,192 | En roster de DonaldTrumpGoat (DonaldTrumpGoat) |
+| 13 | **Harrison Butker** | K | `KC` | -209,956 | ⚪ Agente Libre |
+| 14 | **Kaelon Black** | RB | `SF` | -196,406 | ⚪ Agente Libre |
+| 15 | **Emmett Johnson** | RB | `KC` | -195,453 | En roster de Emi69Hb (Emi69Hb) |
 
 ---
 
 ## 🔄 Transacciones Recientes de la Liga
 
-- **[28 sep] Bowers Rangers (@brianallenrm)**: ➕ Agregó: Tyreek Hill | ➖ Cortó: MarShawn Lloyd *(Tipo: free_agent)*
-- **[27 sep] SanzFC (@SanzFC)**: ➕ Agregó: Chicago Bears | ➖ Cortó: Green Bay Packers *(Tipo: free_agent)*
-- **[27 sep] DonaldTrumpGoat (@DonaldTrumpGoat)**: ➕ Agregó: Alvin Kamara *(Tipo: free_agent)*
-- **[26 sep] Cee Dee’z Nuts (@channels98)**: ➕ Agregó: Tony Pollard | ➖ Cortó: Chris Brooks *(Tipo: free_agent)*
-- **[26 sep] Cee Dee’z Nuts (@channels98)**: ➕ Agregó: Oronde Gadsden | ➖ Cortó: Darren Waller *(Tipo: free_agent)*
-- **[24 sep] Danbengoa (@Danbengoa)**: ➕ Agregó: Braelon Allen | ➖ Cortó: Devin Singletary *(Tipo: free_agent)*
-- **[24 sep] Danbengoa (@Danbengoa)**: ➕ Agregó: Devin Singletary | ➖ Cortó: Tank Bigsby *(Tipo: free_agent)*
-- **[24 sep] Danbengoa (@Danbengoa)**: ➕ Agregó: Tank Bigsby | ➖ Cortó: Chris Rodriguez *(Tipo: free_agent)*
-- **[24 sep] Bowers Rangers (@brianallenrm)**: ➕ Agregó: Carolina Panthers | ➖ Cortó: Tampa Bay Buccaneers *(Tipo: free_agent)*
-- **[24 sep] SanzFC (@SanzFC)**: ➕ Agregó: Green Bay Packers | ➖ Cortó: Los Angeles Chargers *(Tipo: free_agent)*
-- **[24 sep] Cee Dee’z Nuts (@channels98)**: ➕ Agregó: Rashod Bateman | ➖ Cortó: Tyler Allgeier *(Tipo: free_agent)*
-- **[24 sep] Emi69Hb (@Emi69Hb)**: ➕ Agregó: Emmett Johnson | ➖ Cortó: KC Concepcion *(Tipo: free_agent)*
+- **[4 oct] carloverditraconis (@carloverditraconis)**: ➕ Agregó: Jauan Jennings *(Tipo: free_agent)*
+- **[3 oct] Cee Dee’z Nuts (@channels98)**: ➕ Agregó: Emanuel Wilson | ➖ Cortó: Tony Pollard *(Tipo: free_agent)*
+- **[2 oct] Cee Dee’z Nuts (@channels98)**: ➕ Agregó: T.J. Hockenson | ➖ Cortó: Oronde Gadsden *(Tipo: free_agent)*
+- **[2 oct] DonaldTrumpGoat (@DonaldTrumpGoat)**: ➕ Agregó: Jaylen Wright *(Tipo: free_agent)*
+- **[2 oct] DonaldTrumpGoat (@DonaldTrumpGoat)**: ➕ Agregó: Alvin Kamara | ➖ Cortó: Kendre Miller *(Tipo: waiver)*
+- **[30 sep] DonaldTrumpGoat (@DonaldTrumpGoat)**: ➕ Agregó: Keenan Allen | ➖ Cortó: Emanuel Wilson *(Tipo: free_agent)*
+- **[30 sep] DonaldTrumpGoat (@DonaldTrumpGoat)**: ➕ Agregó: Kendre Miller | ➖ Cortó: Keon Coleman *(Tipo: free_agent)*
+- **[30 sep] DonaldTrumpGoat (@DonaldTrumpGoat)**: ➕ Agregó: Konata Mumpfield | ➖ Cortó: Michael Mayer *(Tipo: free_agent)*
+- **[2 oct] Cee Dee’z Nuts (@channels98)**: ➕ Agregó: Alvin Kamara *(Tipo: waiver)*
+- **[30 sep] Cee Dee’z Nuts (@channels98)**: ➕ Agregó: Jacory Croskey-Merritt | ➖ Cortó: Rashod Bateman *(Tipo: free_agent)*
+- **[30 sep] Bowers Rangers (@brianallenrm)**: ➕ Agregó: Spencer Shrader | ➖ Cortó: Harrison Butker *(Tipo: free_agent)*
+- **[30 sep] Bowers Rangers (@brianallenrm)**: ➕ Agregó: Green Bay Packers | ➖ Cortó: Cleveland Browns *(Tipo: free_agent)*
+- **[30 sep] Danbengoa (@Danbengoa)**: ➕ Agregó: Los Angeles Chargers | ➖ Cortó: Las Vegas Raiders *(Tipo: free_agent)*
+- **[30 sep] Danbengoa (@Danbengoa)**: ➕ Agregó: Las Vegas Raiders | ➖ Cortó: San Francisco 49ers *(Tipo: free_agent)*
+- **[2 oct] Cee Dee’z Nuts (@channels98)**: ➕ Agregó: Alvin Kamara *(Tipo: waiver)*
 
 ---
 
