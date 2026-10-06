@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Conectando con Fantasy Pulse…</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #080a10; color: #e5e7eb;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; }
+    body { display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; }
+    h1 { font-size: 20px; margin: 0 0 8px; }
+    p { margin: 0; color: #9ca3af; font-size: 14px; }
+    a { color: #22c55e; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Conectando con Fantasy Pulse…</h1>
+    <p id="msg">Si no regresas a la app automáticamente, <a id="manual" href="#">toca aquí</a>.</p>
+  </main>
+  <script>
+    // Yahoo only accepts https redirect URIs. This page forwards the OAuth result
+    // (code / state / error) to the app's custom URL scheme. It stores nothing.
+    var qs = window.location.search || "";
+    var target = "fantasypulse://yahoo-callback" + qs;
+    document.getElementById("manual").setAttribute("href", target);
+    window.location.replace(target);
+  </script>
+</body>
+</html>
