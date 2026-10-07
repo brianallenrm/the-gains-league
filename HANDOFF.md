@@ -59,6 +59,11 @@ Cada vez que uno de los dos agentes trabaje en el proyecto o termine una tarea, 
 
 ## 📜 Log de Entregas / Handoffs
 
+### [2026-10-07 22:30] — Claude
+- **Qué se hizo**: (1) Arranque en frío: ya no se ven tarjetas de la semana anterior; se filtran por la semana actual y hay primer pintado rápido con `fetchMatchupsForUserFast`. `mergeFreshSleeper` descarta tarjetas ESPN de otra semana. (2) Racha real G/P en orden real: `SleeperFormService` (resultados semana a semana, cacheados) y ESPN desde el calendario de la liga (`winner`). (3) Botón de cambiar liga en widgets: el proveedor reutiliza datos descargados hace <40 s (y el calendario en caché), así los widgets cambian casi al instante. (4) `fetchNFLState` ya no cae a "semana 4": usa la última semana guardada.
+- **Archivos tocados**: SleeperAPIService, ESPNAPIService, SharedFantasyData (copias idénticas), FantasyWidgetExtension.swift, ContentView.swift
+- **Estado de compilación**: SIN VERIFICAR.
+
 ### [2026-10-07 21:30] — Claude
 - **Qué se hizo**: Rediseño de los 3 widgets pequeños (marcador, récord de temporada, cuenta regresiva) con reglas de `GEMINI.md`: márgenes uniformes de 16pt, encabezado compartido `SmallWidgetHeader`, jerarquía tipográfica (marcador 34pt, récord 38pt), barra de probabilidad fina en el marcador, pastillas de racha que reparten el ancho, cápsula de posición en la liga. Eliminado el casco genérico del widget de marcador.
 - **Archivos tocados**: FantasyWidgetExtension/FantasyWidgetViews.swift
