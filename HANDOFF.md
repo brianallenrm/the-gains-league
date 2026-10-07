@@ -59,6 +59,12 @@ Cada vez que uno de los dos agentes trabaje en el proyecto o termine una tarea, 
 
 ## 📜 Log de Entregas / Handoffs
 
+### [2026-10-07 21:30] — Claude
+- **Qué se hizo**: Rediseño de los 3 widgets pequeños (marcador, récord de temporada, cuenta regresiva) con reglas de `GEMINI.md`: márgenes uniformes de 16pt, encabezado compartido `SmallWidgetHeader`, jerarquía tipográfica (marcador 34pt, récord 38pt), barra de probabilidad fina en el marcador, pastillas de racha que reparten el ancho, cápsula de posición en la liga. Eliminado el casco genérico del widget de marcador.
+- **Archivos tocados**: FantasyWidgetExtension/FantasyWidgetViews.swift
+- **Estado de compilación**: SIN VERIFICAR (Brian compila con Cmd+B).
+- **Siguiente paso recomendado**: revisar capturas en el iPhone; después mediano y grande.
+
 ### [2026-10-07 03:00] — Claude
 - **Qué se hizo**: Limpieza de datos innecesarios. Eliminados los datos fijos de la Semana 4: `NFLDatabase` (de 838 a 101 líneas, solo modelos + placeholder), `sampleMatchups`/`sampleRosterBayArea` (ahora `placeholderMatchups` neutral y `loadRosterData` → nil sin datos). `refreshData()` ya no usa semana 4 por defecto (usa `selectedWeek`). Barra de probabilidad y avance de jornada reales en Sleeper y ESPN (todas las tarjetas).
 - **Pendiente (valores de respaldo con 4)**: `fetchNFLState` fallback ("2026",4), ESPN `scoringPeriodId ?? 4`, Yahoo `?? 4`, `selectedWeek` inicial = 4 en ContentView, FantasyWidgetViews línea ~302 `?? 4`.
