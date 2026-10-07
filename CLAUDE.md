@@ -39,7 +39,7 @@ You and Antigravity share this repository and work as a tag team. Please follow 
 - **SOLUTION ARCHITECTURE:**
   1. **Widgets (`FantasyWidgetExtension`)**: Fetch their own data directly from the public Sleeper API (`fetchMatchupsForUserFast`), cached locally in the extension's private `UserDefaults.standard`.
   2. **Live Activities (`ActivityKit`)**: Managed by the main app using the OS-level `Activity<FantasyLiveActivityAttributes>` pipe. This bypasses App Groups completely and works in real-time on Dynamic Island / Lock Screen.
-  3. **Fallbacks**: Widgets MUST ALWAYS have rich, pre-seeded fallbacks with real user data (`SharedFantasyData.sampleMatchups`). NEVER return `[]` or `"Sin sincronizar"` on cold starts.
+  3. **Fallbacks**: Widgets use the last real cached data; with nothing ever synced they show `SharedFantasyData.placeholderMatchups` (neutral, no fake scores). Never hardcode week-specific sample data.
 
 ### ⚠️ B. WidgetKit Memory & Execution Limits
 - **Memory limit:** 30 MB maximum. Exceeding this triggers an instant Jetsam process kill by iOS.
@@ -120,3 +120,6 @@ Follow the visual standard defined in `GEMINI.md`:
 - **Accents**: Vivid Electric Emerald (`#22c55e`), Electric Cyan (`#06b6d4`), Neon Violet, or Hyper Amber.
 - **Touch Targets**: Minimum 44x44 pt. Continuous curves (`RoundedRectangle(cornerRadius: ..., style: .continuous)`).
 - **Never produce generic AI slop**: Always use real typography hierarchy, monospaced digits for scores, and tactile feedback.
+- **Regla obligatoria:** antes de diseñar o modificar cualquier UI (web o SwiftUI), lee `GEMINI.md` completo y aplica sus reglas: color 60-30-10, cuadrícula 8pt, sombras multicapa (en dark: bordes superiores iluminados), easing `cubic-bezier(0.16, 1, 0.3, 1)` / `.snappy`, hover `scale-[1.02]` y active `scale-[0.98]`, bento grids, materiales nativos y haptics en iOS.
+- **Extras:** respeta `prefers-reduced-motion`, contraste WCAG AA y define todos los estados (hover, foco, deshabilitado, cargando, vacío).
+- Si está disponible, usa la skill `elite-app-design` y las de `.agents/skills/` (`modern-web-ui`, `apple-design-system`).
