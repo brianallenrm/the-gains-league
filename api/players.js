@@ -119,7 +119,8 @@ export default async function handler(req, res) {
       n: entry[0],
       t: entry[1],
       p: entry[2],
-      pr: typeof raw === "number" ? Math.round(raw * 10) / 10 : null,
+      // Projections loaded but this player has no row (bye week / inactive / out) => 0, not "unknown".
+      pr: typeof raw === "number" ? Math.round(raw * 10) / 10 : proj ? 0 : null,
     };
   }
 
