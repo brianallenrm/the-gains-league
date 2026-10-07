@@ -59,6 +59,11 @@ Cada vez que uno de los dos agentes trabaje en el proyecto o termine una tarea, 
 
 ## 📜 Log de Entregas / Handoffs
 
+### [2026-10-07 23:30] — Claude
+- **Qué se hizo**: ESPN completo: (1) `SharedKeychain` (SharedFantasyData): cookies s2/SWID e IDs de liga también en Keychain para que el widget las lea (requiere capacidad "Keychain Sharing" con el MISMO grupo en ambos targets; sin ella el widget sigue sin ESPN y nada se rompe). (2) Varias ligas ESPN: `espnLeagueIds`, `addESPNLeagueId`, botón "+ Liga" en la app. (3) `ESPNAPIService.fetchAllESPNMatchups` / `fetchAllFast(deadline:)`; el proveedor del widget y el refresco en segundo plano ahora incluyen ESPN. (4) Sesión caducada: bandera `espn_needs_login` y botón "Reiniciar sesión". (5) `mergeFreshSleeper` ahora fusiona todas las plataformas por liga.
+- **Pendiente**: autodescubrimiento de ligas ESPN (no verificable sin respuesta real de ESPN); Yahoo (Client ID).
+- **Estado de compilación**: SIN VERIFICAR.
+
 ### [2026-10-07 22:30] — Claude
 - **Qué se hizo**: (1) Arranque en frío: ya no se ven tarjetas de la semana anterior; se filtran por la semana actual y hay primer pintado rápido con `fetchMatchupsForUserFast`. `mergeFreshSleeper` descarta tarjetas ESPN de otra semana. (2) Racha real G/P en orden real: `SleeperFormService` (resultados semana a semana, cacheados) y ESPN desde el calendario de la liga (`winner`). (3) Botón de cambiar liga en widgets: el proveedor reutiliza datos descargados hace <40 s (y el calendario en caché), así los widgets cambian casi al instante. (4) `fetchNFLState` ya no cae a "semana 4": usa la última semana guardada.
 - **Archivos tocados**: SleeperAPIService, ESPNAPIService, SharedFantasyData (copias idénticas), FantasyWidgetExtension.swift, ContentView.swift
