@@ -736,6 +736,48 @@ tr.eliminated td { opacity: .7; }
   border: 1px solid rgba(245,158,11,.3);
 }
 
+/* ── Download Standings Image Button ── */
+.btn-download-table {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .35rem .75rem;
+  border-radius: var(--r-sm);
+  background: rgba(56,189,248,.12);
+  border: 1px solid rgba(56,189,248,.35);
+  color: var(--blue);
+  font-size: .78rem;
+  font-weight: 600;
+  transition: all .2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.btn-download-table:hover {
+  background: rgba(56,189,248,.22);
+  border-color: var(--blue);
+  transform: translateY(-1px);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(56,189,248,.25);
+}
+.btn-download-table:active {
+  transform: scale(0.97);
+}
+.btn-download-table:disabled {
+  opacity: .7;
+  cursor: wait;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Standings capture wrapper styling */
+.standings-capture-container {
+  position: relative;
+}
+
 /* ==========================================================
    MATCHUPS (PRO ARENA CLASH CARDS & WEEK SELECTOR)
    ========================================================== */

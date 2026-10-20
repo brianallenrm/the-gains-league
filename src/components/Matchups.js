@@ -1,4 +1,5 @@
 import { renderHonorBadgeHtml, getManagerHonor } from '../utils/managerBadges.js';
+import { toPng } from 'html-to-image';
 
 /**
  * High-Impact Matchup Card Highlights & Storylines
@@ -606,7 +607,7 @@ export function renderMatchups(matchups = [], teams = [], week = 7, isPreDraft =
   </div>
 
   <!-- Tabla de Posiciones General -->
-  <div class="card mt-1">
+  <div id="standings-capture-target" class="card mt-1 standings-capture-container">
     <div class="section-head">
       <div>
         <div class="section-title">📊 Tabla de Posiciones Oficial (Semana 6 Concluida)</div>
@@ -614,7 +615,17 @@ export function renderMatchups(matchups = [], teams = [], week = 7, isPreDraft =
           Récord general tras 6 semanas completadas, puntos a favor/contra y presupuesto de waivers ($100 FAAB).
         </p>
       </div>
-      <span class="section-badge">Top ${playoffCut} a Playoffs</span>
+      <div style="display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;">
+        <span class="section-badge">Top ${playoffCut} a Playoffs</span>
+        <button id="btn-download-standings" class="btn-download-table" title="Descargar tabla como imagen PNG en alta calidad">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Descargar Imagen</span>
+        </button>
+      </div>
     </div>
     <div class="table-scroll">
       <table>
@@ -641,6 +652,57 @@ export function attachMatchupsEvents(container, weeklyMatchups, teams) {
   const weekPills = container.querySelectorAll('.m-week-pill');
   const gridContainer = container.querySelector('#matchups-cards-grid');
   const titleSpan = container.querySelector('#m-active-week-title');
+  const downloadBtn = container.querySelector('#btn-download-standings');
+  const captureTarget = container.querySelector('#standings-capture-target');
+
+  if (downloadBtn && captureTarget) {
+    downloadBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const originalHtml = downloadBtn.innerHTML;
+      try {
+        downloadBtn.disabled = true;
+        downloadBtn.innerHTML = `
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="spin">
+            <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+            <path d="M12 2a10 10 0 0 1 10 10"></path>
+          </svg>
+          <span>Generando...</span>
+        `;
+
+        // Generar imagen con alta resolución y estilo limpio
+        const dataUrl = await toPng(captureTarget, {
+          backgroundColor: '#0c1526',
+          pixelRatio: 2.5,
+          filter: (node) => {
+            // Ocultar el botón dentro de la captura final
+            if (node.id === 'btn-download-standings') return false;
+            return true;
+          }
+        });
+
+        // Crear enlace de descarga automática
+        const link = document.createElement('a');
+        link.download = `TheGainsLeague_Posiciones_Semana6.png`;
+        link.href = dataUrl;
+        link.click();
+
+        downloadBtn.innerHTML = `
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span style="color:#34d399;">¡Descargada!</span>
+        `;
+      } catch (err) {
+        console.error('Error al descargar tabla:', err);
+        downloadBtn.innerHTML = `<span>⚠️ Error</span>`;
+      } finally {
+        setTimeout(() => {
+          downloadBtn.disabled = false;
+          downloadBtn.innerHTML = originalHtml;
+        }, 2200);
+      }
+    });
+  }
 
   weekPills.forEach(pill => {
     pill.addEventListener('click', (e) => {
