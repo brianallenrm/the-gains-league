@@ -1,5 +1,5 @@
 import { renderHonorBadgeHtml, getManagerHonor } from '../utils/managerBadges.js';
-import { toPng } from 'html-to-image';
+import html2canvas from 'html2canvas';
 
 /**
  * High-Impact Matchup Card Highlights & Storylines
@@ -669,16 +669,17 @@ export function attachMatchupsEvents(container, weeklyMatchups, teams) {
           <span>Generando...</span>
         `;
 
-        // Generar imagen con alta resolución y estilo limpio
-        const dataUrl = await toPng(captureTarget, {
+        // Generar captura con html2canvas configurado con proxy, allowTaint y escala
+        const canvas = await html2canvas(captureTarget, {
           backgroundColor: '#0c1526',
-          pixelRatio: 2.5,
-          filter: (node) => {
-            // Ocultar el botón dentro de la captura final
-            if (node.id === 'btn-download-standings') return false;
-            return true;
-          }
+          scale: 2.5,
+          useCORS: true,
+          allowTaint: true,
+          logging: false,
+          ignoreElements: (element) => element.id === 'btn-download-standings'
         });
+
+        const dataUrl = canvas.toDataURL('image/png');
 
         // Crear enlace de descarga automática
         const link = document.createElement('a');

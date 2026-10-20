@@ -11,8 +11,15 @@ const CDN_AVATARS = "https://sleepercdn.com/avatars";
 const CDN_PLAYERS = "https://sleepercdn.com/content/nfl/players/thumb";
 
 /* ── Helpers ─────────────────────────────────────────────── */
-export const avatarUrl = (id, thumb = true) =>
-  id ? `${CDN_AVATARS}${thumb ? "/thumbs" : ""}/${id}` : null;
+export const avatarUrl = (id, thumb = true) => {
+  if (!id) return null;
+  const rawUrl = `${CDN_AVATARS}${thumb ? "/thumbs" : ""}/${id}`;
+  // En producción (navegador), usar proxy para evitar bloqueo CORS al capturar/exportar imágenes
+  if (typeof window !== 'undefined') {
+    return `/api/image-proxy?url=${encodeURIComponent(rawUrl)}`;
+  }
+  return rawUrl;
+};
 
 export const playerThumb = (playerId) =>
   `${CDN_PLAYERS}/${playerId}.jpg`;
