@@ -17,7 +17,7 @@ export function renderPrizesTab(teams = [], league = {}, isPreDraft = false, wee
           Premios, Castigos &amp; Datos de Pago
         </h2>
         <p style="font-size:.86rem; color:var(--c-muted); margin-top:.35rem; max-width:640px; line-height:1.5;">
-          Bolsa acumulada de <strong>$7,200 MXN</strong>. Ya se han disputado y repartido <strong>$1,800 MXN</strong> correspondientes a las Semanas 1 a la 6.
+          Bolsa acumulada de <strong>$7,200 MXN</strong>. Ya se han disputado y repartido <strong>$2,100 MXN</strong> correspondientes a las Semanas 1 a la 7.
         </p>
       </div>
       <div style="display:flex; flex-direction:column; gap:.5rem; align-items:flex-end;">
@@ -33,7 +33,7 @@ export function renderPrizesTab(teams = [], league = {}, isPreDraft = false, wee
     <div class="prize-box weekly">
       <div class="prize-label">Premio Semanal (14 Semanas)</div>
       <div class="prize-amount">$300 <span style="font-size:1rem; font-weight:400; color:var(--c-muted);">/ sem</span></div>
-      <div class="prize-desc">$4,200 MXN en total ($1,800 ya repartidos en Semanas 1 a 6). Al mánager con más puntos cada semana.</div>
+      <div class="prize-desc">$4,200 MXN en total ($2,100 ya repartidos en Semanas 1 a 7). Al mánager con más puntos cada semana.</div>
     </div>
     <div class="prize-box champ">
       <div class="prize-label">Gran Campeón 🏆</div>
@@ -47,16 +47,16 @@ export function renderPrizesTab(teams = [], league = {}, isPreDraft = false, wee
     </div>
   </div>
 
-  <!-- Podio de Premios Semana 6 (Última Concluida) -->
+  <!-- Podio de Premios Semana 7 (Última Concluida) -->
   <div class="card mb-1">
     <div class="section-head">
       <div>
-        <div class="section-title">🥇 Resultados de la Semana 6 (Concluida)</div>
+        <div class="section-title">🥇 Resultados de la Semana 7 (Concluida)</div>
         <p style="color:var(--c-muted); font-size:.82rem; margin-top:.2rem;">
           Ganador de los $300 MXN con explosión anotadora y el sótano de la jornada.
         </p>
       </div>
-      <span class="section-badge">Semana 6 Oficial</span>
+      <span class="section-badge">Semana 7 Oficial</span>
     </div>
 
     <div class="awards-row mb-1">
@@ -64,18 +64,18 @@ export function renderPrizesTab(teams = [], league = {}, isPreDraft = false, wee
         <div class="award-chip">
           <span class="award-chip-icon">🥇</span>
           <div>
-            <div class="award-chip-label">Mister Olympia • Semana 6</div>
-            <div class="award-chip-sub">¡MALIK BUSINESS gana sus segundos $300 MXN con 161.66 FPs!</div>
+            <div class="award-chip-label">Mister Olympia • Semana 7</div>
+            <div class="award-chip-sub">¡SanzFC gana sus terceros $300 MXN con 162.92 FPs!</div>
           </div>
         </div>
         <div class="award-body">
-          <img class="award-avatar" src="${teamMap[3]?.avatar || '/logo.jpg'}" alt="" onerror="this.src='/logo.jpg'">
+          <img class="award-avatar" src="${teamMap[9]?.avatar || '/logo.jpg'}" alt="" onerror="this.src='/logo.jpg'">
           <div class="award-team">
-            <div class="award-team-name">${teamMap[3]?.teamName || 'MALIK BUSINESS'}</div>
-            <div class="award-mgr">${teamMap[3]?.displayName || 'elchebu'}</div>
+            <div class="award-team-name">${teamMap[9]?.teamName || 'SanzFC'}</div>
+            <div class="award-mgr">${teamMap[9]?.displayName || 'SanzFC'}</div>
           </div>
           <div class="award-metric">
-            <div class="award-metric-val">161.66</div>
+            <div class="award-metric-val">162.92</div>
             <div class="award-metric-lbl">Puntos FPs</div>
           </div>
         </div>
@@ -85,23 +85,23 @@ export function renderPrizesTab(teams = [], league = {}, isPreDraft = false, wee
         <div class="award-chip">
           <span class="award-chip-icon">🤡</span>
           <div>
-            <div class="award-chip-label">Se Saltó Día de Pierna • Semana 6</div>
+            <div class="award-chip-label">Se Saltó Día de Pierna • Semana 7</div>
             <div class="award-chip-sub">Menor puntaje de la jornada</div>
           </div>
         </div>
         <div class="award-body">
-          <img class="award-avatar" src="${teamMap[12]?.avatar || '/logo.jpg'}" alt="" onerror="this.src='/logo.jpg'">
+          <img class="award-avatar" src="${teamMap[2]?.avatar || '/logo.jpg'}" alt="" onerror="this.src='/logo.jpg'">
           <div class="award-team">
-            <div class="award-team-name">${teamMap[12]?.teamName || 'DaniAlva08'}</div>
-            <div class="award-mgr">${teamMap[12]?.displayName || 'DaniAlva08'}</div>
+            <div class="award-team-name">${teamMap[2]?.teamName || 'Carlosso'}</div>
+            <div class="award-mgr">${teamMap[2]?.displayName || 'Carlosso'}</div>
           </div>
           <div class="award-metric">
-            <div class="award-metric-val">73.02</div>
+            <div class="award-metric-val">54.42</div>
             <div class="award-metric-lbl">Puntos FPs</div>
           </div>
         </div>
         <div class="punishment-banner">
-          🤡 <strong>La Humillación Semanal:</strong> DaniAlva08 cayó estrepitosamente con apenas 73.02 FPs. ¡El sótano de la liga le da la bienvenida al novato! 📉😂
+          🤡 <strong>La Humillación Semanal:</strong> Carlosso toca fondo con apenas 54.42 FPs (el puntaje más bajo de toda la temporada). ¡Lluvia de memes en el grupo de WhatsApp! 📉😂
         </div>
       </div>
     </div>
@@ -116,7 +116,7 @@ export function renderPrizesTab(teams = [], league = {}, isPreDraft = false, wee
           Registro oficial semana a semana de quién se lleva el premio y quién se queda con la humillación de ser el último.
         </p>
       </div>
-      <span class="section-badge">$1,800 MXN Repartidos</span>
+      <span class="section-badge">$2,100 MXN Repartidos</span>
     </div>
 
     <div class="table-scroll">
@@ -204,8 +204,20 @@ export function renderPrizesTab(teams = [], league = {}, isPreDraft = false, wee
             <td class="num text-center" style="color:var(--c-muted);">73.02 FPs</td>
             <td class="text-center"><span style="background:rgba(16,185,129,.15); color:#34d399; padding:.15rem .45rem; border-radius:var(--r-pill); font-size:.75rem; font-weight:700;">✅ $300 Asignados</span></td>
           </tr>
+          <tr>
+            <td style="font-weight:700; color:var(--gold-lt);">Semana 7</td>
+            <td>
+              <strong style="color:#fff;">SanzFC</strong> <span style="color:var(--c-muted); font-size:.8rem;">(SanzFC)</span>
+            </td>
+            <td class="num text-center" style="color:#34d399; font-weight:700;">162.92 FPs</td>
+            <td>
+              <span style="color:#f87171;">Carlosso</span>
+            </td>
+            <td class="num text-center" style="color:var(--c-muted);">54.42 FPs</td>
+            <td class="text-center"><span style="background:rgba(16,185,129,.15); color:#34d399; padding:.15rem .45rem; border-radius:var(--r-pill); font-size:.75rem; font-weight:700;">✅ $300 Asignados</span></td>
+          </tr>
           <tr style="opacity:.6;">
-            <td style="font-weight:700;">Semana 7</td>
+            <td style="font-weight:700;">Semana 8</td>
             <td colspan="4" style="text-align:center; font-style:italic;">En juego este fin de semana • $300 MXN al máximo anotador</td>
             <td class="text-center"><span style="background:rgba(245,158,11,.15); color:var(--gold-lt); padding:.15rem .45rem; border-radius:var(--r-pill); font-size:.75rem; font-weight:700;">⏳ Por jugar</span></td>
           </tr>

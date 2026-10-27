@@ -7,7 +7,7 @@ export function renderHero(league, teams = [], users = []) {
     ? (joinedUsers >= total
         ? `¡Liga completa (${total}/${total})! • ¡Listos para el Draft! 🏈🔥`
         : `Buscando integrante ${joinedUsers + 1} de ${total} • ¡Inscripciones abiertas!`)
-    : `Temporada 2026 en progreso • Semana 6 Concluida • Rumbo a Semana 7 🏈🔥`;
+    : `Temporada 2026 en progreso • Semana 7 Concluida • Rumbo a Semana 8 🏈🔥`;
 
   return `
   <section class="hero">

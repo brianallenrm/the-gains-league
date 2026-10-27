@@ -13,55 +13,103 @@ function getMatchupFlavor(mid, tA, tB, week = 4) {
     (tA?.rosterId === r1 && tB?.rosterId === r2) || (tA?.rosterId === r2 && tB?.rosterId === r1);
 
   // ==========================================
-  // SEMANA 7 (CARTELERA ESTELAR)
+  // SEMANA 8 (CARTELERA ESTELAR)
   // ==========================================
-  if (week === 7) {
-    // Bowers Rangers (6-0) vs Emi69Hb (6-0)
-    if (hasRosters(1, 11) || mid == 3) {
+  if (week === 8) {
+    // Danbengoa (3-4) vs DaniAlva08 (2-5)
+    if (hasRosters(7, 12) || mid == 1) {
       return {
-        tag: '🚀 Choque Supremo de Invictos',
-        subtitle: `${recordHeader} • ¡EL PARTIDO DEL AÑO! Choque en la cumbre: ambos invictos 6-0, el ganador se queda con la cima solitaria de la liga`,
-        glowClass: 'glow-gold'
-      };
-    }
-    // Danbengoa (3-3) vs SanzFC (4-2)
-    if (hasRosters(7, 9) || mid == 2) {
-      return {
-        tag: '💣 Duelo de Poder',
-        subtitle: `${recordHeader} • SanzFC llega encendido con 4 victorias al hilo buscando el Top 2 ante Danbengoa, firme en zona de playoffs`,
-        glowClass: 'glow-emerald'
-      };
-    }
-    // DonaldTrumpGoat (3-3) vs DaniAlva08 (2-4)
-    if (hasRosters(8, 12) || mid == 1) {
-      return {
-        tag: '👑 El Campeón ante el Sótano',
-        subtitle: `${recordHeader} • DonaldTrumpGoat busca recuperar terreno de playoffs frente a un DaniAlva08 obligado a despertar tras caer al sótano de Semana 6`,
-        glowClass: 'glow-purple'
-      };
-    }
-    // carloverditraconis (2-4) vs Cee Dee'z Nuts (2-4)
-    if (hasRosters(6, 10) || mid == 4) {
-      return {
-        tag: '⚔️ Batalla por la Vida',
-        subtitle: `${recordHeader} • Duelo crucial por el boleto a playoffs: ambos con 2-4, el que pierda quedará en situación crítica`,
+        tag: '⚔️ Lucha por Playoffs',
+        subtitle: `${recordHeader} • Danbengoa defiende su permanencia en puestos de postemporada ante la desesperación de DaniAlva08 tras 4 tropiezos al hilo`,
         glowClass: 'glow-blue'
       };
     }
-    // Carlosso (2-4) vs versace4444 (2-4)
-    if (hasRosters(2, 5) || mid == 5) {
+    // Bowers Rangers (6-1) vs DonaldTrumpGoat (4-3)
+    if (hasRosters(1, 8) || mid == 2) {
       return {
-        tag: '💥 Choque de Necesitados',
-        subtitle: `${recordHeader} • Carlosso busca cortar su racha de 4 derrotas consecutivas ante la explosividad ofensiva de versace4444`,
+        tag: '👑 Duelo de Titanes',
+        subtitle: `${recordHeader} • Bowers Rangers busca levantarse tras su primera derrota del año enfrentando al Campeón DonaldTrumpGoat (4-3) en un choque electrizante`,
+        glowClass: 'glow-gold'
+      };
+    }
+    // carloverditraconis (2-5) vs SanzFC (5-2)
+    if (hasRosters(6, 9) || mid == 3) {
+      return {
+        tag: '💣 Ante el Tricampeón Semanal',
+        subtitle: `${recordHeader} • carloverditraconis intentará frenar la locomotora de SanzFC, encendido con 5 victorias consecutivas y $900 MXN en premios acumulados`,
+        glowClass: 'glow-emerald'
+      };
+    }
+    // versace4444 (3-4) vs Emi69Hb (7-0)
+    if (hasRosters(5, 11) || mid == 4) {
+      return {
+        tag: '🚀 Desafío al Invicto Solitario',
+        subtitle: `${recordHeader} • versace4444 (#3 anotador con 978.7 pts y 2 triunfos seguidos) pone a prueba el paso perfecto del líder absoluto Emi69Hb (7-0)`,
+        glowClass: 'glow-emerald'
+      };
+    }
+    // Osante (2-5) vs Cee Dee'z Nuts (3-4)
+    if (hasRosters(4, 10) || mid == 5) {
+      return {
+        tag: '🔥 Revancha y Supervivencia',
+        subtitle: `${recordHeader} • Osante llega motivado tras su gran victoria de 151.14 pts para medirse al Subcampeón Cee Dee’z Nuts, metido de lleno en zona de playoffs`,
         glowClass: 'glow-cyan'
       };
     }
-    // MALIK BUSINESS (3-3) vs Osante (1-5)
+    // Carlosso (2-5) vs MALIK BUSINESS (3-4)
+    if (hasRosters(2, 3) || mid == 6) {
+      return {
+        tag: '⚡ Romper la Mala Racha',
+        subtitle: `${recordHeader} • Carlosso busca con urgencia salir del fondo de la tabla enfrentando al siempre peligroso ataque de MALIK BUSINESS`,
+        glowClass: 'glow-purple'
+      };
+    }
+  }
+
+  // ==========================================
+  // SEMANA 7 (RECAP HISTÓRICO)
+  // ==========================================
+  if (week === 7) {
+    if (hasRosters(7, 9) || mid == 2) {
+      return {
+        tag: '💣 Tricampeón de Mr. Olympia',
+        subtitle: `${recordHeader} • SanzFC (162.92) se coronó con sus terceros $300 MXN de la campaña tras superar con holgura a Danbengoa (99.42)`,
+        glowClass: 'glow-gold'
+      };
+    }
+    if (hasRosters(1, 11) || mid == 3) {
+      return {
+        tag: '🚀 El Trono en Solitario',
+        subtitle: `${recordHeader} • En el partido más esperado del año, Emi69Hb (161.18) venció a Bowers Rangers (128.92) y se convirtió en el único invicto (7-0) de la liga`,
+        glowClass: 'glow-emerald'
+      };
+    }
     if (hasRosters(3, 4) || mid == 6) {
       return {
-        tag: '⚡ A la Caza del Top 4',
-        subtitle: `${recordHeader} • MALIK BUSINESS (flamante Mr. Olympia con 161.66 FPs y 2 triunfos seguidos) enfrenta la urgencia máxima de Osante (1-5)`,
-        glowClass: 'glow-emerald'
+        tag: '👑 Explosión Veterana',
+        subtitle: `${recordHeader} • Osante (151.14) sacó la casta y dio la sorpresa de la jornada frenando en seco a MALIK BUSINESS (118.22)`,
+        glowClass: 'glow-purple'
+      };
+    }
+    if (hasRosters(6, 10) || mid == 4) {
+      return {
+        tag: '⚔️ Subcampeón en Ascenso',
+        subtitle: `${recordHeader} • Cee Dee’z Nuts (133.90) sumó un triunfo de oro ante carloverditraconis (115.20) para colocarse 3-4 en la tabla`,
+        glowClass: 'glow-blue'
+      };
+    }
+    if (hasRosters(2, 5) || mid == 5) {
+      return {
+        tag: '⚡ Tiroteo hacia Playoffs',
+        subtitle: `${recordHeader} • versace4444 (133.38) dominó a placer a un desinflado Carlosso (54.42) para escalar al 5to puesto de la liga`,
+        glowClass: 'glow-cyan'
+      };
+    }
+    if (hasRosters(8, 12) || mid == 1) {
+      return {
+        tag: '🛡️ Final de Fotografía',
+        subtitle: `${recordHeader} • DonaldTrumpGoat (117.38) derrotó por apenas 2.5 pts a DaniAlva08 (114.88) en el cierre más dramático de la semana`,
+        glowClass: 'glow-slate'
       };
     }
   }
@@ -510,11 +558,11 @@ export function renderMatchupsCardsGrid(matchups = [], teams = [], week = 4) {
   }).join('');
 }
 
-export function renderMatchups(matchups = [], teams = [], week = 7, isPreDraft = false, league = {}, weeklyMatchups = {}, selectedWeek = null) {
+export function renderMatchups(matchups = [], teams = [], week = 8, isPreDraft = false, league = {}, weeklyMatchups = {}, selectedWeek = null) {
   const playoffCut = league?.settings?.playoff_teams || 6;
 
-  // Determinar semana a mostrar por defecto: Semana 7 (próxima) o seleccionada
-  const activeWeek = selectedWeek || week || 7;
+  // Determinar semana a mostrar por defecto: Semana 8 (próxima) o seleccionada
+  const activeWeek = selectedWeek || week || 8;
   const activeMatchups = (weeklyMatchups[activeWeek] && weeklyMatchups[activeWeek].length > 0)
     ? weeklyMatchups[activeWeek]
     : matchups;
@@ -595,7 +643,10 @@ export function renderMatchups(matchups = [], teams = [], week = 7, isPreDraft =
           💣 Semana 6 <span class="m-pill-status">Final</span>
         </button>
         <button class="m-week-pill ${activeWeek === 7 ? 'active' : ''}" data-week="7">
-          🚀 Semana 7 <span class="m-pill-status upcoming">Próxima</span>
+          🏆 Semana 7 <span class="m-pill-status">Final</span>
+        </button>
+        <button class="m-week-pill ${activeWeek === 8 ? 'active' : ''}" data-week="8">
+          🚀 Semana 8 <span class="m-pill-status upcoming">Próxima</span>
         </button>
       </div>
     </div>
@@ -610,9 +661,9 @@ export function renderMatchups(matchups = [], teams = [], week = 7, isPreDraft =
   <div id="standings-capture-target" class="card mt-1 standings-capture-container">
     <div class="section-head">
       <div>
-        <div class="section-title">📊 Tabla de Posiciones Oficial (Semana 6 Concluida)</div>
+        <div class="section-title">📊 Tabla de Posiciones Oficial (Semana 7 Concluida)</div>
         <p style="color:var(--c-muted); font-size:.82rem; margin-top:.2rem;">
-          Récord general tras 6 semanas completadas, puntos a favor/contra y presupuesto de waivers ($100 FAAB).
+          Récord general tras 7 semanas completadas, puntos a favor/contra y presupuesto de waivers ($100 FAAB).
         </p>
       </div>
       <div style="display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;">
@@ -683,7 +734,7 @@ export function attachMatchupsEvents(container, weeklyMatchups, teams) {
 
         // Crear enlace de descarga automática
         const link = document.createElement('a');
-        link.download = `TheGainsLeague_Posiciones_Semana6.png`;
+        link.download = `TheGainsLeague_Posiciones_Semana7.png`;
         link.href = dataUrl;
         link.click();
 
