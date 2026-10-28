@@ -1,5 +1,5 @@
 import { renderHonorBadgeHtml, getManagerHonor } from '../utils/managerBadges.js';
-import html2canvas from 'html2canvas';
+import { generateStandingsImage } from '../utils/standingsCanvas.js';
 
 /**
  * High-Impact Matchup Card Highlights & Storylines
@@ -709,7 +709,7 @@ export function attachMatchupsEvents(container, weeklyMatchups, teams) {
   const downloadBtn = container.querySelector('#btn-download-standings');
   const captureTarget = container.querySelector('#standings-capture-target');
 
-  if (downloadBtn && captureTarget) {
+  if (downloadBtn) {
     downloadBtn.addEventListener('click', async (e) => {
       e.preventDefault();
       const originalHtml = downloadBtn.innerHTML;
@@ -723,26 +723,8 @@ export function attachMatchupsEvents(container, weeklyMatchups, teams) {
           <span>Generando...</span>
         `;
 
-        // Activar clase de captura especial para layout de alta calidad y proporciones ideales
-        captureTarget.classList.add('is-capturing');
-
-        // Pequeño timeout para asegurar que el navegador recalcule el layout limpio
-        await new Promise(r => setTimeout(r, 60));
-
-        // Generar captura con html2canvas configurado con proxy, allowTaint y escala nítida
-        const canvas = await html2canvas(captureTarget, {
-          backgroundColor: '#080f1e',
-          scale: 2.5,
-          useCORS: true,
-          allowTaint: true,
-          logging: false,
-          ignoreElements: (element) => element.id === 'btn-download-standings'
-        });
-
-        // Remover clase de captura para devolver el componente a su estado normal
-        captureTarget.classList.remove('is-capturing');
-
-        const dataUrl = canvas.toDataURL('image/png');
+        // Generar imagen profesional directamente en canvas sin bugs de CSS
+        const dataUrl = await generateStandingsImage(teams, 7, 6);
 
         // Crear enlace de descarga automática
         const link = document.createElement('a');
@@ -758,7 +740,6 @@ export function attachMatchupsEvents(container, weeklyMatchups, teams) {
         `;
       } catch (err) {
         console.error('Error al descargar tabla:', err);
-        captureTarget.classList.remove('is-capturing');
         downloadBtn.innerHTML = `<span>⚠️ Error</span>`;
       } finally {
         setTimeout(() => {
