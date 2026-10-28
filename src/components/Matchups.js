@@ -578,15 +578,18 @@ export function renderMatchups(matchups = [], teams = [], week = 8, isPreDraft =
 
     return `
     <tr class="${isPlayoffEdge ? 'playoff-line' : ''} ${isElim ? 'eliminated' : ''}">
-      <td>
+      <td class="text-center" style="width:40px;">
         <span class="rank-num ${i < 3 ? 'r' + (i + 1) : ''}">${i + 1}</span>
       </td>
-      <td>
+      <td class="team-col">
         <div class="team-cell">
           <img class="t-avatar" src="${t.avatar || '/logo.jpg'}" alt="" onerror="this.src='/logo.jpg'">
-          <div>
+          <div class="t-details">
             <div class="t-name">${t.teamName}</div>
-            <div class="t-mgr">${t.displayName} ${renderHonorBadgeHtml(t.honor || getManagerHonor(t))}</div>
+            <div class="t-mgr">
+              <span class="t-mgr-name">${t.displayName}</span>
+              ${renderHonorBadgeHtml(t.honor || getManagerHonor(t))}
+            </div>
           </div>
         </div>
       </td>
@@ -720,15 +723,24 @@ export function attachMatchupsEvents(container, weeklyMatchups, teams) {
           <span>Generando...</span>
         `;
 
-        // Generar captura con html2canvas configurado con proxy, allowTaint y escala
+        // Activar clase de captura especial para layout de alta calidad y proporciones ideales
+        captureTarget.classList.add('is-capturing');
+
+        // Pequeño timeout para asegurar que el navegador recalcule el layout limpio
+        await new Promise(r => setTimeout(r, 60));
+
+        // Generar captura con html2canvas configurado con proxy, allowTaint y escala nítida
         const canvas = await html2canvas(captureTarget, {
-          backgroundColor: '#0c1526',
+          backgroundColor: '#080f1e',
           scale: 2.5,
           useCORS: true,
           allowTaint: true,
           logging: false,
           ignoreElements: (element) => element.id === 'btn-download-standings'
         });
+
+        // Remover clase de captura para devolver el componente a su estado normal
+        captureTarget.classList.remove('is-capturing');
 
         const dataUrl = canvas.toDataURL('image/png');
 
@@ -746,6 +758,7 @@ export function attachMatchupsEvents(container, weeklyMatchups, teams) {
         `;
       } catch (err) {
         console.error('Error al descargar tabla:', err);
+        captureTarget.classList.remove('is-capturing');
         downloadBtn.innerHTML = `<span>⚠️ Error</span>`;
       } finally {
         setTimeout(() => {

@@ -778,6 +778,98 @@ tr.eliminated td { opacity: .7; }
   position: relative;
 }
 
+/* Capturing mode override: compact, proportional, and perfectly framed for image export */
+.standings-capture-container.is-capturing {
+  width: 960px !important;
+  max-width: 960px !important;
+  box-sizing: border-box !important;
+  padding: 1.6rem 1.8rem 1.8rem !important;
+  border-radius: var(--r-xl) !important;
+  border: 1.5px solid rgba(245, 158, 11, 0.4) !important;
+  background: radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 20% 90%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+              #080f1e !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8) !important;
+}
+
+.standings-capture-container.is-capturing .table-scroll {
+  overflow: visible !important;
+}
+
+.standings-capture-container.is-capturing table {
+  width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+}
+
+.standings-capture-container.is-capturing th,
+.standings-capture-container.is-capturing td {
+  padding: .65rem .75rem !important;
+  vertical-align: middle !important;
+}
+
+.standings-capture-container.is-capturing th {
+  font-size: .8rem !important;
+  letter-spacing: .06em !important;
+}
+
+.standings-capture-container.is-capturing .team-cell {
+  min-width: 0 !important;
+}
+
+.standings-capture-container.is-capturing .t-avatar {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 9px !important;
+}
+
+.standings-capture-container.is-capturing .t-name {
+  font-size: .95rem !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.standings-capture-container.is-capturing .t-mgr {
+  display: flex !important;
+  align-items: center !important;
+  gap: .35rem !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  margin-top: 1px !important;
+}
+
+.standings-capture-container.is-capturing .honor-badge {
+  display: inline-flex !important;
+  font-size: .62rem !important;
+  padding: .15rem .45rem !important;
+  letter-spacing: .02em !important;
+  margin-left: .25rem !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+}
+
+.standings-capture-container.is-capturing .record {
+  font-size: 1.12rem !important;
+}
+
+.standings-capture-container.is-capturing .fpts-val {
+  font-size: .96rem !important;
+}
+
+.standings-capture-container.is-capturing .faab-val {
+  font-size: 1.05rem !important;
+}
+
+.standings-capture-container.is-capturing .playoff-tag {
+  font-size: .68rem !important;
+  padding: .2rem .55rem !important;
+}
+
+.standings-capture-container.is-capturing tr.playoff-line td {
+  border-bottom: 2px dashed rgba(245, 158, 11, 0.5) !important;
+}
+
 /* ==========================================================
    MATCHUPS (PRO ARENA CLASH CARDS & WEEK SELECTOR)
    ========================================================== */
