@@ -42,16 +42,32 @@ function roundRect(ctx, x, y, width, height, radius) {
 }
 
 export async function generateStandingsImage(teams, week = 7, playoffCut = 6) {
-  const width = 1200;
+  // Asegurar que las fuentes personalizadas estén cargadas en el documento antes de pintar
+  try {
+    if (document.fonts) {
+      await document.fonts.ready;
+    }
+  } catch {}
+
+  // Escala Retina 2x para resolución ultra HD (2400 x 2392)
+  const scale = 2;
+  const baseWidth = 1200;
   const rowHeight = 72;
   const headerHeight = 220;
   const tableHeaderHeight = 52;
   const totalHeight = headerHeight + tableHeaderHeight + (teams.length * rowHeight) + 60;
 
   const canvas = document.createElement('canvas');
-  canvas.width = width;
-  canvas.height = totalHeight;
+  canvas.width = baseWidth * scale;
+  canvas.height = totalHeight * scale;
   const ctx = canvas.getContext('2d');
+
+  // Calidad máxima de renderizado y escalado 2x
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+  ctx.scale(scale, scale);
+
+  const width = baseWidth;
 
   // 1. Fondos & Iluminación moderna
   ctx.fillStyle = '#070d19';
